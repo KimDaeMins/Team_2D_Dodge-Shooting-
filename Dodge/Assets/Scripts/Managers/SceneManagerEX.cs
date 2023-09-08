@@ -21,10 +21,7 @@ public class SceneManagerEX
 
     string GetSceneName(Define.Scene type)
     {
-        //규칙을 추가 하거나 할 수 있기때문에 이런식으로 따로 빼는게 좋다
-        //return Util.GetDefineName<Define.Scene>(type);
-        //타입이 거의 정해져있어서 이런식으로 써도 문제는 없겠다만 위에꺼가 조금 더 안전할듯
-        return Util.GetDefineName(type);
+        return Util.GetDefineName<Define.Scene>(type);
     }
 
     public void Clear()
