@@ -7,7 +7,6 @@ public class PlayerInputController : Player
 {
     private Camera _camera;
     [SerializeField] private Rigidbody2D _rb2d;
-    [SerializeField] Animator _animator;
     [SerializeField] InputAction _moveAction;
     private void Awake()
     {
@@ -46,4 +45,5 @@ public class PlayerInputController : Player
     {
         Debug.Log("น฿ป็");
     }
+    
 }
