@@ -16,8 +16,6 @@ public class GameScene : Scene_Base
     void Start()
     {
         Init();
-        gameObject go = 
-        Util.GetOrAddComponent<Object_Base>();
     }
 
     protected override void Init()
@@ -25,6 +23,7 @@ public class GameScene : Scene_Base
         base.Init();
 
         SceneType = Define.Scene.Game;
+        Managers.Resource.Instantiate("Spawner");
 
     }
     public override void Clear()

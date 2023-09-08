@@ -76,7 +76,7 @@ public class ResourceManager
 
     public Sprite LoadSprite(string path)
     {
-        Sprite sprite = Load<Sprite>($"Sprites/{path}");
+        Sprite sprite = Load<Sprite>($"Arts/Sprites/{path}");
         return sprite;
     }
     public RuntimeAnimatorController LoadAnimatorController(string path)
