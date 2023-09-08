@@ -16,8 +16,8 @@ public class PlayerInputController : Player
     }
     public void OnMove(InputValue value)
     {
-        Debug.Log("ют╥б");
-        Vector2 moveInput = value.Get<Vector2>().normalized;
+        Vector2 moveInput = value.Get<Vector2>();
+        Debug.Log(moveInput);
         if(moveInput.x > 0)
         {
             _animator.SetBool("Right", true);
@@ -26,7 +26,8 @@ public class PlayerInputController : Player
         {
             _animator.SetBool("Left", true);
         }
-        _rb2d.velocity = moveInput * _speed;
+        moveInput = Quaternion.Euler(0, 0, transform.eulerAngles.z) * moveInput;
+        _rb2d.velocity = moveInput.normalized * _speed;
     }
     public void OnMoveCanceled()
     {
@@ -35,11 +36,11 @@ public class PlayerInputController : Player
     }
     public void OnLook(InputValue value)
     {
-        Vector2 newAim = value.Get<Vector2>();
-        Vector2 worldPos = _camera.ScreenToWorldPoint(newAim);
-        newAim = (worldPos - (Vector2)transform.position).normalized;
-        float rotz = Mathf.Atan2(newAim.y, newAim.x) * Mathf.Rad2Deg;
-        this.transform.rotation = Quaternion.Euler(0f, 0f, rotz - 88f);
+        Vector2 _newAim = value.Get<Vector2>();
+        Vector2 worldPos = _camera.ScreenToWorldPoint(_newAim);
+        _newAim = (worldPos - (Vector2)transform.position).normalized;
+        float rotz = Mathf.Atan2(_newAim.y, _newAim.x) * Mathf.Rad2Deg;
+        this.transform.rotation = Quaternion.Euler(0f, 0f, rotz - 90f);
     }
     public void OnFire(InputValue value)
     {
