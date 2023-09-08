@@ -5,17 +5,23 @@ using UnityEngine.InputSystem;
 
 public class PlayerInputController : Player
 {
-    private Camera _camera;
-    [SerializeField] private Rigidbody2D _rb2d;
-    [SerializeField] InputAction _moveAction;
+    
+    private InputAction _moveAction;
     private void Awake()
     {
         _moveAction = this.gameObject.GetComponent<PlayerInput>().actions["Move"];
         _camera = Camera.main;
         _moveAction.canceled += ctx => OnMoveCanceled();
+        FireDelay = 0;
+        FireCoolTime = 0.4f;
+    }
+    private void Update()
+    {
+        FireUpdate();
     }
     public void OnMove(InputValue value)
     {
+        Debug.Log("입력");
         Vector2 moveInput = value.Get<Vector2>();
         Debug.Log(moveInput);
         if(moveInput.x > 0)
@@ -44,7 +50,7 @@ public class PlayerInputController : Player
     }
     public void OnFire(InputValue value)
     {
-        Debug.Log("발사");
+        Fire();
     }
     
 }
