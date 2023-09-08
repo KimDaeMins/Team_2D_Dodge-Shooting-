@@ -18,7 +18,7 @@ public class DataManager
         //여기서 딕셔너리랑 리스트에 아이템을 전부 넣어준다
         //Item item = new Item();
         //item.InitItem("이름" , 최대갯수);
-        //item.Count = 0;
+        //item.Count = ;
         //_itemsDic.Add(item.name , item);
         //_itemslist.Add(item);
     }
