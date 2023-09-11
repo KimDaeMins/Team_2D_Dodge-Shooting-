@@ -35,7 +35,7 @@ public class Player : Object_Base, IFire
     {
         if (IsFireAble)
         {
-            Managers.Resource.Instantiate("PlayerBullet");
+            //Managers.Resource.Instantiate("PlayerBullet");
             StartCoroutine("FireUpdate", FireCoolTime);
             IsFireAble = false;
         }
