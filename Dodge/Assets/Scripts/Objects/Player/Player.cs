@@ -15,6 +15,7 @@ public class Player : Object_Base, IFire
     public int _hp;
     public int _atk;
     public Camera _camera;
+    public Vector2 _aim;
     private void Awake()
     {
         IsFireAble = true;
@@ -34,7 +35,7 @@ public class Player : Object_Base, IFire
     {
         if (IsFireAble)
         {
-            //Managers.Resource.Instantiate("Bullet");
+            Managers.Resource.Instantiate("PlayerBullet");
             StartCoroutine("FireUpdate", FireCoolTime);
             IsFireAble = false;
         }

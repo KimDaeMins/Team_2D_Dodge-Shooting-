@@ -50,6 +50,8 @@ public class PlayerInputController : MonoBehaviour
     }
     public void OnFire(InputValue value)
     {
+        Vector2 mousePostion = _player._camera.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+        _player._aim = (mousePostion - (Vector2)(this.transform.position)).normalized;
         _player.Fire();
     }
     /*public void OnUseItem(InputValue value) // 아이템 작업이랑 같이 하는게 좋을듯합니다.
