@@ -21,16 +21,64 @@ public class DataManager
         //GetItem()
         //_itemsDic.Add(item.name , item);
         //_itemslist.Add(item);
+
+
+        Item clearBomb = new Item();
+        clearBomb.InitItem("ClearBomb", 1);
+        _itemsDic.Add(clearBomb.Name, clearBomb);
+        _itemslist.Add(clearBomb);
+
+        // JammingBomb 아이템 초기화
+        Item jammingBomb = new Item();
+        jammingBomb.InitItem("JammingBomb", 3);
+        _itemsDic.Add(jammingBomb.Name, jammingBomb);
+        _itemslist.Add(jammingBomb);
+
+        // MissileBomb 아이템 초기화
+        Item missileBomb = new Item();
+        missileBomb.InitItem("MissileBomb", 3);
+        _itemsDic.Add(missileBomb.Name, missileBomb);
+        _itemslist.Add(missileBomb);
+
+        // EnhancementBuff 아이템 초기화
+        Item enhancementBuff = new Item();
+        enhancementBuff.InitItem("EnhancementBuff", 1);
+        _itemsDic.Add(enhancementBuff.Name, enhancementBuff);
+        _itemslist.Add(enhancementBuff);
     }
 
     public bool UseItem(int index)
     {
         if (_itemslist[index].Count == 0)
         {
+            Debug.Log("없습니다.");
             return false;
         }
 
         _itemslist[index].Count -= 1;
+        switch (index)
+        {
+            case 0: // ClearBomb
+                    // ClearBomb에 대한 작업 수행
+                Debug.Log("ClearBomb을 사용했습니다.");
+                break;
+            case 1: // JammingBomb
+                    // JammingBomb에 대한 작업 수행
+                Debug.Log("JammingBomb을 사용했습니다.");
+                break;
+            case 2: // MissileBomb
+                    // MissileBomb에 대한 작업 수행
+                Debug.Log("MissileBomb을 사용했습니다.");
+                break;
+            case 3: // EnhancementBuff
+                    // EnhancementBuff에 대한 작업 수행
+                Debug.Log("EnhancementBuff를 사용했습니다.");
+                break;
+            default:
+                Debug.Log("알 수 없는 아이템을 사용했습니다.");
+                break;
+        }
+
 
         return true;
     }

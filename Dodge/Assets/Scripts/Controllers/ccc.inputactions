@@ -34,12 +34,12 @@
                 },
                 {
                     "name": "UseItem",
-                    "type": "Button",
+                    "type": "Value",
                     "id": "a9bbda13-8ae8-40fc-b408-e4862b0fd824",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -125,7 +125,7 @@
                     "id": "b3489c55-604d-4373-9a5a-ad675ff16b48",
                     "path": "<Keyboard>/1",
                     "interactions": "",
-                    "processors": "",
+                    "processors": "Scale",
                     "groups": "Keyboard&Mouse",
                     "action": "UseItem",
                     "isComposite": false,
@@ -136,7 +136,7 @@
                     "id": "b138a2aa-4d7f-482e-9159-59fcad78e2ce",
                     "path": "<Keyboard>/2",
                     "interactions": "",
-                    "processors": "",
+                    "processors": "Scale(factor=2)",
                     "groups": "Keyboard&Mouse",
                     "action": "UseItem",
                     "isComposite": false,
@@ -147,7 +147,7 @@
                     "id": "a4f54b8d-3534-426d-939d-53310ed1e31e",
                     "path": "<Keyboard>/3",
                     "interactions": "",
-                    "processors": "",
+                    "processors": "Scale(factor=3)",
                     "groups": "Keyboard&Mouse",
                     "action": "UseItem",
                     "isComposite": false,
@@ -158,7 +158,7 @@
                     "id": "34847106-fad2-4f19-8275-ab6635516a94",
                     "path": "<Keyboard>/4",
                     "interactions": "",
-                    "processors": "",
+                    "processors": "Scale(factor=4)",
                     "groups": "Keyboard&Mouse",
                     "action": "UseItem",
                     "isComposite": false,
