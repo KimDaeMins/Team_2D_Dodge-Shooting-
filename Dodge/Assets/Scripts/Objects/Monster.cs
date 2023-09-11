@@ -8,7 +8,7 @@ using UnityEngine.Serialization;
 public class Monster : Object_Base
 {
     protected int _currentHp { get; set; }
-    protected float moveSpeed { get; set; }
+    protected float _moveSpeed { get; set; }
     protected Vector2 _moveDirection { get; set; }
 
     private Rigidbody2D _rigidbody;
@@ -46,7 +46,7 @@ public class Monster : Object_Base
         {
             _isDead = true;
             Managers.Resource.Destroy(this.gameObject);
-            Managers.Resource.Instantiate("MonsterExplosion.prefab");
+            Managers.Resource.Instantiate("MonsterExplosion", new Vector3(_rigidbody.position.x, _rigidbody.position.y, 0));
         }
     }
 
