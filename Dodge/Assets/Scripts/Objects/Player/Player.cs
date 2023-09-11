@@ -62,7 +62,6 @@ public class Player : Object_Base, IFire
         if(collision.tag != "Item")
         {
             Debug.Log("충돌");
-            GetDamage(1);
             _animator.SetTrigger("Hit");
         }
         else

@@ -54,6 +54,7 @@ public class Monster : Object_Base
     {
         direction *= _speed;
         _rigidbody.velocity = direction;
+
     }
 
     // protected void OnTriggerEnter2D(Collider2D other)
