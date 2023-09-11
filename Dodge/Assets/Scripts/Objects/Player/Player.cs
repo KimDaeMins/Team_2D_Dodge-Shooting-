@@ -4,23 +4,22 @@ using UnityEngine;
 
 public class Player : Object_Base, IFire
 {
-    public int Hp;
-    public int Atk;
     [SerializeField] public float FireCoolTime { get; set; }
     public bool IsFireAble { get; set; }
 
 
     public float Speed { get { return _speed; } set { _speed = value; } }
 
-    [SerializeField] public Animator _animator;
-    [SerializeField] public Rigidbody2D _rb2d;
+    public Animator _animator;
+    public Rigidbody2D _rb2d;
+    public int _hp;
+    public int _atk;
     public Camera _camera;
     private void Awake()
     {
-        //_camera = Camera.main;
-        //Hp = 3;
-        //Atk = 1;
-        //FireCoolTime = 0.4f;
+        _camera = Camera.main;
+        _animator = this.transform.GetChild(0).GetComponent<Animator>();
+        _rb2d = this.GetComponent<Rigidbody2D>();
     }
     private void Update()
     {
@@ -45,7 +44,7 @@ public class Player : Object_Base, IFire
     }
     void GetDamage(int damage)
     {
-        Hp -= damage;
+        _hp -= damage;
     }
     public void OnTriggerEnter2D(Collider2D collision)
     {
