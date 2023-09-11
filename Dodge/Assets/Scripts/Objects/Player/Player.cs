@@ -17,6 +17,8 @@ public class Player : Object_Base, IFire
     public Camera _camera;
     private void Awake()
     {
+        _hp = 3;
+        Speed = 5f;
         _camera = Camera.main;
         _animator = this.transform.GetChild(0).GetComponent<Animator>();
         _rb2d = this.GetComponent<Rigidbody2D>();
@@ -33,7 +35,7 @@ public class Player : Object_Base, IFire
     {
         if (IsFireAble)
         {
-            Debug.Log("Fire");
+            //Managers.Resource.Instantiate("Bullet");
             StartCoroutine("FireUpdate", FireCoolTime);
             IsFireAble = false;
         }
@@ -42,9 +44,18 @@ public class Player : Object_Base, IFire
             Debug.Log("CoolTime");
         }
     }
-    void GetDamage(int damage)
+    public void GetDamage(int damage)
     {
         _hp -= damage;
+        if(_hp <= 0)
+        {
+            _isDead = true;
+            _animator.SetTrigger("IsDead");
+        }
+    }
+    public void DestroyPlayer()
+    {
+        Destroy(this.gameObject);
     }
     public void OnTriggerEnter2D(Collider2D collision)
     {
