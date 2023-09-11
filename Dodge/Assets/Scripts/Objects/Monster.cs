@@ -5,19 +5,19 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-public class Monster : Object_Base
+public class Monster : Object_Base, IFire
 {
+    public float FireCoolTime { get; set; }
+    public bool IsFireAble { get; set; }
     protected int _currentHp { get; set; }
-    protected float moveSpeed { get; set; }
     protected Vector2 _moveDirection { get; set; }
-
+    
     private Rigidbody2D _rigidbody;
-    private Animator _animator;
+
 
     protected virtual void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
-        _animator = GetComponent<Animator>();
     }
 
     protected virtual void FixedUpdate()
@@ -40,13 +40,14 @@ public class Monster : Object_Base
         _currentHp += heal;
     }
 
-    protected void CheckDead()
+    private void CheckDead()
     {
         if (_currentHp <= 0)
         {
             _isDead = true;
             Managers.Resource.Destroy(this.gameObject);
-            Managers.Resource.Instantiate("MonsterExplosion.prefab");
+            Managers.Resource.Instantiate("MonsterExplosion",
+                new Vector3(_rigidbody.position.x, _rigidbody.position.y, 0));
         }
     }
 
@@ -57,18 +58,26 @@ public class Monster : Object_Base
 
     }
 
-    // protected void OnTriggerEnter2D(Collider2D other)
-    // {
-    //     if (other.gameObject.CompareTag("PlayerBullet"))
-    //     {
-    //         GetDamage(100);
-    //     }
-    //
-    //     if (other.gameObject.CompareTag("Player"))
-    //     {
-    //         Destroy(this);
-    //     }
-    // }
-}
+    public IEnumerator FireUpdate(float coolTime)
+    {
+        yield return new WaitForSeconds(coolTime);
+        IsFireAble = true;
+    }
 
+    public void Fire()
+    {
+        if (IsFireAble)
+        {
+            Managers.Resource.Instantiate("MonsterBullet", _rigidbody.position);
+            
+            StartCoroutine("FireUpdate", FireCoolTime);
+            IsFireAble = false;
+            Debug.Log("총쏨");
+        }
+        else
+        {
+            Debug.Log("CoolTime");
+        }
+    }
+}
 

@@ -4,12 +4,9 @@ using UnityEngine;
 
 public class Bullet : Object_Base, IBullet
 {
-    [SerializeField] private float _speed;
-    public Player _player;
-    private GameObject[] _monsters;
-    private Transform _spawnBulletPos;
+    private Player _player;
+    private Monster _monster;
     private Rigidbody2D _rigidBody;
-    private int _bulletCase;
     private int _damage = 5; // 총알 데미지
     private float _lifeTime = 10.0f; //총알이 살아있는 시간
     private GameObject _target;  //유도 시스템 시 target 탐색
@@ -33,33 +30,31 @@ public class Bullet : Object_Base, IBullet
 
     private void Awake()
     {
-        _rigidBody = GetComponent<Rigidbody2D>();
+        _rigidBody = GetComponent<Rigidbody2D>();   //총알 움직임 위해
     }
 
 
     public void Move()
     {
-        //this.rigidBody.velocity = this.gameObject.transform.forward * _speed;
-        _rigidBody.velocity = transform.forward * _speed;
+        if(gameObject.name == "MonsterBullet")
+            _rigidBody.velocity = - transform.up * _speed * Time.deltaTime;  //몬스터 불렛 아래방향 발사
+        if(gameObject.name == "PlayerBullet")
+            _rigidBody.velocity = transform.up * _speed * Time.deltaTime;   //플레이어 불렛 윗방향 발사
     }
-
-    
 
     public bool DeadCheck()
     {
         _lifeTime -= Time.deltaTime;     // 총알 살아있는 시간
-        if (_lifeTime < 0)
+        if (_lifeTime <= 0)
         {
-            _lifeTime = 10.0f;
             return true;
         }
 
         //여기서 지정한 화면 밖을 나가면 죽는거도 짜야함
-        if (transform.position.x > 100 || transform.position.x < 0 || transform.position.y > 100 || transform.position.y < 0)
+        if (transform.position.x > Screen.width + 3 || transform.position.x < -Screen.width - 3 ||
+            transform.position.y > Screen.height + 3 || transform.position.y < -Screen.height - 3)
         {
-            //화면크기 가져오는방법 -
-            //화면크기 좌우로 조금 넓게 해서
-            //그범위를 넘어가면 삭제되게끔
+            return true;
         }
 
         return false;
@@ -68,13 +63,15 @@ public class Bullet : Object_Base, IBullet
     //불릿 이펙트(프리팹)
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player")   //플레이어가 맞았을 때
         {
+            Managers.Resource.Destroy(this.gameObject);
             other.GetComponent<Player>().GetDamage(_damage);
         }
-        if (other.gameObject.tag == "Monster")
+        if (other.gameObject.tag == "Monster")  //몬스터가 맞았을 때
         {
-            other.GetComponent<Player>().GetDamage(_damage);
+            Managers.Resource.Destroy(this.gameObject);
+            other.GetComponent<Monster>().GetDamage(_damage);
         }
     }
 
@@ -83,6 +80,7 @@ public class Bullet : Object_Base, IBullet
         Move();
         if (DeadCheck())
         {
+            _isDead = true;     //불린 값 변경 후 디스트로이
             Managers.Resource.Destroy(this.gameObject);
         }
     }
