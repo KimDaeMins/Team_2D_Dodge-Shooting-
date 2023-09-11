@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1086157430986358775}
   - component: {fileID: 1298670024357325645}
   - component: {fileID: 4423506403182519949}
+  - component: {fileID: -879071855758267251}
   m_Layer: 0
   m_Name: MonsterBullet
   m_TagString: Untagged
@@ -119,4 +120,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f293930fb26050545b42687bdcd81b7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 0
+  _speed: 50
+--- !u!50 &-879071855758267251
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9054271617486805656}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
