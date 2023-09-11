@@ -36,10 +36,11 @@ public class Bullet : Object_Base, IBullet
 
     public void Move()
     {
-        _rigidBody.velocity = transform.forward * _speed;
+        if(gameObject.name == "MonsterBullet")
+            _rigidBody.velocity = - transform.up * _speed * Time.deltaTime;  //몬스터 불렛 아래방향 발사
+        if(gameObject.name == "PlayerBullet")
+            _rigidBody.velocity = transform.up * _speed * Time.deltaTime;   //플레이어 불렛 윗방향 발사
     }
-
-    
 
     public bool DeadCheck()
     {
