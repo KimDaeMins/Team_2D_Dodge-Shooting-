@@ -4,7 +4,7 @@ using UnityEngine;
 
 public interface IBullet
 {
-    public float Damage { get; set; }
+    public int Damage { get; set; }
     public GameObject Target { get; set; }
     public float LifeTime { get; set; }
 

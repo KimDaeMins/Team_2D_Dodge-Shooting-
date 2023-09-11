@@ -42,7 +42,7 @@ public class Player : Object_Base, IFire
             Debug.Log("CoolTime");
         }
     }
-    void GetDamage(int damage)
+    public void GetDamage(int damage)
     {
         _hp -= damage;
     }
@@ -51,7 +51,6 @@ public class Player : Object_Base, IFire
         if(collision.tag != "Item")
         {
             Debug.Log("충돌");
-            GetDamage(1);
             _animator.SetTrigger("Hit");
         }
         else

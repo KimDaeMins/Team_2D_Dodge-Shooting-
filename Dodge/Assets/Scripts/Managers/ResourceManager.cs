@@ -7,7 +7,7 @@ public class ResourceManager
 {
     public T Load<T>(string path) where T : Object
     {
-        if(typeof(T) == typeof(GameObject))
+        if (typeof(T) == typeof(GameObject))
         {
             string name = path;
             int index = name.LastIndexOf('/');
@@ -23,7 +23,7 @@ public class ResourceManager
     }
     public GameObject Instantiate(string path , Vector3 pos)
     {
-        return Instantiate(path, pos, Quaternion.identity);
+        return Instantiate(path , pos , Quaternion.identity);
     }
     public GameObject Instantiate(string path , Vector3 pos , Vector3 rotation)
     {
@@ -71,7 +71,7 @@ public class ResourceManager
 
         return go;
     }
-    
+
 
 
     public Sprite LoadSprite(string path)
@@ -90,12 +90,16 @@ public class ResourceManager
             return;
 
         Poolable poolable = go.GetComponent<Poolable>();
-        if(poolable != null)
+        if (poolable != null)
         {
             Managers.Pool.Push(poolable);
             return;
         }
 
         Object.Destroy(go , t);
+    }
+    public void Destroy(MonoBehaviour mob , float t = 0.0f)
+    {
+        Destroy(mob.gameObject , t);
     }
 }

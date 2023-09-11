@@ -28,7 +28,7 @@ public class Monster : Object_Base
     protected void GetDamage(int damage)
     {
         CurrentHp = 0;
-        Destroy(this);
+        Managers.Resource.Destroy(this);
     }
 
     protected void Move(Vector2 direction)
@@ -46,7 +46,7 @@ public class Monster : Object_Base
 
         if (other.gameObject.CompareTag("Player"))
         {
-            Destroy(this);
+            Managers.Resource.Destroy(this);
         }
     }
 }

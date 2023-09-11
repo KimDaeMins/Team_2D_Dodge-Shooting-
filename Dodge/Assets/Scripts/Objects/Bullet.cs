@@ -5,57 +5,62 @@ using UnityEngine;
 public class Bullet : Object_Base, IBullet
 {
     [SerializeField] private float _speed;
-    public Player player;
-    private GameObject[] monsters;
-    private Transform spawn_bulletPos;
-    private Rigidbody2D rigidBody;
-    private int bulletCase;
-    private float damage = 5.0f; // 총알 데미지
-    public float Damage 
-    {
-        get => damage;
-        set => damage = value; 
-    }
+    public Player _player;
+    private GameObject[] _monsters;
+    private Transform _spawnBulletPos;
+    private Rigidbody2D _rigidBody;
+    private int _bulletCase;
+    private int _damage = 5; // 총알 데미지
+    private float _lifeTime = 10.0f; //총알이 살아있는 시간
+    private GameObject _target;  //유도 시스템 시 target 탐색
 
-    private GameObject target;  //유도 시스템 시 target 탐색
+    public int Damage 
+    {
+        get => _damage;
+        set => _damage = value; 
+    }
+    public float LifeTime
+    {
+        get => _lifeTime;
+        set => _lifeTime = value;
+    }
     public GameObject Target 
     {
-        get => target; 
-        set => target = value; 
+        get => _target; 
+        set => _target = value; 
     }
 
-    private float lifeTime = 10.0f; //총알이 살아있는 시간
-    public float LifeTime 
-    {
-        get => lifeTime;
-        set => lifeTime = value;
-    }
 
     private void Awake()
     {
-        rigidBody = GetComponent<Rigidbody2D>();
+        _rigidBody = GetComponent<Rigidbody2D>();
     }
 
 
     public void Move()
     {
-        this.rigidBody.velocity = this.gameObject.transform.forward * _speed;
+        //this.rigidBody.velocity = this.gameObject.transform.forward * _speed;
+        _rigidBody.velocity = transform.forward * _speed;
     }
 
     
 
     public bool DeadCheck()
     {
-        LifeTime -= Time.deltaTime;     // 총알 살아있는 시간
-        if (LifeTime < 0)
+        _lifeTime -= Time.deltaTime;     // 총알 살아있는 시간
+        if (_lifeTime < 0)
         {
-            LifeTime = 10.0f;
+            _lifeTime = 10.0f;
             return true;
         }
 
         //여기서 지정한 화면 밖을 나가면 죽는거도 짜야함
-        if (this.transform.position.x > 100 || this.transform.position.x < 0 || this.transform.position.y > 100 || this.transform.y < 0)
-            return true;
+        if (transform.position.x > 100 || transform.position.x < 0 || transform.position.y > 100 || transform.position.y < 0)
+        {
+            //화면크기 가져오는방법 -
+            //화면크기 좌우로 조금 넓게 해서
+            //그범위를 넘어가면 삭제되게끔
+        }
 
         return false;
     }
@@ -65,8 +70,12 @@ public class Bullet : Object_Base, IBullet
     {
         if (other.gameObject.tag == "Player")
         {
-            Player.Hp -= damage;
-        }  
+            other.GetComponent<Player>().GetDamage(_damage);
+        }
+        if (other.gameObject.tag == "Monster")
+        {
+            other.GetComponent<Player>().GetDamage(_damage);
+        }
     }
 
     private void Update()
