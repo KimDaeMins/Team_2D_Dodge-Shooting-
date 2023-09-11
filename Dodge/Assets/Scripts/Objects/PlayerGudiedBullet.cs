@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class PlayerGudiedBullet : Object_Base, IBullet
 {
+    private GameObject _hitEffect;
     private Rigidbody2D _rigidBody;
     private int _damage = 5; // 총알 데미지
     private float _lifeTime = 10.0f; //총알이 살아있는 시간
     private GameObject _target;  //유도 시스템 시 target 탐색
     private Vector2 _targetVector;  //타겟 단위벡터
-    private Vector2 _dirVector;     //얼마나 가까운지 유도 시스템 제어 변수
 
     public int Damage
     {
@@ -33,12 +33,11 @@ public class PlayerGudiedBullet : Object_Base, IBullet
         _rigidBody = GetComponent<Rigidbody2D>();   //총알 움직임 위해
         _target = GameObject.FindWithTag("Monster"); //타겟 탐색
         _targetVector = (_target.transform.position - transform.position).normalized;   //타겟 방향 단위벡터
-        _dirVector = _target.transform.position - transform.position;
     }
 
     public void Move()
     {
-        Follow();
+        _rigidBody.velocity = (_targetVector * _speed) * Time.deltaTime;
     }
 
     public bool DeadCheck()
@@ -59,29 +58,20 @@ public class PlayerGudiedBullet : Object_Base, IBullet
         return false;
     }
 
-    public void OnTriggerEnter(Collider other)
+    public void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Monster")
+        if (other.tag == "Monster")
         {
-            //Managers.Resource.Instantiate(Managers.Resource.);
+            _hitEffect = Managers.Resource.Instantiate("MonsterHitEffect", transform.position);
+            Managers.Resource.Destroy(_hitEffect, 0.5f);
             other.GetComponent<Monster>().GetDamage(_damage);
             Managers.Resource.Destroy(this.gameObject);
         }
     }
 
-    void FixedUpdate()
+    private void Follow()
     {
-        Move();
-        if (DeadCheck())
-        {
-            _isDead = true;
-            Managers.Resource.Destroy(this.gameObject);
-        }
-    }
-
-    IEnumerator Follow()
-    {
-        while(gameObject.activeSelf && _dirVector.magnitude < 10) //총알이 살아있고 얼마나 가까운지 조건
+        if (gameObject.activeSelf && _lifeTime > 5) //총알이 살아있고 얼마나 가까운지 조건 임의로 5초 조건 넣어둠
         {
             _targetVector = (_target.transform.position - transform.position).normalized;
             // 내적(dot)을 통해 각도를 구함
@@ -91,7 +81,7 @@ public class PlayerGudiedBullet : Object_Base, IBullet
                 float angle = Mathf.Acos(dot) * Mathf.Rad2Deg;
 
                 // 외적을 통해 각도의 방향을 판별
-                Vector3 cross = Vector3.Cross(transform.up, _targetVector);
+                Vector3 cross = Vector3.Cross(transform.up, _targetVector).normalized;
                 // 외적 결과 값에 따라 각도 반영
                 if (cross.z < 0)
                 {
@@ -102,10 +92,21 @@ public class PlayerGudiedBullet : Object_Base, IBullet
                     angle = transform.rotation.eulerAngles.z + Mathf.Min(10, angle);
                 }
 
+                transform.rotation = Quaternion.Euler(0, 0, angle).normalized;
                 // angle이 윗 방향과 target의 각도.
             }
-            _dirVector = _target.transform.position - transform.position;
-            yield return new WaitForSeconds(0.1f); //0.1초마다 방향단위벡터 반영 후 내외적으로 각도 변경
         }
     }
+
+    void Update()
+    {
+        Move();
+        Follow();
+        if (DeadCheck())
+        {
+            _isDead = true;
+            Managers.Resource.Destroy(this.gameObject);
+        }
+    }
+   
 }

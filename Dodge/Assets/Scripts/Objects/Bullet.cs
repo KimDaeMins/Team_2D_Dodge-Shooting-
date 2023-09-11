@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class Bullet : Object_Base, IBullet
 {
-    private Player _player;
-    private Monster _monster;
+    private GameObject _hitEffect;
     private Rigidbody2D _rigidBody;
     private int _damage = 5; // 총알 데미지
     private float _lifeTime = 10.0f; //총알이 살아있는 시간
@@ -37,7 +36,7 @@ public class Bullet : Object_Base, IBullet
     public void Move()
     {
         if(gameObject.name == "MonsterBullet")
-            _rigidBody.velocity = - transform.up * _speed * Time.deltaTime;  //몬스터 불렛 아래방향 발사
+            _rigidBody.velocity = transform.up * _speed * Time.deltaTime;  //몬스터 불렛 아래방향 발사
         if(gameObject.name == "PlayerBullet")
             _rigidBody.velocity = transform.up * _speed * Time.deltaTime;   //플레이어 불렛 윗방향 발사
     }
@@ -61,21 +60,26 @@ public class Bullet : Object_Base, IBullet
     }
 
     //불릿 이펙트(프리팹)
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Player")   //플레이어가 맞았을 때
+        if (other.tag == "Player")   //플레이어가 맞았을 때
         {
+            Debug.Log("player hit");
+            _hitEffect = Managers.Resource.Instantiate("PlayerHitEffect", transform.position);
+            Managers.Resource.Destroy(_hitEffect, 0.5f);
             Managers.Resource.Destroy(this.gameObject);
             other.GetComponent<Player>().GetDamage(_damage);
         }
-        if (other.gameObject.tag == "Monster")  //몬스터가 맞았을 때
+        if (other.tag == "Monster")  //몬스터가 맞았을 때
         {
+            _hitEffect = Managers.Resource.Instantiate("MonsterHitEffect", transform.position);
+            Managers.Resource.Destroy(_hitEffect, 0.5f);
             Managers.Resource.Destroy(this.gameObject);
             other.GetComponent<Monster>().GetDamage(_damage);
         }
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         Move();
         if (DeadCheck())
