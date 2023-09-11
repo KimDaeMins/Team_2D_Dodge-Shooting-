@@ -9,15 +9,13 @@ public class PlayerInputController : MonoBehaviour
     private InputAction _moveAction;
     private void Awake()
     {
-        _player = this.GetComponent<Player>();
         _moveAction = this.gameObject.GetComponent<PlayerInput>().actions["Move"];
         _moveAction.canceled += ctx => OnMoveCanceled();
+        _player = this.GetComponent<Player>();
     }
     public void OnMove(InputValue value)
     {
-        Debug.Log("ют╥б");
         Vector2 moveInput = value.Get<Vector2>();
-        Debug.Log(moveInput);
         if(moveInput.x > 0)
         {
             _player._animator.SetBool("Right", true);
