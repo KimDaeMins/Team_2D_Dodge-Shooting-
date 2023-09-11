@@ -44,9 +44,9 @@ public class PlayerInputController : MonoBehaviour
     {
         _player.Fire();
     }
-    public void OnUseItem(InputValue value)
+    /*public void OnUseItem(InputValue value) // 아이템 작업이랑 같이 하는게 좋을듯합니다.
     {
         int _value = value.Get<int>();
         Managers.Data.UseItem(_value);
-    }
+    }*/
 }

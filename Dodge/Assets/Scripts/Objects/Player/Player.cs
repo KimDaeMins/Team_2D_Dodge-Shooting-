@@ -17,6 +17,8 @@ public class Player : Object_Base, IFire
     public Camera _camera;
     private void Awake()
     {
+        IsFireAble = true;
+        FireCoolTime = 0.3f;
         _hp = 3;
         Speed = 5f;
         _camera = Camera.main;
@@ -61,8 +63,11 @@ public class Player : Object_Base, IFire
     {
         if(collision.tag != "Item")
         {
-            Debug.Log("충돌");
             _animator.SetTrigger("Hit");
+            /*if(collision.tag == "Monster")
+            {
+                collision.gameObject.GetComponent<Monster>().GetDamage(_atk);
+            }*/
         }
         else
         {
