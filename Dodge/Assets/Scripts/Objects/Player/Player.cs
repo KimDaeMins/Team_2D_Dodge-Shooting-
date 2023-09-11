@@ -17,14 +17,13 @@ public class Player : Object_Base, IFire
     public Camera _camera;
     private void Awake()
     {
+        IsFireAble = true;
+        FireCoolTime = 0.3f;
         _hp = 3;
         Speed = 5f;
         _camera = Camera.main;
         _animator = this.transform.GetChild(0).GetComponent<Animator>();
         _rb2d = this.GetComponent<Rigidbody2D>();
-    }
-    private void Update()
-    {
     }
     public IEnumerator FireUpdate(float coolTime)
     {
@@ -47,11 +46,17 @@ public class Player : Object_Base, IFire
     public void GetDamage(int damage)
     {
         _hp -= damage;
-        if(_hp <= 0)
+        _animator.SetTrigger("Hit");
+        if (_hp <= 0)
         {
             _isDead = true;
             _animator.SetTrigger("IsDead");
         }
+    }
+    public void HitEffect(string tag, int layer)
+    {
+        gameObject.tag = tag;
+        gameObject.layer = layer;
     }
     public void DestroyPlayer()
     {
@@ -59,10 +64,9 @@ public class Player : Object_Base, IFire
     }
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag != "Item")
+        if (collision.tag != "Item")
         {
-            Debug.Log("충돌");
-            _animator.SetTrigger("Hit");
+            GetDamage(2);
         }
         else
         {
