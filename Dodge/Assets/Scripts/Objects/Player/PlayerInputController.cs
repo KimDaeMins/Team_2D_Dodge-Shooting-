@@ -7,25 +7,32 @@ public class PlayerInputController : MonoBehaviour
 {
     public Player _player;
     private InputAction _moveAction;
+    Vector2 _moveInput;
+    Quaternion _look;
     private void Awake()
     {
         _moveAction = this.gameObject.GetComponent<PlayerInput>().actions["Move"];
         _moveAction.canceled += ctx => OnMoveCanceled();
         _player = this.GetComponent<Player>();
     }
+    private void FixedUpdate()
+    {
+        _look = Quaternion.Euler(0, 0, transform.eulerAngles.z);
+        Vector2 rawmoveInput = _look * _moveInput;
+        _player._rb2d.velocity = rawmoveInput.normalized * _player.Speed;
+    }
     public void OnMove(InputValue value)
     {
-        Vector2 moveInput = value.Get<Vector2>();
-        if(moveInput.x > 0)
+        _moveInput = value.Get<Vector2>();
+        if (_moveInput.x > 0)
         {
             _player._animator.SetBool("Right", true);
         }
-        else if(moveInput.x < 0)
+        else if(_moveInput.x < 0)
         {
             _player._animator.SetBool("Left", true);
         }
-        moveInput = Quaternion.Euler(0, 0, transform.eulerAngles.z) * moveInput;
-        _player._rb2d.velocity = moveInput.normalized * _player.Speed;
+       
     }
     public void OnMoveCanceled()
     {
@@ -39,6 +46,7 @@ public class PlayerInputController : MonoBehaviour
         _newAim = (worldPos - (Vector2)transform.position).normalized;
         float rotz = Mathf.Atan2(_newAim.y, _newAim.x) * Mathf.Rad2Deg;
         this.transform.rotation = Quaternion.Euler(0f, 0f, rotz - 90f);
+        
     }
     public void OnFire(InputValue value)
     {
