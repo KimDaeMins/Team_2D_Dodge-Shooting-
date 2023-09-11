@@ -61,9 +61,10 @@ public class PlayerGudiedBullet : Object_Base, IBullet
 
     public void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Monster")
         {
-            other.GetComponent<Player>().GetDamage(_damage);
+            //Managers.Resource.Instantiate(Managers.Resource.);
+            other.GetComponent<Monster>().GetDamage(_damage);
             Managers.Resource.Destroy(this.gameObject);
         }
     }
