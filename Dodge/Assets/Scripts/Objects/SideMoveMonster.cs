@@ -3,21 +3,15 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class BasicMonster : Monster, IFire
+public class SideMoveMonster : Monster
 {
-    public float FireCoolTime { get; set; }
-    public bool IsFireAble { get; set; }
-    private Vector2 _fireDirection;
-    private GameObject _target;
-    
     protected override void Awake()
     {
         base.Awake();
         _currentHp = 1;
-        _moveSpeed = 1;
-        _moveDirection = new Vector2(-1, 0);
         FireCoolTime = 1f;
         IsFireAble = true;
+        _moveDirection = new Vector2(Random.Range(-1, 2), 0);
         // _target = Util.GetOrAddComponent<GameObject>(Player);
     }
 
@@ -25,8 +19,18 @@ public class BasicMonster : Monster, IFire
     {
         // _fireDirection
         Fire();
+        MoveDirectionUpdate();
     }
-    
+
+    private void MoveDirectionUpdate()
+    {
+        Vector3 pos = Camera.main.WorldToViewportPoint(transform.position);
+        
+        transform.position = Camera.main.ViewportToWorldPoint(pos);
+        if (pos.x < 0f || pos.x > 1f || pos.y < 0f || pos.y > 1f)
+            _moveDirection = new Vector2(_moveDirection.x * (-1), 0);
+    }
+
     protected void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log("충돌");
@@ -40,26 +44,5 @@ public class BasicMonster : Monster, IFire
             GetDamage(100);
         }
     }
-    
-    public IEnumerator FireUpdate(float coolTime)
-    {
-        yield return new WaitForSeconds(coolTime);
-        IsFireAble = true;
-    }
-
-    public void Fire()
-    {
-        if (IsFireAble)
-        {
-            StartCoroutine("FireUpdate", FireCoolTime);
-            IsFireAble = false;
-            Debug.Log("총쏨");
-        }
-        else
-        {
-            Debug.Log("CoolTime");
-        }
-    }
-    
     
 }
