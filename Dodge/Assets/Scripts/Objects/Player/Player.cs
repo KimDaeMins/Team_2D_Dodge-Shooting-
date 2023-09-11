@@ -25,6 +25,8 @@ public class Player : Object_Base, IFire
         _camera = Camera.main;
         _animator = this.transform.GetChild(0).GetComponent<Animator>();
         _rb2d = this.GetComponent<Rigidbody2D>();
+        _objectType = Define.Object.Player;
+        Managers.Object.Add(this.gameObject , Define.Object.Player);
     }
     public IEnumerator FireUpdate(float coolTime)
     {
@@ -35,7 +37,7 @@ public class Player : Object_Base, IFire
     {
         if (IsFireAble)
         {
-            //Managers.Resource.Instantiate("PlayerBullet");
+            Managers.Resource.Instantiate("MonsterGudiedBullet");
             StartCoroutine("FireUpdate", FireCoolTime);
             IsFireAble = false;
         }

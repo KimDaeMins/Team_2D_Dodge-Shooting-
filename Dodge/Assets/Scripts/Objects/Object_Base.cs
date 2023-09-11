@@ -4,9 +4,16 @@ using UnityEngine;
 
 public abstract class Object_Base : MonoBehaviour
 {
+    protected Define.Object _objectType;
+    public Define.Object ObejctType { get; } 
+
     [SerializeField] protected float _speed;
     protected bool _isDead = false;
     // Start is called before the first frame update
+    private void Awake()
+    {
+        _objectType = Define.Object.None;
+    }
     void Start()
     {
         

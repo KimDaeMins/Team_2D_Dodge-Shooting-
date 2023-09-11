@@ -35,6 +35,7 @@ public class PlayerGudiedBullet : Object_Base, IBullet
             _targetVector = (_target.transform.position - transform.position).normalized;   //≈∏∞Ÿ πÊ«‚ ¥‹¿ß∫§≈Õ
         else
             _targetVector = transform.up;
+        _objectType = Define.Object.PlayerBullet;
     }
 
     public void Move()

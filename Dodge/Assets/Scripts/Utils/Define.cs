@@ -17,4 +17,13 @@ public class Define
         Effect,
         MaxCount,
     }
+
+    public enum Object
+    {
+        Player,
+        Monster,
+        PlayerBullet,
+        MonsterBullet,
+        None
+    }
 }

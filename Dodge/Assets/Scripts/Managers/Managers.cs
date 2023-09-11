@@ -13,6 +13,7 @@ public class Managers : MonoBehaviour
     ResourceManager _resource = new ResourceManager();
     SceneManagerEX _scene = new SceneManagerEX();
     SoundManager _sound = new SoundManager();
+    ObjectManager _object = new ObjectManager();
 
     public static DataManager Data { get { return Instance._data; } }
     public static InputManager Input { get { return Instance._input; } }
@@ -20,7 +21,7 @@ public class Managers : MonoBehaviour
     public static ResourceManager Resource { get { return Instance._resource; } }
     public static SceneManagerEX Scene { get { return Instance._scene; } }
     public static SoundManager Sound { get { return Instance._sound; } }
-   
+    public static ObjectManager Object { get { return Instance._object; } }
     // Start is called before the first frame update
     void Start()
     {

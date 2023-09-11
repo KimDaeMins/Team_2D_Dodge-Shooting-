@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class SideMoveMonster : Monster
+public class ChaseBulletMonster : Monster
 {
     protected override void Awake()
     {
@@ -30,7 +30,7 @@ public class SideMoveMonster : Monster
         if (pos.x < 0f || pos.x > 1f || pos.y < 0f || pos.y > 1f)
             _moveDirection = new Vector2(_moveDirection.x * (-1), 0);
     }
-
+    
     protected void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log("충돌");
@@ -42,6 +42,22 @@ public class SideMoveMonster : Monster
         if (other.gameObject.CompareTag("Player"))
         {
             GetDamage(100);
+        }
+    }
+    
+    public override void Fire()
+    {
+        if (IsFireAble)
+        {
+            Managers.Resource.Instantiate("MonsterGudiedBullet", _rigidbody.position);
+            
+            StartCoroutine("FireUpdate", FireCoolTime);
+            IsFireAble = false;
+            Debug.Log("총쏨");
+        }
+        else
+        {
+            Debug.Log("CoolTime");
         }
     }
     

@@ -30,6 +30,7 @@ public class Bullet : Object_Base, IBullet
     private void Awake()
     {
         _rigidBody = GetComponent<Rigidbody2D>();   //총알 움직임 위해
+        _objectType = transform.tag == "PlayerBullet" ? Define.Object.PlayerBullet : Define.Object.MonsterBullet;
     }
 
 

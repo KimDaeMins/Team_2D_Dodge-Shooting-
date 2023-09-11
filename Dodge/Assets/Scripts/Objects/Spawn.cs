@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class Spawn : Object_Base
 {
-    private float _spawnDelay;
+    [SerializeField] private float _spawnDelay;
     private float _spawnCoolTime = 0;
     [SerializeField] private bool _instantCreate;
 
-    private Queue<string> _names;
-    private Queue<Vector3> _vecs;
-    private Queue<Quaternion> _quats;
+    private Queue<string> _names = new Queue<string>();
+    private Queue<Vector3> _vecs = new Queue<Vector3>();
+    private Queue<Quaternion> _quats = new Queue<Quaternion>();
 
-    private void Start()
+    private void Awake()
     {
         int childCount = transform.childCount;
 
