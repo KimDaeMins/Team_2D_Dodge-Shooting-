@@ -3,52 +3,72 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Monster : Object_Base
 {
-    public int CurrentHp { get; set; }
-    public float MoveSpeed { get; set; }
-    public Vector2 MoveDirection { get; set; }
+    protected int _currentHp { get; set; }
+    protected float moveSpeed { get; set; }
+    protected Vector2 _moveDirection { get; set; }
 
     private Rigidbody2D _rigidbody;
-    public Animator animator;
+    private Animator _animator;
 
-    protected void Awake()
+    protected virtual void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
+        _animator = GetComponent<Animator>();
     }
 
-    protected void FixedUpdate()
+    protected virtual void FixedUpdate()
     {
-        Move(MoveDirection);
+        Move(_moveDirection);
     }
 
-
-    protected void GetDamage(int damage)
+    protected virtual void LateUpdate()
     {
-        CurrentHp = 0;
-        Managers.Resource.Destroy(this);
+        CheckDead();
     }
 
-    protected void Move(Vector2 direction)
+    public void GetDamage(int damage)
+    {
+        _currentHp -= damage;
+    }
+
+    public void RecoverHp(int heal)
+    {
+        _currentHp += heal;
+    }
+
+    protected void CheckDead()
+    {
+        if (_currentHp <= 0)
+        {
+            _isDead = true;
+            Managers.Resource.Destroy(this.gameObject);
+            Managers.Resource.Instantiate("MonsterExplosion.prefab");
+        }
+    }
+
+    private void Move(Vector2 direction)
     {
         direction *= _speed;
         _rigidbody.velocity = direction;
+
     }
 
-    protected void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject.CompareTag("PlayerBullet"))
-        {
-            GetDamage(100);
-        }
-
-        if (other.gameObject.CompareTag("Player"))
-        {
-            Managers.Resource.Destroy(this);
-        }
-    }
+    // protected void OnTriggerEnter2D(Collider2D other)
+    // {
+    //     if (other.gameObject.CompareTag("PlayerBullet"))
+    //     {
+    //         GetDamage(100);
+    //     }
+    //
+    //     if (other.gameObject.CompareTag("Player"))
+    //     {
+    //         Destroy(this);
+    //     }
+    // }
 }
 
 

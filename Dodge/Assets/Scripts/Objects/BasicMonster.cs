@@ -5,21 +5,17 @@ using UnityEngine;
 
 public class BasicMonster : Monster
 {
-    protected void Awake()
+    protected override void Awake()
     {
         base.Awake();
-        CurrentHp = 1;
-        MoveSpeed = 1;
-        MoveDirection = new Vector2(-1, -1);
-    }
-
-    protected void FixedUpdate()
-    {
-        Move(MoveDirection);
+        _currentHp = 1;
+        moveSpeed = 1;
+        _moveDirection = new Vector2(-1, -1);
     }
 
     protected void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log("충돌");
         if (other.gameObject.CompareTag("PlayerBullet"))
         {
             GetDamage(100);
@@ -27,7 +23,7 @@ public class BasicMonster : Monster
 
         if (other.gameObject.CompareTag("Player"))
         {
-            Destroy(this);
+            GetDamage(100);
         }
     }
 }
