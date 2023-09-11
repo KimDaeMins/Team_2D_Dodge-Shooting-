@@ -13,14 +13,5 @@ public interface IBullet
 
     public void Move();
 
-    public bool DeadCheck()
-    {
-        LifeTime -= Time.deltaTime;
-        if (LifeTime < 0)
-            return true;
-
-        //여기서 지정한 화면 밖을 나가면 죽는거도 짜야함
-
-        return false;
-    }
+    public bool DeadCheck();
 }

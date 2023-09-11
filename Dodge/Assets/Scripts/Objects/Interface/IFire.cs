@@ -4,20 +4,10 @@ using UnityEngine;
 
 public interface IFire
 {
-    public float FireDelay { get; set; }
     public float FireCoolTime { get; set; }
+    public bool IsFireAble { get; set; }
 
-    public void FireUpdate()
-    {
-        if(FireCoolTime > FireDelay)
-            FireDelay += Time.deltaTime;
-    }
-    public bool FireCheck()
-    {
-        if (FireDelay > FireCoolTime)
-            return true;
-        return false;
-    }
+    public IEnumerator FireUpdate(float coolTime);
 
     public void Fire();
 }

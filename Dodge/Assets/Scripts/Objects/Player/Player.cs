@@ -6,42 +6,37 @@ public class Player : Object_Base, IFire
 {
     public int Hp;
     public int Atk;
-    public float FireDelay { get; set; }
-    public float FireCoolTime { get; set; }
+    [SerializeField] public float FireCoolTime { get; set; }
+    public bool IsFireAble { get; set; }
+
+
     public float Speed { get { return _speed; } set { _speed = value; } }
+
     [SerializeField] public Animator _animator;
     [SerializeField] public Rigidbody2D _rb2d;
     public Camera _camera;
     private void Awake()
     {
         //_camera = Camera.main;
-        Hp = 3;
-        Atk = 1;
-        FireDelay = 0;
-        FireCoolTime = 0.4f;
+        //Hp = 3;
+        //Atk = 1;
+        //FireCoolTime = 0.4f;
     }
     private void Update()
     {
-        FireUpdate();
     }
-    public void FireUpdate()
+    public IEnumerator FireUpdate(float coolTime)
     {
-        if (FireCoolTime > FireDelay)
-            FireDelay += Time.deltaTime;
+        yield return new WaitForSeconds(coolTime);
+        IsFireAble = true;
     }
-    public bool FireCheck()
-    {
-        if (FireDelay > FireCoolTime)
-            return true;
-        return false;
-    }
-
     public void Fire()
     {
-        if (FireCheck())
+        if (IsFireAble)
         {
-            FireDelay = 0;
             Debug.Log("Fire");
+            StartCoroutine("FireUpdate", FireCoolTime);
+            IsFireAble = false;
         }
         else
         {

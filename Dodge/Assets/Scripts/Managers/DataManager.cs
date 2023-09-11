@@ -18,7 +18,7 @@ public class DataManager
         //여기서 딕셔너리랑 리스트에 아이템을 전부 넣어준다
         //Item item = new Item();
         //item.InitItem("이름" , 최대갯수);
-        //item.Count = ;
+        //GetItem()
         //_itemsDic.Add(item.name , item);
         //_itemslist.Add(item);
     }
@@ -35,12 +35,12 @@ public class DataManager
         return true;
     }
 
-    public bool GetItem(int index)
+    public bool GetItem(int index, int count = 1)
     {
         if (_itemslist[index].Count == _itemslist[index].MaxCount)
             return false;
 
-        _itemslist[index].Count++;
+        _itemslist[index].Count = Math.Min(_itemslist[index].MaxCount , _itemslist[index].Count + count);
         return true;
     }
     public bool GetItem(Item item)

@@ -13,7 +13,7 @@ public class SoundManager
 
     public void Init()
     {
-        GameObject root = GameObject.Find("Sound");
+        GameObject root = GameObject.Find("@Sound");
         if (root == null)
         {
             root = new GameObject { name = "@Sound" };
