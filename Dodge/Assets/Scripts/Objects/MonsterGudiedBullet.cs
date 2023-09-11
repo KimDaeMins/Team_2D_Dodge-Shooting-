@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class MonsterGudiedBullet : Object_Base, IBullet
 {
-    public Player _player;
     private Rigidbody2D _rigidBody;
     private int _damage = 5; // 총알 데미지
     private float _lifeTime = 10.0f; //총알이 살아있는 시간
