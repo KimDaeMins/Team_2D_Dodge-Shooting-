@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,7 +14,11 @@ public class PlayerInputController : MonoBehaviour
     {
         _moveAction = this.gameObject.GetComponent<PlayerInput>().actions["Move"];
         _moveAction.canceled += ctx => OnMoveCanceled();
+        
+
         _player = this.GetComponent<Player>();
+
+
     }
     private void FixedUpdate()
     {
@@ -52,9 +57,15 @@ public class PlayerInputController : MonoBehaviour
     {
         _player.Fire();
     }
-    /*public void OnUseItem(InputValue value) // ¾ÆÀÌÅÛ ÀÛ¾÷ÀÌ¶û °°ÀÌ ÇÏ´Â°Ô ÁÁÀ»µíÇÕ´Ï´Ù.
+    public void OnUseItem(InputValue value)
     {
-        int _value = value.Get<int>();
-        Managers.Data.UseItem(_value);
-    }*/
+            if (value.isPressed == false)
+            {
+            return;
+            }
+            object obj = value.Get();
+            int index = Convert.ToInt32(obj);
+            Managers.Data.UseItem(index-1); // ì…ë ¥ í‚¤ì˜ ì¸ë±ìŠ¤ì—ì„œ 1ì„ ë¹¼ì„œ ì¸ë±ìŠ¤ë¡œ ì‚¬ìš©í•©ë‹ˆë‹¤.
+        
+    }
 }
