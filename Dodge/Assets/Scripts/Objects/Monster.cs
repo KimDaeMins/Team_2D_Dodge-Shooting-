@@ -68,7 +68,7 @@ public class Monster : Object_Base, IFire
     {
         if (IsFireAble)
         {
-            Managers.Resource.Instantiate("MonsterBullet", _rigidbody.position);
+            Managers.Resource.Instantiate("MonsterGudiedBullet", _rigidbody.position);
             
             StartCoroutine("FireUpdate", FireCoolTime);
             IsFireAble = false;
