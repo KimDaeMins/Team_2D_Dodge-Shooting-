@@ -34,6 +34,7 @@ public class PlayerGudiedBullet : Object_Base, IBullet
         _target = GameObject.FindWithTag("Monster"); //≈∏∞Ÿ ≈Ωªˆ
         _targetVector = (_target.transform.position - transform.position).normalized;   //≈∏∞Ÿ πÊ«‚ ¥‹¿ß∫§≈Õ
         _dirVector = _target.transform.position - transform.position;
+        _objectType = Define.Object.PlayerBullet;
     }
 
     public void Move()

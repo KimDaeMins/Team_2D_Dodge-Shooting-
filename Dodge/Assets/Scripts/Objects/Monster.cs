@@ -18,6 +18,7 @@ public class Monster : Object_Base, IFire
     protected virtual void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
+        _objectType = Define.Object.Monster;
     }
 
     protected virtual void FixedUpdate()

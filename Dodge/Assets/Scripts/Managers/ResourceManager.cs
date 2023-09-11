@@ -40,12 +40,14 @@ public class ResourceManager
             return null;
         }
 
-        if (original.GetComponent<Poolable>() != null)
+        if (original.TryGetComponent<Poolable>(out Poolable p))
             return Managers.Pool.Pop(original , parent).gameObject;
-
 
         GameObject go = Object.Instantiate(original , parent);
         go.name = original.name;
+
+        if (go.TryGetComponent<Object_Base>(out Object_Base o))
+            Managers.Object.Add(go , o.ObejctType);
 
         return go;
     }
@@ -59,8 +61,9 @@ public class ResourceManager
         }
 
 
-        if (original.GetComponent<Poolable>() != null)
+        if (original.TryGetComponent<Poolable>(out Poolable p))
             return Managers.Pool.Pop(original , pos , q , parent).gameObject;
+
 
         GameObject go;
         if (parent == null)
@@ -68,7 +71,8 @@ public class ResourceManager
         else
             go = Object.Instantiate(original , pos , q , parent);
         go.name = original.name;
-
+        if (go.TryGetComponent<Object_Base>(out Object_Base o))
+            Managers.Object.Add(go , o.ObejctType);
         return go;
     }
 
@@ -89,12 +93,16 @@ public class ResourceManager
         if (go == null)
             return;
 
-        Poolable poolable = go.GetComponent<Poolable>();
-        if (poolable != null)
-        {
-            Managers.Pool.Push(poolable);
-            return;
-        }
+        //Poolable poolable = go.GetComponent<Poolable>();
+        //if (poolable != null)
+        //{
+        //    Managers.Pool.Push(poolable);
+        //    return;
+        //}
+        if (go.TryGetComponent<Poolable>(out Poolable p))
+            Managers.Pool.Push(p);
+        if (go.TryGetComponent<Object_Base>(out Object_Base o))
+            Managers.Object.Remove(go, o.ObejctType);
 
         Object.Destroy(go , t);
     }

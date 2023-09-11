@@ -31,9 +31,10 @@ public class MonsterGudiedBullet : Object_Base, IBullet
     private void Awake()
     {
         _rigidBody = GetComponent<Rigidbody2D>();   //ÃÑ¾Ë ¿òÁ÷ÀÓ À§ÇØ
-        _target = GameObject.FindWithTag("Player"); //Å¸°Ù Å½»ö
+        _target = Managers.Object.GetPlayer(); //Å¸°Ù Å½»ö
         _targetVector = (_target.transform.position - transform.position).normalized;   //Å¸°Ù ¹æÇâ ´ÜÀ§º¤ÅÍ
         _dirVector = _target.transform.position - transform.position;
+        _objectType = Define.Object.MonsterBullet;
     }
 
     public void Move()
