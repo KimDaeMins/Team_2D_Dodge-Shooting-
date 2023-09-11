@@ -12,7 +12,7 @@ public class Monster : Object_Base, IFire
     protected int _currentHp { get; set; }
     protected Vector2 _moveDirection { get; set; }
     
-    private Rigidbody2D _rigidbody;
+    protected Rigidbody2D _rigidbody;
 
 
     protected virtual void Awake()
@@ -64,7 +64,7 @@ public class Monster : Object_Base, IFire
         IsFireAble = true;
     }
 
-    public void Fire()
+    public virtual void Fire()
     {
         if (IsFireAble)
         {
