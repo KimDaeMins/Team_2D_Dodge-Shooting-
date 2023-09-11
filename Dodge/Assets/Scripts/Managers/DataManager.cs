@@ -10,8 +10,8 @@ public class DataManager
     public Sprite UserSprite { get; set; }
     public RuntimeAnimatorController AnimatorController { get; set; }
 
-    public Dictionary<string, Item> _itemsDic = new Dictionary<string , Item>();
-    public List<Item> _itemslist = new List<Item>();
+    public Dictionary<string, Inven_Base> _itemsDic = new Dictionary<string , Inven_Base>();
+    public List<Inven_Base> _itemslist = new List<Inven_Base>();
 
     public void Init()
     {
@@ -23,25 +23,25 @@ public class DataManager
         //_itemslist.Add(item);
 
 
-        Item clearBomb = new Item();
+        Inven_Base clearBomb = new ClearBomb();
         clearBomb.InitItem("ClearBomb", 1);
         _itemsDic.Add(clearBomb.Name, clearBomb);
         _itemslist.Add(clearBomb);
 
         // JammingBomb 아이템 초기화
-        Item jammingBomb = new Item();
+        Inven_Base jammingBomb = new JammingBomb();
         jammingBomb.InitItem("JammingBomb", 3);
         _itemsDic.Add(jammingBomb.Name, jammingBomb);
         _itemslist.Add(jammingBomb);
 
         // MissileBomb 아이템 초기화
-        Item missileBomb = new Item();
+        Inven_Base missileBomb = new MissileBomb();
         missileBomb.InitItem("MissileBomb", 3);
         _itemsDic.Add(missileBomb.Name, missileBomb);
         _itemslist.Add(missileBomb);
 
         // EnhancementBuff 아이템 초기화
-        Item enhancementBuff = new Item();
+        Inven_Base enhancementBuff = new EnhancementBuff();
         enhancementBuff.InitItem("EnhancementBuff", 1);
         _itemsDic.Add(enhancementBuff.Name, enhancementBuff);
         _itemslist.Add(enhancementBuff);
@@ -93,7 +93,7 @@ public class DataManager
     }
     public bool GetItem(Item item)
     {
-        Item it = _itemsDic[item.Name];
+        Inven_Base it = _itemsDic[item.Name];
 
         if (it.Count == it.MaxCount)
             return false;

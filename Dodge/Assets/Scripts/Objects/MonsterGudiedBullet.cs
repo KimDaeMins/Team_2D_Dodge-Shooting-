@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MonsterGudiedBullet : Object_Base, IBullet
+public class MonsterGudiedBullet : Item_Base, IBullet
 {
     private GameObject _hitEffect;
     private Rigidbody2D _rigidBody;
@@ -31,10 +31,12 @@ public class MonsterGudiedBullet : Object_Base, IBullet
     private void Awake()
     {
         _rigidBody = GetComponent<Rigidbody2D>();   //총알 움직임 위해
-        if((_target = Managers.Object.GetPlayer()) != null) //타겟 탐색
-            _targetVector = (_target.transform.position - transform.position).normalized;   //타겟 방향 단위벡터
-        else
-            _targetVector = transform.up;
+        //if((_target = Managers.Object.GetPlayer()) != null) //타겟 탐색
+        //    _targetVector = (_target.transform.position - transform.position).normalized;   //타겟 방향 단위벡터
+        //else
+        //    _targetVector = transform.up;
+        _target = Managers.Object.GetPlayer();
+        _targetVector = transform.up;
         _objectType = Define.Object.MonsterBullet;
     }
 
@@ -115,33 +117,33 @@ public class MonsterGudiedBullet : Object_Base, IBullet
         }
     }
 
-    IEnumerator Follow()
-    {
-        while (gameObject.activeSelf && _dirVector.magnitude < 10)  //총알이 살아있고 얼마나 가까운지 조건
-        {
-            _targetVector = (_target.transform.position - transform.position).normalized;
-            // 내적(dot)을 통해 각도를 구함
-            float dot = Vector3.Dot(transform.up, _targetVector);
-            if (dot < 1.0f)
-            {
-                float angle = Mathf.Acos(dot) * Mathf.Rad2Deg;
+    //IEnumerator Follow()
+    //{
+    //    while (gameObject.activeSelf && _dirVector.magnitude < 10)  //총알이 살아있고 얼마나 가까운지 조건
+    //    {
+    //        _targetVector = (_target.transform.position - transform.position).normalized;
+    //        // 내적(dot)을 통해 각도를 구함
+    //        float dot = Vector3.Dot(transform.up, _targetVector);
+    //        if (dot < 1.0f)
+    //        {
+    //            float angle = Mathf.Acos(dot) * Mathf.Rad2Deg;
 
-                // 외적을 통해 각도의 방향을 판별
-                Vector3 cross = Vector3.Cross(transform.up, _targetVector);
-                // 외적 결과 값에 따라 각도 반영
-                if (cross.z < 0)
-                {
-                    angle = transform.rotation.eulerAngles.z - Mathf.Min(10, angle);
-                }
-                else
-                {
-                    angle = transform.rotation.eulerAngles.z + Mathf.Min(10, angle);
-                }
+    //            // 외적을 통해 각도의 방향을 판별
+    //            Vector3 cross = Vector3.Cross(transform.up, _targetVector);
+    //            // 외적 결과 값에 따라 각도 반영
+    //            if (cross.z < 0)
+    //            {
+    //                angle = transform.rotation.eulerAngles.z - Mathf.Min(10, angle);
+    //            }
+    //            else
+    //            {
+    //                angle = transform.rotation.eulerAngles.z + Mathf.Min(10, angle);
+    //            }
 
-                // angle이 윗 방향과 target의 각도.
-            }
-            _dirVector = _target.transform.position - transform.position;
-            yield return new WaitForSeconds(0.1f);  //0.1초마다 방향단위벡터 반영 후 내외적으로 각도 변경
-         }
-    }
+    //            // angle이 윗 방향과 target의 각도.
+    //        }
+    //        _dirVector = _target.transform.position - transform.position;
+    //        yield return new WaitForSeconds(0.1f);  //0.1초마다 방향단위벡터 반영 후 내외적으로 각도 변경
+    //     }
+    //}
 }

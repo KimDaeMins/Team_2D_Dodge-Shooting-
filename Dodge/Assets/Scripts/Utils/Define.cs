@@ -7,6 +7,7 @@ public class Define
     public enum Scene
     {
         UnKnown,
+        Sample,
         Logo,
         Game,
     }

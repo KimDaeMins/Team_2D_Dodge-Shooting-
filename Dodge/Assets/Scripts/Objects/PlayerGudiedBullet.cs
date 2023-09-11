@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerGudiedBullet : Object_Base, IBullet
+public class PlayerGudiedBullet : Item_Base, IBullet
 {
     private GameObject _hitEffect;
     private Rigidbody2D _rigidBody;
@@ -31,10 +31,14 @@ public class PlayerGudiedBullet : Object_Base, IBullet
     private void Awake()
     {
         _rigidBody = GetComponent<Rigidbody2D>();   //ÃÑ¾Ë ¿òÁ÷ÀÓ À§ÇØ
-        if ((_target = GameObject.FindWithTag("Monster")) != null) //Å¸°Ù Å½»ö
-            _targetVector = (_target.transform.position - transform.position).normalized;   //Å¸°Ù ¹æÇâ ´ÜÀ§º¤ÅÍ
-        else
-            _targetVector = transform.up;
+
+        //if ((_target = GameObject.FindWithTag("Monster")) != null) //Å¸°Ù Å½»ö
+        //    _targetVector = (_target.transform.position - transform.position).normalized;   //Å¸°Ù ¹æÇâ ´ÜÀ§º¤ÅÍ
+        //else
+        //    _targetVector = transform.up;
+
+        _target = Managers.Object.GetNearObject(this.gameObject, Define.Object.Monster);
+        _targetVector = transform.up;
         _objectType = Define.Object.PlayerBullet;
     }
 

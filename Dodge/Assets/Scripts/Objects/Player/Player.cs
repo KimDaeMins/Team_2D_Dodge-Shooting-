@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : Object_Base, IFire
+public class Player : Item_Base, IFire
 {
     [SerializeField] public float FireCoolTime { get; set; }
     public bool IsFireAble { get; set; }

@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 
 public abstract class Scene_Base : MonoBehaviour
 {
-    public Define.Scene SceneType { get; protected set; } = Define.Scene.UnKnown;
+    public Define.Scene SceneType { get; protected set; } = Define.Scene.Sample;
     void Start()
     {
 

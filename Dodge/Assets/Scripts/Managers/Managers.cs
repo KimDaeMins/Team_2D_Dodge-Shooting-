@@ -62,7 +62,7 @@ public class Managers : MonoBehaviour
         Sound.Clear();
         Input.Clear();
         Scene.Clear();
-
+        Object.Clear();
         //Pool.Clear();
     }
 }

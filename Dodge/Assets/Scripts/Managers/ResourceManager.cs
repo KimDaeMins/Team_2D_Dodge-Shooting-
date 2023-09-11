@@ -46,7 +46,7 @@ public class ResourceManager
         GameObject go = Object.Instantiate(original , parent);
         go.name = original.name;
 
-        if (go.TryGetComponent<Object_Base>(out Object_Base o))
+        if (go.TryGetComponent<Item_Base>(out Item_Base o))
             Managers.Object.Add(go , o.ObejctType);
 
         return go;
@@ -71,7 +71,7 @@ public class ResourceManager
         else
             go = Object.Instantiate(original , pos , q , parent);
         go.name = original.name;
-        if (go.TryGetComponent<Object_Base>(out Object_Base o))
+        if (go.TryGetComponent<Item_Base>(out Item_Base o))
             Managers.Object.Add(go , o.ObejctType);
         return go;
     }
@@ -101,7 +101,7 @@ public class ResourceManager
         //}
         if (go.TryGetComponent<Poolable>(out Poolable p))
             Managers.Pool.Push(p);
-        if (go.TryGetComponent<Object_Base>(out Object_Base o))
+        if (go.TryGetComponent<Item_Base>(out Item_Base o))
             Managers.Object.Remove(go, o.ObejctType);
 
         Object.Destroy(go , t);

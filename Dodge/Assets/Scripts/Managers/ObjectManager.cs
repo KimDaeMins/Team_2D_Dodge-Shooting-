@@ -37,7 +37,7 @@ public class  ObjectManager
     {
         _objects[type].Clear();
     }
-    public GameObject FindNear(GameObject go, Define.Object type)
+    public GameObject GetNearObject(GameObject go, Define.Object type)
     {
         float nearDis = 9999;
         GameObject nearObject = null;
@@ -52,6 +52,10 @@ public class  ObjectManager
         }
 
         return nearObject;
+    }
+    public LinkedList<GameObject> GetAllObject(Define.Object type)
+    {
+        return _objects[type];
     }
 
     public GameObject GetPlayer()
