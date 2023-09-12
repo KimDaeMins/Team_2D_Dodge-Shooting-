@@ -37,7 +37,7 @@ public class Player : Object_Base, IFire
     {
         if (IsFireAble)
         {
-            Managers.Resource.Instantiate("MonsterGudiedBullet");
+            Managers.Resource.Instantiate("PlayerBullet");
             StartCoroutine("FireUpdate", FireCoolTime);
             IsFireAble = false;
         }
@@ -65,15 +65,5 @@ public class Player : Object_Base, IFire
     {
         Destroy(this.gameObject);
     }
-    public void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.tag != "Item")
-        {
-            GetDamage(2);
-        }
-        else
-        {
-            Managers.Data.GetItem(0);
-        }
-    }
+    
 }

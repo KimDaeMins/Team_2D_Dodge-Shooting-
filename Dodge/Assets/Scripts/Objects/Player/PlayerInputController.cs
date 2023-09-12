@@ -14,11 +14,7 @@ public class PlayerInputController : MonoBehaviour
     {
         _moveAction = this.gameObject.GetComponent<PlayerInput>().actions["Move"];
         _moveAction.canceled += ctx => OnMoveCanceled();
-        
-
         _player = this.GetComponent<Player>();
-
-
     }
     private void FixedUpdate()
     {
@@ -61,13 +57,12 @@ public class PlayerInputController : MonoBehaviour
     }
     public void OnUseItem(InputValue value)
     {
-            if (value.isPressed == false)
-            {
-            return;
-            }
-            object obj = value.Get();
-            int index = Convert.ToInt32(obj);
-            Managers.Data.UseItem(index-1); // 입력 키의 인덱스에서 1을 빼서 인덱스로 사용합니다.
-        
+        if (value.isPressed == false)
+        {
+        return;
+        }
+        object obj = value.Get();
+        int index = Convert.ToInt32(obj);
+        Managers.Data.UseItem(index-1); // 입력 키의 인덱스에서 1을 빼서 인덱스로 사용합니다.
     }
 }
