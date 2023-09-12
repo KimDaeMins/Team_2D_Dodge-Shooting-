@@ -88,7 +88,7 @@ public class MonsterGudiedBullet : Object_Base, IBullet
             float dot = Vector3.Dot(transform.up, _targetVector);
             float angle = Mathf.Acos(dot) * Mathf.Rad2Deg;
 
-            if (gameObject.activeSelf && _lifeTime > TARGET_DEAD_TIME && angle < ANGLE) //총알이 살아있고 얼마나 가까운지 조건 임의로 5초 조건 넣어둠
+            if (gameObject.activeSelf && _lifeTime > TARGET_DEAD_TIME) //총알이 살아있고 얼마나 가까운지 조건 임의로 5초 조건 넣어둠
             {   
                 
                 if (angle < ANGLE)
