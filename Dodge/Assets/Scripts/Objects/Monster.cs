@@ -21,6 +21,12 @@ public class Monster : Object_Base
         _objectType = Define.Object.Monster;
     }
 
+    protected virtual void Update()
+    {
+        MoveDirectionUpdate();
+        CheckScreenOut();
+    }
+
     protected virtual void FixedUpdate()
     {
         Move();
@@ -31,6 +37,11 @@ public class Monster : Object_Base
         CheckDead();
     }
 
+    protected virtual void MoveDirectionUpdate()
+    {
+        _moveDirection = transform.forward * (_speed * Time.deltaTime);
+    }
+    
     public void GetDamage(int damage)
     {
         _currentHp -= damage;
@@ -47,6 +58,15 @@ public class Monster : Object_Base
             Dead();
     }
 
+    private void CheckScreenOut()
+    {
+        Vector3 pos = Camera.main.WorldToViewportPoint(transform.position);
+        transform.position = Camera.main.ViewportToWorldPoint(pos);
+        
+        if (pos.x < -0.1f || pos.x > 1.1f || pos.y < -0.1f || pos.y > 1.1f)
+            Managers.Resource.Destroy(this.gameObject);
+    }
+    
     protected void Dead()
     {
         _isDead = true;
@@ -57,7 +77,6 @@ public class Monster : Object_Base
 
     private void Move()
     {
-        _moveDirection = transform.right * (_speed * Time.deltaTime);
         _rigidbody.velocity = _moveDirection;
     }
 }
