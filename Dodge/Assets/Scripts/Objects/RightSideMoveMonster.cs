@@ -18,22 +18,17 @@ public class RightSideMoveMonster : Monster, IFire
         IsFireAble = true;
     }
 
-    protected void Update()
+    protected override void Update()
     {
-        // _fireDirection
+        base.Update();
         Fire();
-        CheckScreenOut();
     }
 
-    private void CheckScreenOut()
+    protected override void MoveDirectionUpdate()
     {
-        Vector3 pos = Camera.main.WorldToViewportPoint(transform.position);
-        transform.position = Camera.main.ViewportToWorldPoint(pos);
-        
-        if (pos.x < -0.1f || pos.x > 1.1f || pos.y < -0.1f || pos.y > 1.1f)
-            Managers.Resource.Destroy(this.gameObject);
+        _moveDirection = transform.right * (_speed * Time.deltaTime);
     }
-
+    
     public IEnumerator FireUpdate(float coolTime)
     {
         yield return new WaitForSeconds(coolTime);
