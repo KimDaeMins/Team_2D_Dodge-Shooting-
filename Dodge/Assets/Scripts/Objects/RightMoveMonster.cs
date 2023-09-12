@@ -40,7 +40,7 @@ public class RightMoveMonster : Monster, IFire
     {
         if (IsFireAble)
         {
-            Managers.Resource.Instantiate("MonsterBullet", transform.position, transform.rotation);
+            Managers.Resource.Instantiate("MonsterGudiedBullet" , transform.position, transform.rotation);
             
             StartCoroutine("FireUpdate", FireCoolTime);
             IsFireAble = false;

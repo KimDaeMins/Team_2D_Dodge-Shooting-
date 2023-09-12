@@ -13,7 +13,6 @@ public class PlayerGudiedBullet : Object_Base, IBullet
     private float _lifeTime = 10.0f; //총알이 살아있는 시간
     private GameObject _target;  //유도 시스템 시 target 탐색
     private Vector2 _targetVector;  //타겟 단위벡터
-
     public int Damage
     {
         get => _damage;
@@ -35,7 +34,7 @@ public class PlayerGudiedBullet : Object_Base, IBullet
     {
         _rigidBody = GetComponent<Rigidbody2D>();   //총알 움직임 위해
 
-        _target = Managers.Object.GetNearObject(this.gameObject, Define.Object.Monster);
+        _target = Managers.Object.GetNearObjectInAngle(this.gameObject, ANGLE , Define.Object.Monster);
         _targetVector = transform.up;
         _objectType = Define.Object.PlayerBullet;
     }
@@ -78,7 +77,7 @@ public class PlayerGudiedBullet : Object_Base, IBullet
     {
         if(_target == null)
         {
-            _target = Managers.Object.GetNearObject(this.gameObject, Define.Object.Monster);
+            _target = Managers.Object.GetNearObjectInAngle(this.gameObject, ANGLE ,  Define.Object.Monster);
             return;
         }
 
@@ -108,6 +107,10 @@ public class PlayerGudiedBullet : Object_Base, IBullet
 
                     transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, 0, angle).normalized, RATE);
                     // angle이 윗 방향과 target의 각도.
+                }
+                else
+                {
+                    _target = null;
                 }
             }
         }

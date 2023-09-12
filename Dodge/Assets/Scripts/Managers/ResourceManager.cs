@@ -99,10 +99,10 @@ public class ResourceManager
         //    Managers.Pool.Push(poolable);
         //    return;
         //}
+        if (go.TryGetComponent<Object_Base>(out Object_Base o))
+            Managers.Object.Remove(go , o.ObejctType);
         if (go.TryGetComponent<Poolable>(out Poolable p))
             Managers.Pool.Push(p);
-        if (go.TryGetComponent<Object_Base>(out Object_Base o))
-            Managers.Object.Remove(go, o.ObejctType);
 
         Object.Destroy(go , t);
     }
