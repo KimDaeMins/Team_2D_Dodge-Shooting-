@@ -6,13 +6,15 @@ public class PlayerGudiedBullet : Object_Base, IBullet
 {
     private const float ANGLE = 60f; // 60도 내에서 타겟 탐색하기 위한 제어 상수
     private const float RATE = 0.2f; // Lerp t 인자 0.3f
-    private const float TARGET_DEAD_TIME = 5.0f; // 타겟 따라가는 시간
+    private const float TARGET_DEAD_DISTANCE = 2.0f; // 타겟 거리
     private GameObject _hitEffect;
     private Rigidbody2D _rigidBody;
     private int _damage = 5; // 총알 데미지
     private float _lifeTime = 10.0f; //총알이 살아있는 시간
     private GameObject _target;  //유도 시스템 시 target 탐색
-    private Vector2 _targetVector;  //타겟 단위벡터
+    private Vector2 _targetVector;  //타겟 방향벡터
+    private float _distance = TARGET_DEAD_DISTANCE + 1;
+
     public int Damage
     {
         get => _damage;
@@ -33,7 +35,6 @@ public class PlayerGudiedBullet : Object_Base, IBullet
     private void Awake()
     {
         _rigidBody = GetComponent<Rigidbody2D>();   //총알 움직임 위해
-
         _target = Managers.Object.GetNearObjectInAngle(this.gameObject, ANGLE , Define.Object.Monster);
         _targetVector = transform.up;
         _objectType = Define.Object.PlayerBullet;
@@ -78,15 +79,17 @@ public class PlayerGudiedBullet : Object_Base, IBullet
         if(_target == null)
         {
             _target = Managers.Object.GetNearObjectInAngle(this.gameObject, ANGLE ,  Define.Object.Monster);
+            _distance = TARGET_DEAD_DISTANCE + 1;
             return;
         }
 
         if (_target != null)
         {
-            if (gameObject.activeSelf && _lifeTime > TARGET_DEAD_TIME) //총알이 살아있고 얼마나 가까운지 조건 임의로 5초 조건 넣어둠
+            if (gameObject.activeSelf && _distance > TARGET_DEAD_DISTANCE) //총알이 살아있고 얼마나 가까운지 조건 임의로 5초 조건 넣어둠
             {
                 _targetVector = (_target.transform.position - transform.position).normalized;
                 // 내적(dot)을 통해 각도를 구함
+                _distance = (_target.transform.position - transform.position).magnitude;
                 float dot = Vector3.Dot(transform.up, _targetVector);
                 float angle = Mathf.Acos(dot) * Mathf.Rad2Deg;
 

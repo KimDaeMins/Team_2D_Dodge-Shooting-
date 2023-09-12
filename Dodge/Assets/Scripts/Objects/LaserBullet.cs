@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class LaserBullet : Object_Base, IBullet
 {
+    private Vector2 _targetVector;
+    private Player _player;
+    private Monster _monster;
 
     private int _damage = 7;
     public int Damage
@@ -12,7 +15,7 @@ public class LaserBullet : Object_Base, IBullet
         set => _damage = value;
     }
 
-    private float _lifeTime = 10.0f;
+    private float _lifeTime = 3.0f;
     public float LifeTime
     {
         get => _lifeTime;
@@ -28,17 +31,40 @@ public class LaserBullet : Object_Base, IBullet
 
     private void Awake()
     {
-        _target = Managers.Object.GetPlayer();
-        Move();
+        _targetVector = transform.up;
+        Managers.Resource.Instantiate("LaserBullet");
+        _objectType = transform.tag == "PlayerBullet" ? Define.Object.PlayerBullet : Define.Object.MonsterBullet;
     }
 
-    public void Move()
-    {
-        
-    }
 
     public bool DeadCheck()
     {
+        _lifeTime -= Time.deltaTime;
+        if (_lifeTime <= 0)
+            return true;
+
         return false;
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "Player")
+            _player.GetDamage(_damage);
+        if (other.tag == "Monster")
+            _monster.GetDamage(_damage);
+
+    }
+
+    private void Update()
+    {
+        if (DeadCheck())
+        {
+            _isDead = true;
+            Managers.Resource.Destroy(this);
+        }
+    }
+    public void Move()
+    {
+
     }
 }
