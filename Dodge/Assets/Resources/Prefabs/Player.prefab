@@ -105,7 +105,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300002, guid: 4f3d817ad821bc345b488255f0de8318, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -305,13 +305,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 0
+  _sprite: {fileID: 3599849566938943215}
   _bulletTrans: {fileID: 2162151793021345692}
   _animator: {fileID: 0}
   _rb2d: {fileID: 0}
   _hp: 0
   _atk: 0
   _camera: {fileID: 0}
-  _aim: {x: 0, y: 0}
 --- !u!114 &1999311564948495950
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -324,7 +324,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51ab8231dc1185f418003f71c65609f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioClips: []
 --- !u!1001 &2445221182788070067
 PrefabInstance:
   m_ObjectHideFlags: 0
