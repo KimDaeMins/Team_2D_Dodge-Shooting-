@@ -11,7 +11,6 @@ public class Monster : Object_Base
 {
     protected int _currentHp { get; set; }
     protected Vector2 _moveDirection { get; set; }
-    protected float _angle { get; set; }
 
     protected Rigidbody2D _rigidbody;
 
