@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Item : Item_Base
+public class Item : Object_Base
 {
     [SerializeField] private string _name;
     public string Name { get => _name; }

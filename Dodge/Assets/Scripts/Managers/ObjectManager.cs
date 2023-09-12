@@ -57,7 +57,6 @@ public class  ObjectManager
     {
         return _objects[type];
     }
-
     public GameObject GetPlayer()
     {
         return _objects[Define.Object.Player].First.Value;

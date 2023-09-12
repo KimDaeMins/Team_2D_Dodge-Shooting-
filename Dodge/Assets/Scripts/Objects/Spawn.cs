@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Spawn : Item_Base
+public class Spawn : Object_Base
 {
     [SerializeField] private float _spawnDelay;
     private float _spawnCoolTime = 0;

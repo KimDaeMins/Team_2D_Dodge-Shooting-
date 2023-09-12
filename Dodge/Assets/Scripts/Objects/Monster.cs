@@ -5,7 +5,9 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-public class Monster : Item_Base
+
+public class Monster : Item_Base, IFire
+
 {
     protected int _currentHp { get; set; }
     protected Vector2 _moveDirection { get; set; }
