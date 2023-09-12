@@ -16,6 +16,9 @@ public class Player : Object_Base, IFire
     public int _atk;
     public Camera _camera;
     public Vector2 _aim;
+
+    private int _powerLevel = 1;
+
     private void Awake()
     {
         IsFireAble = true;
@@ -66,4 +69,11 @@ public class Player : Object_Base, IFire
         Destroy(this.gameObject);
     }
     
+    public void AddPowerLevel()
+    {
+        _powerLevel++;
+        Debug.Log("공격력 증가");
+    }
+
+   
 }
