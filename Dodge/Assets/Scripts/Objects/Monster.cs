@@ -5,13 +5,13 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-public class Monster : Object_Base, IFire
+
+public class Monster : Object_Base
+
 {
-    public float FireCoolTime { get; set; }
-    public bool IsFireAble { get; set; }
     protected int _currentHp { get; set; }
     protected Vector2 _moveDirection { get; set; }
-    
+
     protected Rigidbody2D _rigidbody;
 
 
@@ -19,11 +19,18 @@ public class Monster : Object_Base, IFire
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         _objectType = Define.Object.Monster;
+        Managers.Object.Add(this.gameObject , Define.Object.Monster);
+    }
+
+    protected virtual void Update()
+    {
+        MoveDirectionUpdate();
+        CheckScreenOut();
     }
 
     protected virtual void FixedUpdate()
     {
-        Move(_moveDirection);
+        Move();
     }
 
     protected virtual void LateUpdate()
@@ -31,6 +38,11 @@ public class Monster : Object_Base, IFire
         CheckDead();
     }
 
+    protected virtual void MoveDirectionUpdate()
+    {
+        _moveDirection = transform.forward * (_speed * Time.deltaTime);
+    }
+    
     public void GetDamage(int damage)
     {
         _currentHp -= damage;
@@ -44,41 +56,29 @@ public class Monster : Object_Base, IFire
     private void CheckDead()
     {
         if (_currentHp <= 0)
-        {
-            _isDead = true;
+            Dead();
+    }
+
+    private void CheckScreenOut()
+    {
+        Vector3 pos = Camera.main.WorldToViewportPoint(transform.position);
+        transform.position = Camera.main.ViewportToWorldPoint(pos);
+        
+        if (pos.x < -0.1f || pos.x > 1.1f || pos.y < -0.1f || pos.y > 1.1f)
             Managers.Resource.Destroy(this.gameObject);
-            Managers.Resource.Instantiate("MonsterExplosion",
-                new Vector3(_rigidbody.position.x, _rigidbody.position.y, 0));
-        }
+    }
+    
+    protected void Dead()
+    {
+        _isDead = true;
+        Managers.Resource.Destroy(this.gameObject);
+        Managers.Resource.Instantiate("MonsterExplosion",
+            new Vector3(_rigidbody.position.x, _rigidbody.position.y, 0));
     }
 
-    private void Move(Vector2 direction)
+    private void Move()
     {
-        direction *= _speed;
-        _rigidbody.velocity = direction;
-
-    }
-
-    public IEnumerator FireUpdate(float coolTime)
-    {
-        yield return new WaitForSeconds(coolTime);
-        IsFireAble = true;
-    }
-
-    public virtual void Fire()
-    {
-        if (IsFireAble)
-        {
-            Managers.Resource.Instantiate("MonsterGudiedBullet", _rigidbody.position);
-            
-            StartCoroutine("FireUpdate", FireCoolTime);
-            IsFireAble = false;
-            Debug.Log("총쏨");
-        }
-        else
-        {
-            Debug.Log("CoolTime");
-        }
+        _rigidbody.velocity = _moveDirection;
     }
 }
 

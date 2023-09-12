@@ -61,4 +61,24 @@ public class  ObjectManager
     {
         return _objects[Define.Object.Player].First.Value;
     }
+    public GameObject GetNearObjectInAngle(GameObject go, float angle, Define.Object type)
+    {
+        float nearDis = 9999;
+        GameObject nearObject = null;
+        foreach (var data in _objects[type])
+        {
+            float dis = (data.transform.position - go.transform.position).magnitude;
+            Vector3 _targetVector = (data.transform.position - go.transform.position).normalized;
+            float dot = Vector3.Dot(go.transform.up, _targetVector);
+            float checkAngle = Mathf.Acos(dot) * Mathf.Rad2Deg;
+
+            if (nearDis > dis && checkAngle < angle)
+            {
+                nearObject = data;
+                nearDis = dis;
+            }
+        }
+
+        return nearObject;
+    }
 }
