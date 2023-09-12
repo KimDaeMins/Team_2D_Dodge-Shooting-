@@ -37,9 +37,7 @@ public class Player : Object_Base, IFire
     {
         if (IsFireAble)
         {
-            GameObject bullet = Managers.Resource.Instantiate("PlayerBullet");
-            bullet.transform.position = _bulletTrans.position;
-            bullet.transform.rotation = this.transform.rotation;
+            GameObject bullet = Managers.Resource.Instantiate("PlayerGudiedBullet", _bulletTrans.position , this.transform.rotation);
             StartCoroutine("FireUpdate", FireCoolTime);
             IsFireAble = false;
             Managers.Sound.Play("Fire", Define.Sound.Effect, 1);
@@ -68,7 +66,7 @@ public class Player : Object_Base, IFire
     }
     public void DestroyPlayer()
     {
-        Destroy(this.gameObject);
+        Managers.Resource.Destroy(this.gameObject);
     }
     public void SpeedUp()
     {
