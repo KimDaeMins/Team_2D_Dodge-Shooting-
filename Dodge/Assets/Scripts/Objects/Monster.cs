@@ -5,13 +5,13 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-public class Monster : Object_Base, IFire
+
+public class Monster : Object_Base
+
 {
-    public float FireCoolTime { get; set; }
-    public bool IsFireAble { get; set; }
     protected int _currentHp { get; set; }
     protected Vector2 _moveDirection { get; set; }
-    
+
     protected Rigidbody2D _rigidbody;
 
 
@@ -23,7 +23,7 @@ public class Monster : Object_Base, IFire
 
     protected virtual void FixedUpdate()
     {
-        Move(_moveDirection);
+        Move();
     }
 
     protected virtual void LateUpdate()
@@ -44,41 +44,21 @@ public class Monster : Object_Base, IFire
     private void CheckDead()
     {
         if (_currentHp <= 0)
-        {
-            _isDead = true;
-            Managers.Resource.Destroy(this.gameObject);
-            Managers.Resource.Instantiate("MonsterExplosion",
-                new Vector3(_rigidbody.position.x, _rigidbody.position.y, 0));
-        }
+            Dead();
     }
 
-    private void Move(Vector2 direction)
+    protected void Dead()
     {
-        direction *= _speed;
-        _rigidbody.velocity = direction;
-
+        _isDead = true;
+        Managers.Resource.Destroy(this.gameObject);
+        Managers.Resource.Instantiate("MonsterExplosion",
+            new Vector3(_rigidbody.position.x, _rigidbody.position.y, 0));
     }
 
-    public IEnumerator FireUpdate(float coolTime)
+    private void Move()
     {
-        yield return new WaitForSeconds(coolTime);
-        IsFireAble = true;
-    }
-
-    public virtual void Fire()
-    {
-        if (IsFireAble)
-        {
-            Managers.Resource.Instantiate("MonsterGudiedBullet", _rigidbody.position);
-            
-            StartCoroutine("FireUpdate", FireCoolTime);
-            IsFireAble = false;
-            Debug.Log("총쏨");
-        }
-        else
-        {
-            Debug.Log("CoolTime");
-        }
+        _moveDirection = transform.right * (_speed * Time.deltaTime);
+        _rigidbody.velocity = _moveDirection;
     }
 }
 
