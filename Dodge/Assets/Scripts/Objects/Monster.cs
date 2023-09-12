@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.Serialization;
 
 
-public class Monster : Item_Base, IFire
+public class Monster : Object_Base
 
 {
     protected int _currentHp { get; set; }
