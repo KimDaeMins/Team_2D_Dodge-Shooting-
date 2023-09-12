@@ -5,12 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f95643c2-9dc4-42e2-bfa0-a4e67c890455" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Objects/RushMonster.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Objects/RushMonster.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Objects/GuidedMonster.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Objects/GuidedMonster.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Dodge/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Dodge/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animation/Monster/Monster1.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animation/Monster/Monster1.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animation/Monster/Monster2.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animation/Monster/Monster2.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animation/Monster/Monster3.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animation/Monster/Monster3.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animator/Monster/Monster1.controller" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animator/Monster/Monster1.controller.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animator/Monster/Monster2.controller" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animator/Monster/Monster2.controller.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Sample.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Sample.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Objects/Monster.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Objects/Monster.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Objects/RightSideMoveMonster.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Objects/RightSideMoveMonster.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Objects/RightSideMoveMonster.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Objects/RightMoveMonster.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Objects/RightSideMoveMonster.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Objects/RightMoveMonster.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/enemypack001sepia/sample_animation/enemy001anim.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/enemypack001sepia/sample_animation/enemy001anim.prefab" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,7 +135,7 @@
       <workItem from="1694345771087" duration="1782000" />
       <workItem from="1694395053071" duration="19024000" />
       <workItem from="1694481851284" duration="6092000" />
-      <workItem from="1694498887608" duration="640000" />
+      <workItem from="1694498887608" duration="7902000" />
     </task>
     <servers />
   </component>

@@ -1,11 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using Unity.VisualScripting;
 using UnityEngine;
 /// <summary>
 /// 오른쪽으로 이동하며 정면으로 공격하는 몬스터, 이동 후 일정이상 스크린 밖으로 벗어나면 사라짐
 /// </summary>
-public class RightSideMoveMonster : Monster, IFire
+public class RightMoveMonster : Monster, IFire
 {
     public float FireCoolTime { get; set; }
     public bool IsFireAble { get; set; }
@@ -43,17 +44,11 @@ public class RightSideMoveMonster : Monster, IFire
             
             StartCoroutine("FireUpdate", FireCoolTime);
             IsFireAble = false;
-            Debug.Log("총쏨");
-        }
-        else
-        {
-            Debug.Log("CoolTime");
         }
     }
     
     protected void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("충돌");
         if (other.gameObject.CompareTag("PlayerBullet"))
         {
             GetDamage(100);
@@ -61,7 +56,7 @@ public class RightSideMoveMonster : Monster, IFire
     
         if (other.gameObject.CompareTag("Player"))
         {
-            GetDamage(100);
+            Dead();
         }
     }
 }   
