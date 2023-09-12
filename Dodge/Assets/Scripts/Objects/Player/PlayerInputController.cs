@@ -3,18 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.XR;
 
 public class PlayerInputController : MonoBehaviour
 {
     public Player _player;
-    private InputAction _moveAction;
     Vector2 _moveInput;
     Quaternion _look;
     private void Awake()
     {
-        _moveAction = this.gameObject.GetComponent<PlayerInput>().actions["Move"];
-        _moveAction.canceled += ctx => OnMoveCanceled();
         _player = this.GetComponent<Player>();
     }
     private void FixedUpdate()
@@ -29,14 +25,20 @@ public class PlayerInputController : MonoBehaviour
         if (_moveInput.x > 0)
         {
             _player._animator.SetBool("Right", true);
+            _player._animator.SetBool("Left", false);
         }
         else if(_moveInput.x < 0)
         {
             _player._animator.SetBool("Left", true);
+            _player._animator.SetBool("Right", false);
+        }
+        else
+        {
+            OnMoveCanceled();
         }
        
     }
-    public void OnMoveCanceled()
+    void OnMoveCanceled()
     {
         _player._animator.SetBool("Left", false);
         _player._animator.SetBool("Right", false);
@@ -52,8 +54,6 @@ public class PlayerInputController : MonoBehaviour
     }
     public void OnFire(InputValue value)
     {
-        Vector2 mousePostion = _player._camera.ScreenToWorldPoint(Mouse.current.position.ReadValue());
-        _player._aim = (mousePostion - (Vector2)(this.transform.position)).normalized;
         _player.Fire();
     }
     public void OnUseItem(InputValue value)
@@ -65,5 +65,9 @@ public class PlayerInputController : MonoBehaviour
         object obj = value.Get();
         int index = Convert.ToInt32(obj);
         Managers.Data.UseItem(index-1); // 입력 키의 인덱스에서 1을 빼서 인덱스로 사용합니다.
+    }
+    public void OnSkill(InputValue value)
+    {
+        _player.SpeedUp();
     }
 }
