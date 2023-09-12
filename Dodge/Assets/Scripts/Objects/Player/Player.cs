@@ -14,6 +14,7 @@ public class Player : Object_Base, IFire
     public int _hp;
     public int _atk;
     public Camera _camera;
+    public string _bullet;
     bool _isSkill = true;
     private void Awake()
     {
@@ -22,6 +23,7 @@ public class Player : Object_Base, IFire
         _hp = 10;
         _atk = 3;
         Speed = 5f;
+        _bullet = "PlayerBullet";
         _camera = Camera.main;
         _animator = this.transform.GetChild(0).GetComponent<Animator>();
         _rb2d = this.GetComponent<Rigidbody2D>();
@@ -37,7 +39,7 @@ public class Player : Object_Base, IFire
     {
         if (IsFireAble)
         {
-            GameObject bullet = Managers.Resource.Instantiate("PlayerBullet");
+            GameObject bullet = Managers.Resource.Instantiate(_bullet);
             bullet.transform.position = _bulletTrans.position;
             bullet.transform.rotation = this.transform.rotation;
             StartCoroutine("FireUpdate", FireCoolTime);
