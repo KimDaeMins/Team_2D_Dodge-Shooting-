@@ -16,6 +16,10 @@ public class Player : Object_Base, IFire
     public Camera _camera;
     public string _bullet;
     bool _isSkill = true;
+    private void OnEnable()
+    {
+        _hp = 10;
+    }
     private void Awake()
     {
         IsFireAble = true;

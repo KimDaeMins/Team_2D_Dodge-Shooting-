@@ -27,6 +27,11 @@ public class GuidedMonster : Monster, IFire
         IsFireAble = true;
     }
 
+    private void OnEnable()
+    {
+        _currentHp = 1;
+        _lifetime = 20;
+    }
     protected void Start()
     {
         _player = Managers.Object.GetPlayer();

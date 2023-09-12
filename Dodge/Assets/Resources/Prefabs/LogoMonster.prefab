@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4400298696484894258}
   - component: {fileID: 1051805874667000628}
   m_Layer: 7
-  m_Name: RushMonster
+  m_Name: LogoMonster
   m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -154,7 +154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27e1559de5294be59e52371fd5b82ca9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 500
+  _speed: 1800
 --- !u!1001 &1759519567638609862
 PrefabInstance:
   m_ObjectHideFlags: 0

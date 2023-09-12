@@ -35,8 +35,14 @@ public class RushMonster : Monster
     
         if (other.gameObject.CompareTag("Player"))
         {
-            other.GetComponent<Player>().GetDamage(_damage);
+            if(other.TryGetComponent<Player>(out Player p))
+                p.GetDamage(_damage);
             Dead();
         }
+    }
+
+    private void OnEnable()
+    {
+        _currentHp = 1;
     }
 }   

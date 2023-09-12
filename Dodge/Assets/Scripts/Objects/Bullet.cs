@@ -26,6 +26,10 @@ public class Bullet : Object_Base, IBullet
         set => _target = value; 
     }
 
+    private void OnEnable()
+    {
+        _lifeTime = 10.0f;
+    }
 
     private void Awake()
     {
@@ -36,9 +40,9 @@ public class Bullet : Object_Base, IBullet
 
     public void Move()
     {
-        if(gameObject.name == "MonsterBullet")
+        if(gameObject.tag == "MonsterBullet")
             _rigidBody.velocity = transform.up * _speed * Time.deltaTime;  //몬스터 불렛 아래방향 발사
-        if(gameObject.name == "PlayerBullet")
+        if(gameObject.tag == "PlayerBullet")
             _rigidBody.velocity = transform.up * _speed * Time.deltaTime;   //플레이어 불렛 윗방향 발사
     }
 
