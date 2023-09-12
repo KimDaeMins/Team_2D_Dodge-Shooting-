@@ -59,5 +59,9 @@ public class RightMoveMonster : Monster, IFire
             Dead();
         }
     }
+    private void OnEnable()
+    {
+        _currentHp = 1;
+    }
 }   
 

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class  ObjectManager
 {
-    //딱히 생각나는게 없으니 일단 enum값으로 오브젝트만 딱 정리해서 넣어놓자
+    //딱히 생각나는게 없으니 일단 enum값으로 오브젝트만 딱 정리해서 넣어놓자 //도식화
     Dictionary<Define.Object , LinkedList<GameObject>> _objects = new Dictionary<Define.Object , LinkedList<GameObject>>();
 
     public void Init()
@@ -15,7 +15,7 @@ public class  ObjectManager
     {
         if (type == Define.Object.None)
             return;
-
+        
         if(_objects.ContainsKey(type) == false)
             _objects.Add(type , new LinkedList<GameObject>());
 

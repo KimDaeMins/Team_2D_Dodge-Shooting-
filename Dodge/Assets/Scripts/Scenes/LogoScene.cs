@@ -5,6 +5,7 @@ using UnityEngine;
 public class LogoScene : Scene_Base
 {
     public Animator _mainFlyAnim;
+    public Camera _camera;
     private bool _introEnded = false;
     void Start()
     {
@@ -43,6 +44,10 @@ public class LogoScene : Scene_Base
             {
                 MainAnimEnded();
                 _introEnded = true;
+            }
+            if(stateInfo.normalizedTime >  0.8f)
+            {
+                Camera.main.orthographicSize = 0.5f + (1f - stateInfo.normalizedTime) * 5 * 4.5f;
             }
         }
 
