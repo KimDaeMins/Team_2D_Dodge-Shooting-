@@ -14,8 +14,13 @@ public class Player : Object_Base, IFire
     public int _hp;
     public int _atk;
     public Camera _camera;
+    public Vector2 _aim;
+    private int _powerLevel = 1;
+
+
     public string _bullet;
     bool _isSkill = true;
+
     private void Awake()
     {
         IsFireAble = true;
@@ -93,4 +98,12 @@ public class Player : Object_Base, IFire
         yield return new WaitForSeconds(10f);
         _isSkill = true;
     }
+
+    
+    public void AddPowerLevel()
+    {
+        _powerLevel++;
+        Debug.Log("공격력 증가");
+    }
+
 }
