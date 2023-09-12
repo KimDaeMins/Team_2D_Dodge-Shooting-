@@ -5,7 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-public class Monster : Item_Base, IFire
+public class Monster : Object_Base, IFire
 {
     public float FireCoolTime { get; set; }
     public bool IsFireAble { get; set; }

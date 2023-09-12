@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Item_Base : MonoBehaviour
+public abstract class Object_Base : MonoBehaviour
 {
     protected Define.Object _objectType;
     public Define.Object ObejctType { get; } 

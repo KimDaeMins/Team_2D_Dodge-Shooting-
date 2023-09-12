@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerGudiedBullet : Item_Base, IBullet
+public class PlayerGudiedBullet : Object_Base, IBullet
 {
     private GameObject _hitEffect;
     private Rigidbody2D _rigidBody;
