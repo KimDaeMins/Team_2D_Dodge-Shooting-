@@ -164,6 +164,7 @@ GameObject:
   - component: {fileID: 7965519629204207949}
   - component: {fileID: 6284278791624468671}
   - component: {fileID: 1473046127352245547}
+  - component: {fileID: 3316622107123312040}
   m_Layer: 5
   m_Name: MonsterHpBar
   m_TagString: Untagged
@@ -256,3 +257,15 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &3316622107123312040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9190488687565574993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b782c1e2cd5692f428613b712188c744, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
