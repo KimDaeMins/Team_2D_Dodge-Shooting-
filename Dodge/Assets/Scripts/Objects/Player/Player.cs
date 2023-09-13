@@ -29,7 +29,7 @@ public class Player : Object_Base, IFire
         IsFireAble = true;
         FireCoolTime = 0.2f;
         _hp = 10;
-        _atk = 3;
+        _atk = 1;
         Speed = 5f;
         _bullet = "PlayerBullet";
         _camera = Camera.main;
@@ -37,7 +37,6 @@ public class Player : Object_Base, IFire
         _rb2d = this.GetComponent<Rigidbody2D>();
         _objectType = Define.Object.Player;
         Managers.Object.Add(this.gameObject , Define.Object.Player);
-        Managers.Resource.Instantiate("RushMonster" , transform.position + new Vector3(0 , -5 , 0));
     }
     public IEnumerator FireUpdate(float coolTime)
     {
@@ -48,7 +47,8 @@ public class Player : Object_Base, IFire
     {
         if (IsFireAble)
         {
-            Managers.Resource.Instantiate(_bullet, _bulletTrans.position , this.transform.rotation);
+            GameObject go = Managers.Resource.Instantiate(_bullet, _bulletTrans.position , this.transform.rotation);
+            go.GetComponent<IBullet>().Damage = _atk;
             StartCoroutine("FireUpdate", FireCoolTime);
             IsFireAble = false;
             Managers.Sound.Play("Fire", Define.Sound.Effect, 1);
@@ -121,6 +121,7 @@ public class Player : Object_Base, IFire
         }
     }
 
+
     public void JammingFire()
     {
         if (IsFireAble)
@@ -130,5 +131,16 @@ public class Player : Object_Base, IFire
             Managers.Sound.Play("Fire", Define.Sound.Effect, 1);
         }
         
+
+    public IEnumerator activatebuff()
+    {
+        _atk *= 2;
+        Debug.Log("15초간 강력한 공격을 발사합니다.");
+
+        yield return new WaitForSeconds(15);
+
+        _atk *= 2;
+        Debug.Log("강력한 공격 버프가 종료되었습니다.");
+
     }
 }

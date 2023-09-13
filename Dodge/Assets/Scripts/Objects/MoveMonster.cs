@@ -48,6 +48,7 @@ public class MoveMonster : Monster, IFire
     {
         if (IsFireAble)
         {
+
             StartCoroutine(Shoot());
             IsFireAble = false;
             StartCoroutine("FireUpdate", FireCoolTime);

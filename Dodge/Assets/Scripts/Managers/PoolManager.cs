@@ -10,7 +10,7 @@ public class PoolManager
         public GameObject Original { get; private set; }
         public Transform Root { get; set; }
 
-        Stack<Poolable> _poolStack = new Stack<Poolable>();
+        Queue<Poolable> _poolStack = new Queue<Poolable>();
 
         public void Init(GameObject original, int count = 5)
         {
@@ -26,7 +26,8 @@ public class PoolManager
 
         Poolable Create()
         {
-            GameObject go = Object.Instantiate<GameObject>(Original);
+            GameObject go = Managers.Resource.Load<GameObject>($"Prefabs/{Original.name}");
+            go = Object.Instantiate(go);
             go.name = Original.name;
             return go.GetOrAddComponent<Poolable>();
         }
@@ -40,7 +41,7 @@ public class PoolManager
             poolable.gameObject.SetActive(false);
             poolable.IsUsing = false;
 
-            _poolStack.Push(poolable);
+            _poolStack.Enqueue(poolable);
         }
 
         public Poolable Pop(Transform parent)
@@ -48,7 +49,7 @@ public class PoolManager
             Poolable poolable;
 
             if (_poolStack.Count > 0)
-                poolable = _poolStack.Pop();
+                poolable = _poolStack.Dequeue();
             else
                 poolable = Create();
 
@@ -67,7 +68,7 @@ public class PoolManager
             Poolable poolable;
 
             if (_poolStack.Count > 0)
-                poolable = _poolStack.Pop();
+                poolable = _poolStack.Dequeue();
             else
                 poolable = Create();
 

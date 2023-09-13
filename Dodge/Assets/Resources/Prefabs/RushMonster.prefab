@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 3781238978324106850}
   - component: {fileID: 1308695698679584133}
   - component: {fileID: 753349747921143716}
-  - component: {fileID: 5175345084348357775}
   - component: {fileID: 1051805874667000628}
+  - component: {fileID: -1003392092765932869}
   m_Layer: 7
   m_Name: RushMonster
   m_TagString: Monster
@@ -108,18 +108,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.85, y: 0.89}
   m_EdgeRadius: 0
---- !u!114 &5175345084348357775
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2228406030574429010}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 373a19c02e38b9d4fa435e2f009f70c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1051805874667000628
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -132,8 +120,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27e1559de5294be59e52371fd5b82ca9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 120
+  _speed: 119.3
   _maxHp: 2
+--- !u!114 &-1003392092765932869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2228406030574429010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 373a19c02e38b9d4fa435e2f009f70c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1759519567638609862
 PrefabInstance:
   m_ObjectHideFlags: 0

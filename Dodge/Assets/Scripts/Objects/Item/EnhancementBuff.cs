@@ -4,14 +4,8 @@ using UnityEngine;
 
 public class EnhancementBuff : Inven_Base
 {
-    //private bool isBuffActive = false; // 버프 활성화 여부
-    //private float buffDuration = 15f; // 버프 지속 시간 (초)
-
-
     public override void UseItem()
-    
     {
-    
+        Managers.Object.GetPlayer().GetComponent<Player>().StartCoroutine("activatebuff");
     }
-
 }
