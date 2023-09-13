@@ -9,14 +9,8 @@ public class ClearBomb : Inven_Base
     public override void UseItem()
     {
 
-        //Debug.Log("ClearBomb을 사용했습니다.");
-        //GameObject[] monsterBullets = GameObject.FindGameObjectsWithTag("MonsterBullet");
-
-        //foreach (GameObject bullet in monsterBullets)
-        //{
-        //    Destroy(bullet);
-        //}
-
+        Debug.Log("ClearBomb을 사용했습니다.");
+        
         Managers.Resource.Instantiate("ClearBomb");
 
         LinkedList<GameObject> monsterBullets = Managers.Object.GetAllObject(Define.Object.MonsterBullet);
