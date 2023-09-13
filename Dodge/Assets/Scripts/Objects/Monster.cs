@@ -14,12 +14,11 @@ public class Monster : Object_Base
     protected int _damage { get; set; }
     protected Rigidbody2D _rigidbody;
 
-
     protected virtual void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         _objectType = Define.Object.Monster;
-        Managers.Object.Add(this.gameObject , Define.Object.Monster);
+        //Managers.Object.Add(this.gameObject , Define.Object.Monster);
     }
 
     protected virtual void Update()
