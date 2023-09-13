@@ -1,42 +1,31 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel.Design;
-using Unity.VisualScripting;
 using UnityEngine;
-/// <summary>
-/// 제자리에서 정면으로 공격하는 몬스터, 여러 총알 동시에 사용
-/// </summary>
+
 public class BossMonster : Monster, IFire
 {
     public float FireCoolTime { get; set; }
     public bool IsFireAble { get; set; }
     [SerializeField] private bool _move;
-    private int _pattern;
-    
+    int _bulletCount;
+    float _bossPatternCooltime;
     protected override void Awake()
     {
         base.Awake();
-        _currentHp = 1;
-        FireCoolTime = 1f;
+        FireCoolTime = 0.1f;
         IsFireAble = true;
         _damage = 1;
+        _bulletCount = 10;
+        _bossPatternCooltime = 2f;
     }
-
-    protected override void Update()
+    private void OnEnable()
     {
-        base.Update();
-        Fire();
-        _pattern = Random.Range(1, 7);
+        _currentHp = 10;
     }
-
-    protected override void FixedUpdate()
+    protected  void Start()
     {
-        if (_move)
-        {
-            base.FixedUpdate();
-        }
+        StartCoroutine(BossPattern());
     }
-    
     public IEnumerator FireUpdate(float coolTime)
     {
         yield return new WaitForSeconds(coolTime);
@@ -47,29 +36,59 @@ public class BossMonster : Monster, IFire
     {
         if (IsFireAble)
         {
+            float angle = 150f / (_bulletCount - 3);
             var _rot = transform.eulerAngles;
-            Managers.Resource.Instantiate("MonsterBullet", transform.position,
-                Quaternion.Euler(_rot.x, _rot.y, _rot.z - 30f));
-            Managers.Resource.Instantiate("MonsterBullet", transform.position,
-                Quaternion.Euler(_rot.x, _rot.y, _rot.z - 20f));
-            Managers.Resource.Instantiate("MonsterBullet", transform.position,
-                Quaternion.Euler(_rot.x, _rot.y, _rot.z - 10f));
-            Managers.Resource.Instantiate("MonsterBullet" , transform.position, _rot);
-            Managers.Resource.Instantiate("MonsterBullet", transform.position,
-                Quaternion.Euler(_rot.x, _rot.y, _rot.z + 10f));
-            Managers.Resource.Instantiate("MonsterBullet", transform.position,
-                Quaternion.Euler(_rot.x, _rot.y, _rot.z + 20f));
-            Managers.Resource.Instantiate("MonsterBullet", transform.position,
-                Quaternion.Euler(_rot.x, _rot.y, _rot.z + 30f));
-
-            StartCoroutine("FireUpdate", FireCoolTime);
+            for (int i = 0; i < (_bulletCount - 3); i++)
+            {
+                Managers.Resource.Instantiate("MonsterBullet", transform.position,
+                Quaternion.Euler(_rot.x, _rot.y, _rot.z - 70f + (angle * i)));
+            }
             IsFireAble = false;
+            StartCoroutine("FireUpdate", FireCoolTime);
         }
     }
-    
-    private void OnEnable()
-    {
-        _currentHp = 1;
-    }
-}   
 
+    public IEnumerator Shoot()
+    {
+        float angle = 150f / _bulletCount;
+        var _rot = transform.eulerAngles;
+        for (int i = 0; i < _bulletCount; i++)
+        {
+            Managers.Resource.Instantiate("MonsterBullet", transform.position,
+            Quaternion.Euler(_rot.x, _rot.y, _rot.z - 70f + (angle * i)));
+            yield return new WaitForSeconds(0.1f);
+        }
+    }
+    private IEnumerator BossPattern()
+    {
+        int currentPhase = 1;
+        while (!_isDead)
+        {
+            switch (currentPhase)
+            {
+                case 1:
+                    Fire();
+                    break;
+
+                case 2:
+                    StartCoroutine(Shoot());
+                    break;
+
+                case 3:
+                    //작업중
+                    break;
+                default:
+                    break;
+            }
+            yield return new WaitForSeconds(_bossPatternCooltime);
+            if (currentPhase < 3)
+            {
+                currentPhase++;
+            }
+            else
+            {
+                currentPhase = 1;
+            }
+        }
+    }
+}
