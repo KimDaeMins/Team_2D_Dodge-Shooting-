@@ -132,7 +132,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27e1559de5294be59e52371fd5b82ca9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 500
+  _speed: 120
+  _maxHp: 2
 --- !u!1001 &1759519567638609862
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -193,6 +194,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 0731f9634b78f0e409999c6e158f5cf7, type: 2}
+    - target: {fileID: 21242702, guid: bc08bfc906ef3d64f884772a793b77c2, type: 3}
+      propertyPath: m_SortingOrder
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

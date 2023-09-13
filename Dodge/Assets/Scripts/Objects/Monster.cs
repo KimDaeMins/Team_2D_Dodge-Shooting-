@@ -9,22 +9,31 @@ using UnityEngine.Serialization;
 public class Monster : Object_Base
 
 {
+    [SerializeField] protected int _maxHp;
     protected int _currentHp { get; set; }
     protected Vector2 _moveDirection { get; set; }
     protected int _damage { get; set; }
     protected Rigidbody2D _rigidbody;
-    
+
+    UI_Monster_HpBar _hpBar;
     protected virtual void Awake()
     {
+        _currentHp = _maxHp;
         _rigidbody = GetComponent<Rigidbody2D>();
         _objectType = Define.Object.Monster;
-        Managers.Object.Add(this.gameObject , Define.Object.Monster);
+        //Managers.Object.Add(this.gameObject , Define.Object.Monster);
         Vector3 position = transform.position;
         position.y -= transform.GetChild(0).GetComponent<SpriteRenderer>().size.y * 0.5f * transform.GetChild(0).transform.localScale.y * transform.localScale.y;
-        GameObject go = Managers.Resource.Instantiate("MonsterHpBar" , position, Quaternion.identity);
-        Util.GetOrAddComponent<UI_Monster_HpBar>(go);
+        GameObject go = Managers.Resource.Instantiate("MonsterHpBar" , position, Quaternion.identity, transform);
+        _hpBar = Util.GetOrAddComponent<UI_Monster_HpBar>(go);
+        _hpBar.MaxBar = _maxHp;
     }
 
+    protected virtual void OnEnable()
+    {
+        _currentHp = _maxHp;
+        //_hpBar.SetHpBar(_currentHp);
+    }
     protected virtual void Update()
     {
         MoveDirectionUpdate();
@@ -49,11 +58,13 @@ public class Monster : Object_Base
     public void GetDamage(int damage)
     {
         _currentHp -= damage;
+        _hpBar.SetHpBar(_currentHp);
     }
 
     public void RecoverHp(int heal)
     {
         _currentHp += heal;
+        _hpBar.SetHpBar(_currentHp);
     }
 
     private void CheckDead()
@@ -86,10 +97,6 @@ public class Monster : Object_Base
     
     protected void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("PlayerBullet"))
-        {
-            GetDamage(100);
-        }
     
         if (other.gameObject.CompareTag("Player"))
         {

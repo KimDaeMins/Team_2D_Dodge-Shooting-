@@ -37,6 +37,7 @@ public class Player : Object_Base, IFire
         _rb2d = this.GetComponent<Rigidbody2D>();
         _objectType = Define.Object.Player;
         Managers.Object.Add(this.gameObject , Define.Object.Player);
+        Managers.Resource.Instantiate("RushMonster" , transform.position + new Vector3(0 , -5 , 0));
     }
     public IEnumerator FireUpdate(float coolTime)
     {

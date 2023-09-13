@@ -74,7 +74,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 10
   m_Sprite: {fileID: 21300094, guid: 4d4886106cb4d344bbc1d39bea0b7697, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -141,7 +141,7 @@ Transform:
   m_Children:
   - {fileID: 720354853954382531}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &3350222895506428814
 BoxCollider2D:
@@ -228,6 +228,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 100
+  _maxHp: 3
   _move: {x: 1, y: 0, z: 0}
   _bulletCount: 3
   _bullet: MonsterBullet
@@ -298,6 +299,10 @@ PrefabInstance:
     - target: {fileID: 472866, guid: 99161f4fbb663cc4d86f59a72bb811fa, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 21272866, guid: 99161f4fbb663cc4d86f59a72bb811fa, type: 3}
+      propertyPath: m_SortingOrder
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

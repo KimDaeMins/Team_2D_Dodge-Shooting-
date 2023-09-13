@@ -18,9 +18,9 @@ public class BossMonster : Monster, IFire
         _bulletCount = 10;
         _bossPatternCooltime = 2f;
     }
-    private void OnEnable()
+    protected override void OnEnable()
     {
-        _currentHp = 10;
+        base.OnEnable();
     }
     protected  void Start()
     {

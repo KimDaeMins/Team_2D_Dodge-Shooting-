@@ -34,7 +34,7 @@ Transform:
   m_Children:
   - {fileID: 1883316211129708525}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &8503461438703606093
 Rigidbody2D:
@@ -133,6 +133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 100
+  _maxHp: 5
   _move: 1
   _radial: 1
 --- !u!1001 &1883316211129366619
@@ -195,6 +196,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 89acf911cc4b26f4d8bc77c65f1ce982, type: 2}
+    - target: {fileID: 21281206, guid: 54f4bf3e43f94ee4780c4be32dbe78b7, type: 3}
+      propertyPath: m_SortingOrder
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

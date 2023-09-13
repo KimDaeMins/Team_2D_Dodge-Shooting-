@@ -17,9 +17,9 @@ public class RushMonster : Monster
         base.Awake();
         _damage = 1;
     }
-    
-    private void OnEnable()
+
+    protected override void OnEnable()
     {
-        _currentHp = 1;
+        base.OnEnable();
     }
 }   
