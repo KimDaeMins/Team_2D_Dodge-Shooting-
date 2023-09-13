@@ -17,6 +17,7 @@ public class ClearBomb : Inven_Base
         int bulletCount = monsterBullets.Count;
         for(int i = 0 ; i < bulletCount ; ++i)
         {
+            float time = Time.deltaTime;
             if(monsterBullets.Count >= 1)
                 Managers.Resource.Destroy(monsterBullets.First.Value);
         }

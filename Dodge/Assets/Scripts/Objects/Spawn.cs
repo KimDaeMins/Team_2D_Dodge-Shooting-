@@ -11,27 +11,44 @@ public class Spawn : Object_Base
     private Queue<string> _names = new Queue<string>();
     private Queue<Vector3> _vecs = new Queue<Vector3>();
     private Queue<Quaternion> _quats = new Queue<Quaternion>();
+    public GameObject _waveManager;
 
     private void Awake()
     {
         int childCount = transform.childCount;
 
-        while(transform.childCount > 0)
+        for(int i = 0 ; i <  transform.childCount ; ++i)
         {
-            Transform t = transform.GetChild(0);
+
+            
+            Transform t = transform.GetChild(i);
+            RushMonster r = t.GetComponent<RushMonster>();
             int index = name.LastIndexOf(' ');
 
-            _names.Enqueue(t.name.Substring(0, index));
+            if (index > 0)
+                _names.Enqueue(t.name.Substring(0 , index));
+            else
+                _names.Enqueue(t.name);
             _vecs.Enqueue(t.position);
             _quats.Enqueue(t.rotation);
-
-            Managers.Resource.Destroy(t.gameObject);
+            t.gameObject.SetActive(false);
         }
+
+        //int check = 0;
+        //int child = transform.childCount;
+        //foreach(Transform t in transform)
+        //{
+        //    ++check;
+        //    Managers.Resource.Destroy(t.gameObject);
+        //}
+        //if(check != child)
+        //Debug.Log($"?{check}");
     }
     private void Update()
     {
         if(_names.Count == 0)
         {
+            _waveManager.GetComponent<WaveManager>().ResetNowSpawn();
             Managers.Resource.Destroy(this.gameObject);
             return;
         }
