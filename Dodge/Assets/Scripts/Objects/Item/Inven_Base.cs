@@ -7,7 +7,7 @@ public abstract class Inven_Base
 {
     private string _name;
     public string Name { get => _name; }
-    public int Count { get; set; } = 0;
+    public int Count { get; set; } = 1;
 
     private int _maxCount;
     public int MaxCount { get => _maxCount; }
