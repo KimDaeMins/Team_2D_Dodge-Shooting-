@@ -26,15 +26,16 @@ public class Jamming : MonoBehaviour
         // ÀÏÁ¤ ½Ã°£ÀÌ Áö³ª¸é ÆÄ±«
         if (Time.time - startTime >= destroyDelay)
         {
-            Destroy(transform.parent.gameObject); // Àç¹Ö¹ã ÇÁ¸®ÆÕ°ú ÇÔ²² ÆÄ±«
+            Managers.Resource.Destroy(transform.parent.gameObject); // Àç¹Ö¹ã ÇÁ¸®ÆÕ°ú ÇÔ²² ÆÄ±«
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log("Trigger entered!");
         if (other.CompareTag("MonsterBullet"))
         {
-            Destroy(other.gameObject);
+            Managers.Resource.Destroy(other.gameObject);
         }
     }
 }
