@@ -31,7 +31,7 @@ public class WaveManager : MonoBehaviour
         {
             _waves.Enqueue(wave);
         }
-        nowWaveData = _waves.Dequeue();
+        //nowWaveData = _waves.Dequeue();
     }
 
     // Update is called once per frame

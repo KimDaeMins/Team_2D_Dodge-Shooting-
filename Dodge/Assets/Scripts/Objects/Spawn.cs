@@ -23,7 +23,7 @@ public class Spawn : Object_Base
             
             Transform t = transform.GetChild(i);
             RushMonster r = t.GetComponent<RushMonster>();
-            int index = name.LastIndexOf(' ');
+            int index = t.name.LastIndexOf(' ');
 
             if (index > 0)
                 _names.Enqueue(t.name.Substring(0 , index));
