@@ -30,7 +30,7 @@ public class UI_Inven : UI_Base
                 item.Init();
                 item.transform.SetParent(panel.transform);
                 Managers.Data._itemUIsList[i].Add(item);
-                item.SetSprite(Managers.Data._itemslist[i]._sprite);
+                item.SetSprite(Managers.Resource.LoadSprite(Managers.Data._itemslist[i].Name));
             }
             Managers.Data.ItemUpdate(i);
         }

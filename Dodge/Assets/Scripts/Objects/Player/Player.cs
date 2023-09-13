@@ -16,13 +16,15 @@ public class Player : Object_Base, IFire
     public Camera _camera;
     public Vector2 _aim;
     public int _powerLevel = 1;
-
+    UI_PlayerHp _playerhp;
 
     public string _bullet;
     bool _isSkill = true;
     private void OnEnable()
     {
-        _hp = 10;
+        _hp = 200;
+        _playerhp.MaxBar = _hp;
+        _playerhp.SetHpBar(_hp);
     }
     private void Awake()
     {
@@ -37,6 +39,7 @@ public class Player : Object_Base, IFire
         _rb2d = this.GetComponent<Rigidbody2D>();
         _objectType = Define.Object.Player;
         Managers.Object.Add(this.gameObject , Define.Object.Player);
+        _playerhp = transform.GetChild(2).GetComponent<UI_PlayerHp>();
     }
     public IEnumerator FireUpdate(float coolTime)
     {
@@ -47,7 +50,41 @@ public class Player : Object_Base, IFire
     {
         if (IsFireAble)
         {
-            GameObject go = Managers.Resource.Instantiate(_bullet, _bulletTrans.position , this.transform.rotation);
+
+            GameObject go;
+            switch (_powerLevel)
+            {
+                case 1:
+                    go = Managers.Resource.Instantiate(_bullet , _bulletTrans.position , this.transform.rotation);
+                    go.GetComponent<IBullet>().Damage = _atk;
+                    break;
+                case 2:
+                    go = Managers.Resource.Instantiate(_bullet , _bulletTrans.position , this.transform.rotation);
+                    go.GetComponent<IBullet>().Damage = _atk;
+                    go = Managers.Resource.Instantiate(_bullet , _bulletTrans.position , this.transform.rotation * Quaternion.Euler(0,0,30));
+                    go.GetComponent<IBullet>().Damage = _atk;
+                    go = Managers.Resource.Instantiate(_bullet , _bulletTrans.position , this.transform.rotation * Quaternion.Euler(0 , 0 , -30));
+                    go.GetComponent<IBullet>().Damage = _atk;
+                    break;
+                case 3:
+                    _bullet = "PlayerGudiedBullet";
+                    go = Managers.Resource.Instantiate(_bullet , _bulletTrans.position , this.transform.rotation * Quaternion.Euler(0 , 0 , 30));
+                    go.GetComponent<IBullet>().Damage = _atk;
+                    go = Managers.Resource.Instantiate(_bullet , _bulletTrans.position , this.transform.rotation * Quaternion.Euler(0 , 0 , -30));
+                    go.GetComponent<IBullet>().Damage = _atk;
+                    break;
+                case 4:
+                    go = Managers.Resource.Instantiate(_bullet , _bulletTrans.position , this.transform.rotation);
+                    go.GetComponent<IBullet>().Damage = _atk;
+                    go = Managers.Resource.Instantiate(_bullet , _bulletTrans.position , this.transform.rotation * Quaternion.Euler(0 , 0 , -30));
+                    go.GetComponent<IBullet>().Damage = _atk;
+                    go = Managers.Resource.Instantiate(_bullet , _bulletTrans.position , this.transform.rotation * Quaternion.Euler(0 , 0 , 30));
+                    go.GetComponent<IBullet>().Damage = _atk;
+                    break;
+                default:
+                    break;
+            }
+            go = Managers.Resource.Instantiate(_bullet, _bulletTrans.position , this.transform.rotation);
             go.GetComponent<IBullet>().Damage = _atk;
             StartCoroutine("FireUpdate", FireCoolTime);
             IsFireAble = false;
@@ -61,6 +98,7 @@ public class Player : Object_Base, IFire
     public void GetDamage(int damage)
     {
         _hp -= damage;
+        _playerhp.SetHpBar(_hp);
         _animator.SetTrigger("Hit");
         if (_hp <= 0)
         {

@@ -31,7 +31,7 @@ public class WaveManager : MonoBehaviour
         {
             _waves.Enqueue(wave);
         }
-        //nowWaveData = _waves.Dequeue();
+        nowWaveData = _waves.Dequeue();
     }
 
     // Update is called once per frame
@@ -43,7 +43,7 @@ public class WaveManager : MonoBehaviour
         if(nowSpawn == null)
         {
             nowTime += Time.deltaTime;
-            if(nowTime > nowWaveData.waitTime)
+            if(nowTime > nowWaveData.waitTime && Managers.Object.GetObjectCount(Define.Object.Monster) < 3)
             {
                 nowSpawn = Managers.Resource.Instantiate(nowWaveData.spawnName);
                 nowSpawn.GetComponent<Spawn>()._waveManager = this.gameObject;

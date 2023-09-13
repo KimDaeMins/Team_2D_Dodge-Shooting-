@@ -98,6 +98,29 @@ public class Monster : Object_Base
         Managers.Resource.Destroy(this.gameObject);
         Managers.Resource.Instantiate("MonsterExplosion",
             new Vector3(_rigidbody.position.x, _rigidbody.position.y, 0));
+
+        System.Random random = new System.Random();
+        int a = random.Next(0 , 100);
+        if(a > 5)
+        {
+            Managers.Resource.Instantiate("AddPowerLevelItem", transform.position);
+        }
+        else if(a > 10)
+        {
+            Managers.Resource.Instantiate("ClearBombItem" , transform.position);
+        }
+        else if (a > 15)
+        {
+            Managers.Resource.Instantiate("EnhancementBuffItem" , transform.position);
+        }
+        else if ( a > 20)
+        {
+            Managers.Resource.Instantiate("JammingBombItem" , transform.position);
+        }
+        else if( a > 25 )
+        {
+            Managers.Resource.Instantiate("MissileBombItem" , transform.position);
+        }
     }
 
     private void Move()
