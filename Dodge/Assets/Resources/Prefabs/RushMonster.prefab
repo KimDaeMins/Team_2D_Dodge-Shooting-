@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 1308695698679584133}
   - component: {fileID: 753349747921143716}
   - component: {fileID: 5175345084348357775}
-  - component: {fileID: 4400298696484894258}
   - component: {fileID: 1051805874667000628}
   m_Layer: 7
   m_Name: RushMonster
@@ -35,7 +34,7 @@ Transform:
   m_Children:
   - {fileID: 1759519567638724232}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &1308695698679584133
 Rigidbody2D:
@@ -121,27 +120,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 373a19c02e38b9d4fa435e2f009f70c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!95 &4400298696484894258
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2228406030574429010}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 0731f9634b78f0e409999c6e158f5cf7, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &1051805874667000628
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -211,6 +189,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9542702, guid: bc08bfc906ef3d64f884772a793b77c2, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 0731f9634b78f0e409999c6e158f5cf7, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
