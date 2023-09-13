@@ -18,7 +18,7 @@ public class Monster : Object_Base
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         _objectType = Define.Object.Monster;
-        //Managers.Object.Add(this.gameObject , Define.Object.Monster);
+        Managers.Object.Add(this.gameObject , Define.Object.Monster);
     }
 
     protected virtual void Update()
