@@ -20,6 +20,7 @@ public class WaveManager : MonoBehaviour
     private Wave nowWaveData;
     private GameObject nowSpawn;
     private float nowTime;
+    private bool _allSpawn;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,7 +37,7 @@ public class WaveManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (_waves.Count == 0)
+        if (_allSpawn)
             return;
 
         if(nowSpawn == null)
@@ -45,9 +46,21 @@ public class WaveManager : MonoBehaviour
             if(nowTime > nowWaveData.waitTime)
             {
                 nowSpawn = Managers.Resource.Instantiate(nowWaveData.spawnName);
+                nowSpawn.GetComponent<Spawn>()._waveManager = this.gameObject;
+                if (_waves.Count == 0)
+                {
+                    _allSpawn = true;
+                    return;
+                }
                 nowWaveData = _waves.Dequeue();
+                nowTime = 0;
             }
             
         }
+    }
+
+    public void ResetNowSpawn()
+    {
+        nowSpawn = null;
     }
 }

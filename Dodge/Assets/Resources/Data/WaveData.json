@@ -1,16 +1,5 @@
 {
-  "spawns": [
-    {
-      "spawnName": "dsa",
-      "waitTime": "1"
-    },
-    {
-      "spawnName": "dsa",
-      "waitTime": "3"
-    },
-    {
-      "spawnName": "dsa",
-      "waitTime": "5"
-    }
+  "waves": [
+   
   ]
 }
