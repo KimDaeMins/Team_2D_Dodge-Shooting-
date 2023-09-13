@@ -9,6 +9,7 @@ TagManager:
   - Monster
   - Hit
   - Item
+  - Jamming
   layers:
   - Default
   - TransparentFX
@@ -22,7 +23,7 @@ TagManager:
   - MonsterBullet
   - Item
   - Hit
-  - 
+  - Jamming
   - 
   - 
   - 
