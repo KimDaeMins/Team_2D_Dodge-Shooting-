@@ -12,6 +12,7 @@ public class MultiBulletMonster : Monster, IFire
     public bool IsFireAble { get; set; }
     [SerializeField] private bool _move;
     [SerializeField] private bool _radial;
+
     
     protected override void Awake()
     {
@@ -20,6 +21,7 @@ public class MultiBulletMonster : Monster, IFire
         FireCoolTime = 1f;
         IsFireAble = true;
         _damage = 1;
+
     }
 
     protected override void Update()
@@ -49,47 +51,30 @@ public class MultiBulletMonster : Monster, IFire
             var _rot = transform.eulerAngles;
             if (_radial)
             {
-                Managers.Resource.Instantiate("MonsterBullet" , transform.position, _rot);
-                Managers.Resource.Instantiate("MonsterBullet", transform.position,
-                    Quaternion.Euler(_rot.x, _rot.y, _rot.z + 30f));
-                Managers.Resource.Instantiate("MonsterBullet", transform.position,
-                    Quaternion.Euler(_rot.x, _rot.y, _rot.z + 60f));
-                Managers.Resource.Instantiate("MonsterBullet", transform.position,
-                    Quaternion.Euler(_rot.x, _rot.y, _rot.z + 90f));       
-                Managers.Resource.Instantiate("MonsterBullet", transform.position,
-                    Quaternion.Euler(_rot.x, _rot.y, _rot.z + 120f));
-                Managers.Resource.Instantiate("MonsterBullet", transform.position,
-                    Quaternion.Euler(_rot.x, _rot.y, _rot.z + 150f));
-                Managers.Resource.Instantiate("MonsterBullet", transform.position,
-                    Quaternion.Euler(_rot.x, _rot.y, _rot.z + 180f));
-                Managers.Resource.Instantiate("MonsterBullet", transform.position,
-                    Quaternion.Euler(_rot.x, _rot.y, _rot.z + 210f));
-                Managers.Resource.Instantiate("MonsterBullet", transform.position,
-                    Quaternion.Euler(_rot.x, _rot.y, _rot.z + 240f));       
-                Managers.Resource.Instantiate("MonsterBullet", transform.position,
-                    Quaternion.Euler(_rot.x, _rot.y, _rot.z + 270f));
-                Managers.Resource.Instantiate("MonsterBullet", transform.position,
-                    Quaternion.Euler(_rot.x, _rot.y, _rot.z + 300f));
-                Managers.Resource.Instantiate("MonsterBullet", transform.position,
-                    Quaternion.Euler(_rot.x, _rot.y, _rot.z + 330f));
+                int bulletCount = 12;
+                float angleStep = 360f / bulletCount;
+                for (int i = 0; i < bulletCount; i++)
+                {
+                    float angle = i * angleStep;
+                    Managers.Resource.Instantiate("MonsterBullet", transform.position,
+                        Quaternion.Euler(0, 0, _rot.z + angle));
+                }
             }
             else
             {
+                int bulletCount = 9;
+                float angleStep = 60f / (bulletCount - 1);
                 Managers.Resource.Instantiate("MonsterBullet", transform.position,
-                    Quaternion.Euler(_rot.x, _rot.y, _rot.z - 30f));
-                Managers.Resource.Instantiate("MonsterBullet", transform.position,
-                    Quaternion.Euler(_rot.x, _rot.y, _rot.z - 20f));
-                Managers.Resource.Instantiate("MonsterBullet", transform.position,
-                    Quaternion.Euler(_rot.x, _rot.y, _rot.z - 10f));
-                Managers.Resource.Instantiate("MonsterBullet" , transform.position, _rot);
-                Managers.Resource.Instantiate("MonsterBullet", transform.position,
-                    Quaternion.Euler(_rot.x, _rot.y, _rot.z + 10f));
-                Managers.Resource.Instantiate("MonsterBullet", transform.position,
-                    Quaternion.Euler(_rot.x, _rot.y, _rot.z + 20f));
-                Managers.Resource.Instantiate("MonsterBullet", transform.position,
-                    Quaternion.Euler(_rot.x, _rot.y, _rot.z + 30f));
+                    Quaternion.Euler(0, 0, _rot.z));
+                for (int i = 1; i < bulletCount / 2; i++)
+                {
+                    float angle = i * angleStep;
+                    Managers.Resource.Instantiate("MonsterBullet", transform.position,
+                        Quaternion.Euler(0, 0, _rot.z - angle));
+                    Managers.Resource.Instantiate("MonsterBullet", transform.position,
+                        Quaternion.Euler(0, 0, _rot.z + angle));
+                }
             }
-            
             StartCoroutine("FireUpdate", FireCoolTime);
             IsFireAble = false;
         }
