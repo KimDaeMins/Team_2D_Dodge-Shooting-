@@ -5,13 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f95643c2-9dc4-42e2-bfa0-a4e67c890455" name="변경" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Objects/MultiBulletMonster.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Objects/MultiBulletMonster.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Dodge/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Dodge/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animator/Monster/RightMoveMonster.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animator/Monster/RightMoveMonster.controller" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Sample.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Sample.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Objects/LeftMoveMonster.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Objects/LeftMoveMonster.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Objects/Monster.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Objects/Monster.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/enemypack001sepia/pics/enemies001a_26.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/enemypack001sepia/pics/enemies001a_26.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/enemypack001sepia/pics/enemies001a_4.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/enemypack001sepia/pics/enemies001a_4.controller" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,7 +122,7 @@
       <workItem from="1694395053071" duration="19024000" />
       <workItem from="1694481851284" duration="6092000" />
       <workItem from="1694498887608" duration="8530000" />
-      <workItem from="1694567175069" duration="3717000" />
+      <workItem from="1694567175069" duration="5993000" />
     </task>
     <servers />
   </component>
