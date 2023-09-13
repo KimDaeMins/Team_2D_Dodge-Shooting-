@@ -109,5 +109,26 @@ public class Player : Object_Base, IFire
         _powerLevel++;
         Debug.Log("공격력 증가");
     }
+    public void MissileFire()
+    {
+        if (IsFireAble)
+        {
+            Managers.Resource.Instantiate("Missile", _bulletTrans.position, this.transform.rotation);
+            
+         
+            Managers.Sound.Play("Fire", Define.Sound.Effect, 1);
+        
+        }
+    }
 
+    public void JammingFire()
+    {
+        if (IsFireAble)
+        {
+            Managers.Resource.Instantiate("JammingBomb", _bulletTrans.position, this.transform.rotation);
+            
+            Managers.Sound.Play("Fire", Define.Sound.Effect, 1);
+        }
+        
+    }
 }
