@@ -17,6 +17,8 @@ public class ClearBomb : Inven_Base
         //    Destroy(bullet);
         //}
 
+        Managers.Resource.Instantiate("ClearBomb");
+
         LinkedList<GameObject> monsterBullets = Managers.Object.GetAllObject(Define.Object.MonsterBullet);
         foreach (GameObject bullet in monsterBullets)
         {
