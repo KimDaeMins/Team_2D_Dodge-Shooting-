@@ -13,12 +13,16 @@ public class Monster : Object_Base
     protected Vector2 _moveDirection { get; set; }
     protected int _damage { get; set; }
     protected Rigidbody2D _rigidbody;
-
+    
     protected virtual void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         _objectType = Define.Object.Monster;
         Managers.Object.Add(this.gameObject , Define.Object.Monster);
+        Vector3 position = transform.position;
+        position.y -= transform.GetChild(0).GetComponent<SpriteRenderer>().size.y * 0.5f * transform.GetChild(0).transform.localScale.y * transform.localScale.y;
+        GameObject go = Managers.Resource.Instantiate("MonsterHpBar" , position, Quaternion.identity);
+        Util.GetOrAddComponent<UI_Monster_HpBar>(go);
     }
 
     protected virtual void Update()
