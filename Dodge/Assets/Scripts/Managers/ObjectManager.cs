@@ -40,6 +40,10 @@ public class  ObjectManager
     {
         _objects[type].Clear();
     }
+    public int GetObjectCount(Define.Object type)
+    {
+        return _objects[type].Count;
+    }
     public GameObject GetNearObject(GameObject go, Define.Object type)
     {
         float nearDis = 9999;

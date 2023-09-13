@@ -1,5 +1,44 @@
 {
   "waves": [
-   
+      {
+        "spawnName": "Spawn1",
+        "waitTime": "3"
+      },
+      {
+        "spawnName": "Spawn2",
+        "waitTime": "3"
+      },
+      {
+        "spawnName": "Spawn3",
+        "waitTime": "3"
+      },
+      {
+        "spawnName": "Spawn4",
+        "waitTime": "3"
+      },
+      {
+        "spawnName": "Spawn5",
+        "waitTime": "3"
+      },
+      {
+        "spawnName": "Spawn6",
+        "waitTime": "3"
+      },
+      {
+        "spawnName": "Spawn7",
+        "waitTime": "3"
+      },
+      {
+        "spawnName": "Spawn8",
+        "waitTime": "3"
+      },
+      {
+        "spawnName": "Spawn9",
+        "waitTime": "3"
+      },
+      {
+        "spawnName": "Spawn10",
+        "waitTime": "3"
+      }
   ]
 }
