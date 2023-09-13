@@ -19,18 +19,11 @@ public class GuidedMonster : Monster, IFire
     protected override void Awake()
     {
         base.Awake();
-        _currentHp = 1;
-        _lifetime = 20;
         _damage = 1;
         FireCoolTime = 1f;
         IsFireAble = true;
     }
-
-    private void OnEnable()
-    {
-        _currentHp = 1;
-        _lifetime = 20;
-    }
+    
     protected void Start()
     {
         _player = Managers.Object.GetPlayer();
@@ -100,5 +93,11 @@ public class GuidedMonster : Monster, IFire
             StartCoroutine("FireUpdate", FireCoolTime);
             IsFireAble = false;
         }
+    }
+    
+    private void OnEnable()
+    {
+        _lifetime = 20;
+        _currentHp = 1;
     }
 }   

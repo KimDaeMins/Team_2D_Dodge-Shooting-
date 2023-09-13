@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.Design;
 using Unity.VisualScripting;
@@ -21,10 +22,6 @@ public class MoveMonster : Monster, IFire
         IsFireAble = true;
         _damage = 1;
         _move = _move.normalized;
-    }
-    private void OnEnable()
-    {
-        _currentHp = 1;
     }
     protected override void Update()
     {
@@ -52,6 +49,7 @@ public class MoveMonster : Monster, IFire
             StartCoroutine("FireUpdate", FireCoolTime);
         }
     }
+ 
     public IEnumerator Shoot()
     {
         for (int i = 0; i < _bulletCount; i++)
@@ -59,6 +57,11 @@ public class MoveMonster : Monster, IFire
             Managers.Resource.Instantiate(_bullet, transform.position, transform.rotation);
             yield return new WaitForSeconds(0.05f);
         }
+    }
+    
+    private void OnEnable()
+    {
+        _currentHp = 1;
     }
 }   
 
