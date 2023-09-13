@@ -15,7 +15,7 @@ public class Player : Object_Base, IFire
     public int _atk;
     public Camera _camera;
     public Vector2 _aim;
-    private int _powerLevel = 1;
+    public int _powerLevel = 1;
 
 
     public string _bullet;
