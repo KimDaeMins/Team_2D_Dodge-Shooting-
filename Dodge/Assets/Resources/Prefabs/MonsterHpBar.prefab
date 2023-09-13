@@ -164,7 +164,7 @@ GameObject:
   - component: {fileID: 7965519629204207949}
   - component: {fileID: 6284278791624468671}
   - component: {fileID: 1473046127352245547}
-  - component: {fileID: 7903486848760203578}
+  - component: {fileID: 4177179903482641473}
   m_Layer: 5
   m_Name: MonsterHpBar
   m_TagString: Untagged
@@ -239,7 +239,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &1473046127352245547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -257,7 +257,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &7903486848760203578
+--- !u!114 &4177179903482641473
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

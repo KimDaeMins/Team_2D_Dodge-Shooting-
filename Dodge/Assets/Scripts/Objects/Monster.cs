@@ -26,11 +26,11 @@ public class Monster : Object_Base
         position.y -= transform.GetChild(0).GetComponent<SpriteRenderer>().size.y * 0.5f * transform.GetChild(0).transform.localScale.y * transform.localScale.y;
         GameObject go = Managers.Resource.Instantiate("MonsterHpBar" , position, Quaternion.identity, transform);
         _hpBar = Util.GetOrAddComponent<UI_Monster_HpBar>(go);
-        _hpBar.MaxBar = _maxHp;
     }
 
     protected virtual void OnEnable()
     {
+        _hpBar.MaxBar = _maxHp;
         _currentHp = _maxHp;
         //_hpBar.SetHpBar(_currentHp);
     }
