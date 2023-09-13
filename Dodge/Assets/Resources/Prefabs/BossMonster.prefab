@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 8679172458342128153}
   - component: {fileID: 3555533460168085245}
   - component: {fileID: 1991885159076869688}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BossMonster
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32,8 +32,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 6066169465011533730}
   - {fileID: 4943998569588305163}
+  - {fileID: 6066169465011533730}
   - {fileID: 7966486238425226383}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -108,7 +108,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.85, y: 0.89}
+  m_Size: {x: 3, y: 3}
   m_EdgeRadius: 0
 --- !u!114 &3555533460168085245
 MonoBehaviour:
@@ -148,6 +148,10 @@ PrefabInstance:
     - target: {fileID: 106710, guid: f0f85e73e0e8ff2449218602194fd4cf, type: 3}
       propertyPath: m_Name
       value: MainSprite
+      objectReference: {fileID: 0}
+    - target: {fileID: 106710, guid: f0f85e73e0e8ff2449218602194fd4cf, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 406710, guid: f0f85e73e0e8ff2449218602194fd4cf, type: 3}
       propertyPath: m_RootOrder
@@ -219,6 +223,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RightFire
       objectReference: {fileID: 0}
+    - target: {fileID: 160482, guid: 1a31c8ec877173849bd424d432ba88a8, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 460482, guid: 1a31c8ec877173849bd424d432ba88a8, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -288,6 +296,10 @@ PrefabInstance:
     - target: {fileID: 160482, guid: 1a31c8ec877173849bd424d432ba88a8, type: 3}
       propertyPath: m_Name
       value: LeftFire
+      objectReference: {fileID: 0}
+    - target: {fileID: 160482, guid: 1a31c8ec877173849bd424d432ba88a8, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 460482, guid: 1a31c8ec877173849bd424d432ba88a8, type: 3}
       propertyPath: m_RootOrder
