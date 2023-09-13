@@ -40,10 +40,17 @@ public class ResourceManager
             return null;
         }
 
-        if (original.TryGetComponent<Poolable>(out Poolable p))
-            return Managers.Pool.Pop(original , parent).gameObject;
 
-        GameObject go = Object.Instantiate(original , parent);
+        GameObject go;
+        if (original.TryGetComponent<Poolable>(out Poolable p))
+        {
+            go = Managers.Pool.Pop(original , parent).gameObject;
+            if (go.TryGetComponent<Object_Base>(out Object_Base oo))
+                Managers.Object.Add(go , oo.ObejctType);
+            return go;
+        }
+
+        go = Object.Instantiate(original , parent);
         go.name = original.name;
 
         if (go.TryGetComponent<Object_Base>(out Object_Base o))
@@ -60,19 +67,25 @@ public class ResourceManager
             return null;
         }
 
-
-        if (original.TryGetComponent<Poolable>(out Poolable p))
-            return Managers.Pool.Pop(original , pos , q , parent).gameObject;
-
-
         GameObject go;
+        if (original.TryGetComponent<Poolable>(out Poolable p))
+        {
+            go = Managers.Pool.Pop(original , pos , q , parent).gameObject;
+            if (go.TryGetComponent<Object_Base>(out Object_Base oo))
+                Managers.Object.Add(go , oo.ObejctType);
+            return go;
+        }
+
+        
         if (parent == null)
             go = Object.Instantiate(original , pos , q);
         else
             go = Object.Instantiate(original , pos , q , parent);
         go.name = original.name;
+
         if (go.TryGetComponent<Object_Base>(out Object_Base o))
             Managers.Object.Add(go , o.ObejctType);
+
         return go;
     }
 
@@ -102,8 +115,10 @@ public class ResourceManager
         if (go.TryGetComponent<Object_Base>(out Object_Base o))
             Managers.Object.Remove(go , o.ObejctType);
         if (go.TryGetComponent<Poolable>(out Poolable p))
+        {
             Managers.Pool.Push(p);
-
+            return;
+        }
         Object.Destroy(go , t);
     }
     public void Destroy(MonoBehaviour mob , float t = 0.0f)

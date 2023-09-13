@@ -29,6 +29,10 @@ public class PlayerGudiedBullet : Object_Base, IBullet
         set => _target = value;
     }
 
+    private void OnEnable()
+    {
+        _lifeTime = 10.0f;
+    }
 
     private void Awake()
     {
