@@ -23,9 +23,9 @@ public class MoveMonster : Monster, IFire
         _damage = 1;
         _move = _move.normalized;
     }
-    private void OnEnable()
+    protected override void OnEnable()
     {
-        _currentHp = 1;
+        base.OnEnable();
     }
     protected override void Update()
     {

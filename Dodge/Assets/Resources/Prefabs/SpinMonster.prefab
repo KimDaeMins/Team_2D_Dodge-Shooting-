@@ -34,7 +34,7 @@ Transform:
   m_Children:
   - {fileID: 7040631938620689171}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &9191063723177172666
 BoxCollider2D:
@@ -121,6 +121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 0
+  _maxHp: 2
   _bullet: MonsterBullet
 --- !u!114 &6350752398538253742
 MonoBehaviour:
@@ -207,7 +208,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: 21300052, guid: 4d4886106cb4d344bbc1d39bea0b7697, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

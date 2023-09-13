@@ -6,7 +6,7 @@ public class Bullet : Object_Base, IBullet
 {
     private GameObject _hitEffect;
     private Rigidbody2D _rigidBody;
-    private int _damage = 5; // 총알 데미지
+    private int _damage = 1; // 총알 데미지
     private float _lifeTime = 10.0f; //총알이 살아있는 시간
     private GameObject _target;  //유도 시스템 시 target 탐색
 

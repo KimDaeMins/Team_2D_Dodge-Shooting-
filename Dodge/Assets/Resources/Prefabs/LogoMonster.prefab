@@ -155,6 +155,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 1800
+  _maxHp: 1
 --- !u!1001 &1759519567638609862
 PrefabInstance:
   m_ObjectHideFlags: 0

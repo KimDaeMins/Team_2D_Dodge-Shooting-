@@ -19,7 +19,6 @@ public class MultiBulletMonster : Monster, IFire
     protected override void Awake()
     {
         base.Awake();
-        _currentHp = 1;
         FireCoolTime = 1f;
         IsFireAble = true;
         _damage = 1;
@@ -78,10 +77,10 @@ public class MultiBulletMonster : Monster, IFire
             IsFireAble = false;
         }
     }
-    
-    private void OnEnable()
+
+    protected override void OnEnable()
     {
-        _currentHp = 1;
+        base.OnEnable();
     }
 }   
 

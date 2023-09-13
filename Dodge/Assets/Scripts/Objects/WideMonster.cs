@@ -17,9 +17,9 @@ public class WideMonster : Monster, IFire
         _damage = 1;
         _bulletCount = 12;
     }
-    private void OnEnable()
+    protected override void OnEnable()
     {
-        _currentHp = 1;
+        base.OnEnable();
     }
     protected override void Update()
     {
