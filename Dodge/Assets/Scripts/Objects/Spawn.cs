@@ -22,6 +22,9 @@ public class Spawn : Object_Base
             
             
             Transform t = transform.GetChild(i);
+            
+            if (t.TryGetComponent<Poolable>(out Poolable p))
+                Destroy(p);
 
             int index = t.name.LastIndexOf(' ');
 

@@ -79,7 +79,7 @@ public class LaserBullet : Object_Base, IBullet
 
         return false;
     }
-    public void Move()
+    public virtual void Move()
     {
         if (transform.tag == "PlayerBullet")
         {

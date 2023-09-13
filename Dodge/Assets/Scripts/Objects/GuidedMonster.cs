@@ -71,7 +71,7 @@ public class GuidedMonster : Monster, IFire
                 {
                     angle = transform.rotation.eulerAngles.z + Mathf.Min(10, angle);
                 }
-                transform.rotation = Quaternion.Lerp(transform.rotation , Quaternion.Euler(0 , 0 , angle).normalized , 0.2f);
+                transform.rotation = Quaternion.Lerp(transform.rotation , Quaternion.Euler(0 , 0 , angle) , 0.2f);
             }
         }
     }

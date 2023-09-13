@@ -120,9 +120,11 @@ public class ResourceManager
             return;
         }
         Object.Destroy(go , t);
+        go = null;
     }
     public void Destroy(MonoBehaviour mob , float t = 0.0f)
     {
         Destroy(mob.gameObject , t);
+        mob = null;
     }
 }

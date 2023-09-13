@@ -29,7 +29,7 @@ public class MonsterGuidedLaserBullet : LaserBullet
         }
     }
 
-    private void Move()
+    public override void Move()
     {
         _rigidBody.velocity = transform.right * _speed * Time.deltaTime;
     }

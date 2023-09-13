@@ -24,7 +24,6 @@ public class Player : Object_Base, IFire
     {
         _hp = 200;
         _playerhp.MaxBar = _hp;
-        _playerhp.SetHpBar(_hp);
     }
     private void Awake()
     {

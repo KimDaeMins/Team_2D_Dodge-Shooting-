@@ -49,11 +49,15 @@ public class Monster : Object_Base
             _hpBar = go.GetComponent<UI_Monster_Hp>();
             _hpBar._parentObject = this.gameObject;
             _hpBar._offset = position;
+            _hpBar.MaxBar = _maxHp;
         }
-        _hpBar.gameObject.SetActive(true);
-        _hpBar.MaxBar = _maxHp;
+        StopAllCoroutines();
         _currentHp = _maxHp;
         //_hpBar.SetHpBar(_currentHp);
+    }
+    protected virtual void OnDisable()
+    {
+        _hpBar = null;
     }
     protected virtual void Update()
     {

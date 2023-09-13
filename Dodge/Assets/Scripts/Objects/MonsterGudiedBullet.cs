@@ -112,7 +112,7 @@ public class MonsterGudiedBullet : Object_Base, IBullet
                         angle = transform.rotation.eulerAngles.z + Mathf.Min(10, angle);
                     }
 
-                    transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, 0, angle).normalized, RATE);
+                    transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, 0, angle), RATE);
                     // angle이 윗 방향과 target의 각도.
                 }
                 else

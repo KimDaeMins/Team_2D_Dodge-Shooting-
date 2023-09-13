@@ -7,9 +7,8 @@ public class SpinMonster : Monster, IFire
     public float FireCoolTime { get; set; }
     public bool IsFireAble { get; set; }
     private float _rotationSpeed;
-    private int _stage;
+    private int _stage = 1;
     private float _lifeTime = 0;
-    private Animator _animator;
     [SerializeField] string _bullet;
     protected override void Awake()
     {
