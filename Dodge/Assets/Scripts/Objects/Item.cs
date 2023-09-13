@@ -47,16 +47,19 @@ public class Item : Object_Base
     }
     private void Update()
     {
-        
 
+        Vector3 currentPosition = transform.position;
+        currentPosition.x = Mathf.Clamp(currentPosition.x, -9f, 9f);
+        currentPosition.y = Mathf.Clamp(currentPosition.y, -5f, 5f);
+        transform.position = currentPosition;
 
         // 화면 경계에 부딪혔을 때 튕기는 처리
-        if (transform.position.x < -9 || transform.position.x > 9)
+        if (transform.position.x <= -9 || transform.position.x >= 9)
         {
             _moveDir.x *= -1; // x 방향 반전
             rb.velocity = _moveDir * _speed; // 반전된 방향으로 이동
         }
-        if (transform.position.y < -5 || transform.position.y > 5)
+        if (transform.position.y <= -5 || transform.position.y >= 5)
         {
             _moveDir.y *= -1; // y 방향 반전
             rb.velocity = _moveDir * _speed; // 반전된 방향으로 이동
