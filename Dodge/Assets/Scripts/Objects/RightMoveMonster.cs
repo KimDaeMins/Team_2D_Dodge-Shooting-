@@ -17,6 +17,7 @@ public class RightMoveMonster : Monster, IFire
         _currentHp = 1;
         FireCoolTime = 1f;
         IsFireAble = true;
+        _damage = 1;
     }
 
     protected override void Update()
@@ -45,23 +46,6 @@ public class RightMoveMonster : Monster, IFire
             StartCoroutine("FireUpdate", FireCoolTime);
             IsFireAble = false;
         }
-    }
-    
-    protected void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject.CompareTag("PlayerBullet"))
-        {
-            GetDamage(100);
-        }
-    
-        if (other.gameObject.CompareTag("Player"))
-        {
-            Dead();
-        }
-    }
-    private void OnEnable()
-    {
-        _currentHp = 1;
     }
 }   
 
