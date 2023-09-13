@@ -66,6 +66,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RightMoveMonster
       objectReference: {fileID: 0}
+    - target: {fileID: 4404798434197952006, guid: 718fa1c54b261854c9aad9481ce86dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4697691259736162697, guid: 718fa1c54b261854c9aad9481ce86dfd, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -131,6 +135,10 @@ PrefabInstance:
     - target: {fileID: 4404798434197952006, guid: 718fa1c54b261854c9aad9481ce86dfd, type: 3}
       propertyPath: m_Name
       value: RightMoveMonster (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4404798434197952006, guid: 718fa1c54b261854c9aad9481ce86dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4697691259736162697, guid: 718fa1c54b261854c9aad9481ce86dfd, type: 3}
       propertyPath: m_RootOrder
@@ -255,6 +263,10 @@ PrefabInstance:
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 9215639624776094330, guid: 688912fca78b4974586afe5f84b4fd54, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9215639624776094330, guid: 688912fca78b4974586afe5f84b4fd54, type: 3}
       propertyPath: m_TagString
       value: Monster
       objectReference: {fileID: 0}
@@ -279,6 +291,10 @@ PrefabInstance:
     - target: {fileID: 4404798434197952006, guid: 1f9adca2d854bc14296a947ac74585c5, type: 3}
       propertyPath: m_Name
       value: LeftMoveMonster (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4404798434197952006, guid: 1f9adca2d854bc14296a947ac74585c5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4697691259736162697, guid: 1f9adca2d854bc14296a947ac74585c5, type: 3}
       propertyPath: m_RootOrder
@@ -403,6 +419,10 @@ PrefabInstance:
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 9215639624776094330, guid: eb6cf7db494729448af8b7c3687032c9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9215639624776094330, guid: eb6cf7db494729448af8b7c3687032c9, type: 3}
       propertyPath: m_TagString
       value: Monster
       objectReference: {fileID: 0}
@@ -427,6 +447,10 @@ PrefabInstance:
     - target: {fileID: 4404798434197952006, guid: 1f9adca2d854bc14296a947ac74585c5, type: 3}
       propertyPath: m_Name
       value: LeftMoveMonster
+      objectReference: {fileID: 0}
+    - target: {fileID: 4404798434197952006, guid: 1f9adca2d854bc14296a947ac74585c5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4697691259736162697, guid: 1f9adca2d854bc14296a947ac74585c5, type: 3}
       propertyPath: m_RootOrder
