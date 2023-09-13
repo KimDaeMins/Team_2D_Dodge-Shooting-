@@ -6,25 +6,10 @@ public class JammingBomb : Inven_Base
 {
     public override void UseItem()
     {
+        // JammingPrefab을 생성
+        //GameObject jammingBomb = Managers.Resource.Instantiate("JammingBomb");
 
-        Managers.Resource.Instantiate("JammingPrefab");
-
-
-        //LinkedList<GameObject> monsterBullets = Managers.Object.GetAllObject(Define.Object.MonsterBullet);
-        //void OnTriggerEnter2D(Collider2D other)
-        //{
-        //    if (other.CompareTag("monsterBullet"))
-        //    {
-        //        Player player = other.GetComponent<Player>();
-
-
-
-        //        // 아이템을 화면에서 제거하거나 기타 처리를 할 수 있습니다.
-        //        Managers.Resource.Destroy(monsterBullets);
-        //        Debug.Log("투사체를 국소적으로 파괴합니다.");
-
-        //    }
-        //}
-        
+        //Debug.Log("재밍 폭탄이 발사됩니다.");
+        Managers.Object.GetPlayer().GetComponent<Player>().JammingFire();
     }
 }

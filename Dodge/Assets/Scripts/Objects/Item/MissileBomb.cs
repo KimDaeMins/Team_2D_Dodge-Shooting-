@@ -7,13 +7,19 @@ public class MissileBomb : Inven_Base
 {
     
 
+    // Player스크립트 안에 있는 불렛트랜스를 그 이후에 받아오시면
+
+
+
     public override void UseItem()
     {
-        Managers.Resource.Instantiate("missilePrefab"); 
+        //Player player = Managers.Object.GetPlayer().GetComponent<Player>();
 
+        //    _bulletTrans = player._bulletTrans;
 
+        //GameObject missile = Managers.Resource.Instantiate("Missile", _bulletTrans.position, _bulletTrans.rotation);
 
-        Debug.Log("강력한 미사일을 발사합니다.");
+        Managers.Object.GetPlayer().GetComponent<Player>().MissileFire();
     }
 
    
