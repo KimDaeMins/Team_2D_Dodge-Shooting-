@@ -10,6 +10,7 @@ public class MultiBulletMonster : Monster, IFire
 {
     public float FireCoolTime { get; set; }
     public bool IsFireAble { get; set; }
+    [SerializeField] private bool _move;
     
     protected override void Awake()
     {
@@ -28,6 +29,10 @@ public class MultiBulletMonster : Monster, IFire
 
     protected override void FixedUpdate()
     {
+        if (_move)
+        {
+            base.FixedUpdate();
+        }
     }
     
     public IEnumerator FireUpdate(float coolTime)
@@ -58,6 +63,11 @@ public class MultiBulletMonster : Monster, IFire
             StartCoroutine("FireUpdate", FireCoolTime);
             IsFireAble = false;
         }
+    }
+    
+    private void OnEnable()
+    {
+        _currentHp = 1;
     }
 }   
 
