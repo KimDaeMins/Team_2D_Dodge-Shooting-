@@ -30,6 +30,10 @@ public class MonsterGudiedBullet : Object_Base, IBullet
         get => _target;
         set => _target = value;
     }
+    private void OnEnable()
+    {
+        _lifeTime = 10.0f;
+    }
 
 
     private void Awake()

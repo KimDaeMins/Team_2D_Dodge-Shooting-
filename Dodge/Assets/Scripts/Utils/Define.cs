@@ -27,4 +27,5 @@ public class Define
         MonsterBullet,
         None
     }
+    //Á¦³×¸¯
 }

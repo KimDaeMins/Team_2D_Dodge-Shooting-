@@ -15,16 +15,19 @@ public class GuidedMonster : Monster, IFire
     private Vector3 _playerPosition;
     private Vector2 _playerDirection;
     private float _lifetime;
-    private int _damage;
 
     protected override void Awake()
     {
         base.Awake();
-        _currentHp = 1;
-        _lifetime = 20;
         _damage = 1;
         FireCoolTime = 1f;
         IsFireAble = true;
+    }
+
+    protected override void OnEnable()
+    {
+        _lifetime = 20;
+        base.OnEnable();
     }
 
     protected void Start()
@@ -95,19 +98,6 @@ public class GuidedMonster : Monster, IFire
             
             StartCoroutine("FireUpdate", FireCoolTime);
             IsFireAble = false;
-        }
-    }
-    protected void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject.CompareTag("PlayerBullet"))
-        {
-            GetDamage(100);
-        }
-    
-        if (other.gameObject.CompareTag("Player"))
-        {
-            other.GetComponent<Player>().GetDamage(_damage);
-            Dead();
         }
     }
 }   

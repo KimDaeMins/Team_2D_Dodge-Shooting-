@@ -6,7 +6,7 @@ public class Bullet : Object_Base, IBullet
 {
     private GameObject _hitEffect;
     private Rigidbody2D _rigidBody;
-    private int _damage = 5; // 총알 데미지
+    private int _damage = 1; // 총알 데미지
     private float _lifeTime = 10.0f; //총알이 살아있는 시간
     private GameObject _target;  //유도 시스템 시 target 탐색
 
@@ -26,6 +26,10 @@ public class Bullet : Object_Base, IBullet
         set => _target = value; 
     }
 
+    private void OnEnable()
+    {
+        _lifeTime = 10.0f;
+    }
 
     private void Awake()
     {
@@ -36,9 +40,9 @@ public class Bullet : Object_Base, IBullet
 
     public void Move()
     {
-        if(gameObject.name == "MonsterBullet")
+        if(gameObject.tag == "MonsterBullet")
             _rigidBody.velocity = transform.up * _speed * Time.deltaTime;  //몬스터 불렛 아래방향 발사
-        if(gameObject.name == "PlayerBullet")
+        if(gameObject.tag == "PlayerBullet")
             _rigidBody.velocity = transform.up * _speed * Time.deltaTime;   //플레이어 불렛 윗방향 발사
     }
 

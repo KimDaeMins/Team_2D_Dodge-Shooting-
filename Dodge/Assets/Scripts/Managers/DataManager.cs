@@ -11,6 +11,7 @@ public class DataManager
     public RuntimeAnimatorController AnimatorController { get; set; }
 
     public Dictionary<string, Inven_Base> _itemsDic = new Dictionary<string , Inven_Base>();
+    public List< List<UI_Inven_Item>> _itemUIsList = new List< List<UI_Inven_Item>>();
     public List<Inven_Base> _itemslist = new List<Inven_Base>();
 
     public void Init()
@@ -27,24 +28,25 @@ public class DataManager
         clearBomb.InitItem("ClearBomb", 1);
         _itemsDic.Add(clearBomb.Name, clearBomb);
         _itemslist.Add(clearBomb);
-
+        _itemUIsList.Add(new List<UI_Inven_Item>());
         // JammingBomb 아이템 초기화
         Inven_Base jammingBomb = new JammingBomb();
         jammingBomb.InitItem("JammingBomb", 3);
         _itemsDic.Add(jammingBomb.Name, jammingBomb);
         _itemslist.Add(jammingBomb);
-
+        _itemUIsList.Add(new List<UI_Inven_Item>());
         // MissileBomb 아이템 초기화
         Inven_Base missileBomb = new MissileBomb();
         missileBomb.InitItem("MissileBomb", 3);
         _itemsDic.Add(missileBomb.Name, missileBomb);
         _itemslist.Add(missileBomb);
-
+        _itemUIsList.Add(new List<UI_Inven_Item>());
         // EnhancementBuff 아이템 초기화
         Inven_Base enhancementBuff = new EnhancementBuff();
         enhancementBuff.InitItem("EnhancementBuff", 1);
         _itemsDic.Add(enhancementBuff.Name, enhancementBuff);
         _itemslist.Add(enhancementBuff);
+        _itemUIsList.Add(new List<UI_Inven_Item>());
     }
 
     public bool UseItem(int index)
@@ -56,31 +58,24 @@ public class DataManager
         }
 
         _itemslist[index].Count -= 1;
-        switch (index)
-        {
-            case 0: // ClearBomb
-                    // ClearBomb에 대한 작업 수행
-                Debug.Log("ClearBomb을 사용했습니다.");
-                break;
-            case 1: // JammingBomb
-                    // JammingBomb에 대한 작업 수행
-                Debug.Log("JammingBomb을 사용했습니다.");
-                break;
-            case 2: // MissileBomb
-                    // MissileBomb에 대한 작업 수행
-                Debug.Log("MissileBomb을 사용했습니다.");
-                break;
-            case 3: // EnhancementBuff
-                    // EnhancementBuff에 대한 작업 수행
-                Debug.Log("EnhancementBuff를 사용했습니다.");
-                break;
-            default:
-                Debug.Log("알 수 없는 아이템을 사용했습니다.");
-                break;
-        }
+
+        _itemslist[index].UseItem();
+
+        ItemUpdate(index);
 
 
         return true;
+    }
+
+    public void ItemUpdate(int index)
+    {
+        for (int i = 0 ; i < _itemUIsList[index].Count ; ++i)
+        {
+            if (i < _itemslist[index].Count)
+                _itemUIsList[index][i].ItemUpdate(true);
+            else
+                _itemUIsList[index][i].ItemUpdate(false);
+        }
     }
 
     public bool GetItem(int index, int count = 1)
@@ -89,16 +84,22 @@ public class DataManager
             return false;
 
         _itemslist[index].Count = Math.Min(_itemslist[index].MaxCount , _itemslist[index].Count + count);
+
+        ItemUpdate(index);
         return true;
     }
     public bool GetItem(Item item)
     {
         Inven_Base it = _itemsDic[item.Name];
-
         if (it.Count == it.MaxCount)
             return false;
 
+        
+
         it.Count = Math.Min(it.MaxCount , it.Count + item.Count);
+
+        ItemUpdate(_itemslist.IndexOf(it));
+
         return true;
     }
 }

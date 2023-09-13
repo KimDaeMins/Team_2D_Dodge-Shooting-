@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.Design;
 using Unity.VisualScripting;
@@ -6,19 +7,26 @@ using UnityEngine;
 /// <summary>
 /// 오른쪽으로 이동하며 정면으로 공격하는 몬스터, 이동 후 일정이상 스크린 밖으로 벗어나면 사라짐
 /// </summary>
-public class RightMoveMonster : Monster, IFire
+public class MoveMonster : Monster, IFire
 {
     public float FireCoolTime { get; set; }
     public bool IsFireAble { get; set; }
-    
+    [SerializeField] Vector3 _move;
+    [SerializeField] int _bulletCount;
+    [SerializeField] string _bullet;
+
     protected override void Awake()
     {
         base.Awake();
-        _currentHp = 1;
         FireCoolTime = 1f;
         IsFireAble = true;
+        _damage = 1;
+        _move = _move.normalized;
     }
-
+    protected override void OnEnable()
+    {
+        base.OnEnable();
+    }
     protected override void Update()
     {
         base.Update();
@@ -27,7 +35,7 @@ public class RightMoveMonster : Monster, IFire
 
     protected override void MoveDirectionUpdate()
     {
-        _moveDirection = transform.right * (_speed * Time.deltaTime);
+        _moveDirection = this.transform.rotation * _move * (_speed * Time.deltaTime);
     }
     
     public IEnumerator FireUpdate(float coolTime)
@@ -40,24 +48,22 @@ public class RightMoveMonster : Monster, IFire
     {
         if (IsFireAble)
         {
-            Managers.Resource.Instantiate("LaserBullet" , transform.position, transform.rotation);
-            
-            StartCoroutine("FireUpdate", FireCoolTime);
+
+            StartCoroutine(Shoot());
             IsFireAble = false;
+            StartCoroutine("FireUpdate", FireCoolTime);
         }
     }
-    
-    protected void OnTriggerEnter2D(Collider2D other)
+ 
+    public IEnumerator Shoot()
     {
-        if (other.gameObject.CompareTag("PlayerBullet"))
+        for (int i = 0; i < _bulletCount; i++)
         {
-            GetDamage(100);
-        }
-    
-        if (other.gameObject.CompareTag("Player"))
-        {
-            Dead();
+            Managers.Resource.Instantiate(_bullet, transform.position, transform.rotation);
+            yield return new WaitForSeconds(0.05f);
         }
     }
+    
+   
 }   
 
