@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 720354853954382531}
   - component: {fileID: 3548119161834811293}
   - component: {fileID: 8302647986954450801}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: enemies001a_47
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -120,9 +120,9 @@ GameObject:
   - component: {fileID: 2043838412191484659}
   - component: {fileID: 6616869460283516126}
   - component: {fileID: 6550389046192867046}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: RightVolleyMonster
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -255,6 +255,10 @@ PrefabInstance:
     - target: {fileID: 172866, guid: 99161f4fbb663cc4d86f59a72bb811fa, type: 3}
       propertyPath: m_Name
       value: fire002anim
+      objectReference: {fileID: 0}
+    - target: {fileID: 172866, guid: 99161f4fbb663cc4d86f59a72bb811fa, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 472866, guid: 99161f4fbb663cc4d86f59a72bb811fa, type: 3}
       propertyPath: m_RootOrder
