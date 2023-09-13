@@ -4,7 +4,7 @@ using System.ComponentModel.Design;
 using Unity.VisualScripting;
 using UnityEngine;
 /// <summary>
-/// 오른쪽으로 이동하며 정면으로 공격하는 몬스터, 이동 후 일정이상 스크린 밖으로 벗어나면 사라짐
+/// 왼쪽으로 이동하며 정면으로 공격하는 몬스터, 이동 후 일정이상 스크린 밖으로 벗어나면 사라짐
 /// </summary>
 public class LeftMoveMonster : Monster, IFire
 {
