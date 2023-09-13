@@ -73,7 +73,7 @@ public class PlayerGudiedBullet : Object_Base, IBullet
         {
             _hitEffect = Managers.Resource.Instantiate("MonsterHitEffect", transform.position);
             Managers.Resource.Destroy(_hitEffect, 0.5f);
-            other.GetComponent<Player>().GetDamage(_damage);
+            other.GetComponent<Monster>().GetDamage(_damage);
             Managers.Resource.Destroy(this.gameObject);
         }
     }

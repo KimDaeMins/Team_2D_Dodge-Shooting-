@@ -66,6 +66,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RushMonster
       objectReference: {fileID: 0}
+    - target: {fileID: 2228406030574429010, guid: f49c73ddd212c1849833f52697ae7efb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3781238978324106850, guid: f49c73ddd212c1849833f52697ae7efb, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -131,6 +135,10 @@ PrefabInstance:
     - target: {fileID: 7310181062225068765, guid: bd910bf71fa285844b9e7d31378ebe7a, type: 3}
       propertyPath: m_Name
       value: RadialMonster
+      objectReference: {fileID: 0}
+    - target: {fileID: 7310181062225068765, guid: bd910bf71fa285844b9e7d31378ebe7a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8278804394139107911, guid: bd910bf71fa285844b9e7d31378ebe7a, type: 3}
       propertyPath: m_RootOrder
@@ -198,6 +206,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RushMonster (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2228406030574429010, guid: f49c73ddd212c1849833f52697ae7efb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3781238978324106850, guid: f49c73ddd212c1849833f52697ae7efb, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -263,6 +275,10 @@ PrefabInstance:
     - target: {fileID: 7310181062225068765, guid: bd910bf71fa285844b9e7d31378ebe7a, type: 3}
       propertyPath: m_Name
       value: RadialMonster (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7310181062225068765, guid: bd910bf71fa285844b9e7d31378ebe7a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8278804394139107911, guid: bd910bf71fa285844b9e7d31378ebe7a, type: 3}
       propertyPath: m_RootOrder
@@ -330,6 +346,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RushMonster (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 2228406030574429010, guid: f49c73ddd212c1849833f52697ae7efb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3781238978324106850, guid: f49c73ddd212c1849833f52697ae7efb, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -395,6 +415,10 @@ PrefabInstance:
     - target: {fileID: 2228406030574429010, guid: f49c73ddd212c1849833f52697ae7efb, type: 3}
       propertyPath: m_Name
       value: RushMonster (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2228406030574429010, guid: f49c73ddd212c1849833f52697ae7efb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3781238978324106850, guid: f49c73ddd212c1849833f52697ae7efb, type: 3}
       propertyPath: m_RootOrder

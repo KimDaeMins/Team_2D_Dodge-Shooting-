@@ -19,10 +19,10 @@ public class Spawn : Object_Base
 
         for(int i = 0 ; i <  transform.childCount ; ++i)
         {
-
+            
             
             Transform t = transform.GetChild(i);
-            RushMonster r = t.GetComponent<RushMonster>();
+
             int index = t.name.LastIndexOf(' ');
 
             if (index > 0)
@@ -36,13 +36,13 @@ public class Spawn : Object_Base
 
         //int check = 0;
         //int child = transform.childCount;
-        //foreach(Transform t in transform)
+        //foreach (Transform t in transform)
         //{
         //    ++check;
         //    Managers.Resource.Destroy(t.gameObject);
         //}
-        //if(check != child)
-        //Debug.Log($"?{check}");
+        //if (check != child)
+        //    Debug.Log($"?{check}");
     }
     private void Update()
     {
@@ -74,5 +74,6 @@ public class Spawn : Object_Base
     protected virtual void Create()
     {
         Managers.Resource.Instantiate(_names.Dequeue() , _vecs.Dequeue() , _quats.Dequeue());
+       
     }
 }

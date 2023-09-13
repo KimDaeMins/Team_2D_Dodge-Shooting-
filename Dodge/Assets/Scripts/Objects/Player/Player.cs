@@ -82,10 +82,18 @@ public class Player : Object_Base, IFire
                     go.GetComponent<IBullet>().Damage = _atk;
                     break;
                 default:
+                    go = Managers.Resource.Instantiate(_bullet , _bulletTrans.position , this.transform.rotation);
+                    go.GetComponent<IBullet>().Damage = _atk;
+                    go = Managers.Resource.Instantiate(_bullet , _bulletTrans.position , this.transform.rotation * Quaternion.Euler(0 , 0 , -30));
+                    go.GetComponent<IBullet>().Damage = _atk;
+                    go = Managers.Resource.Instantiate(_bullet , _bulletTrans.position , this.transform.rotation * Quaternion.Euler(0 , 0 , 30));
+                    go.GetComponent<IBullet>().Damage = _atk;
+                    go = Managers.Resource.Instantiate(_bullet , _bulletTrans.position , this.transform.rotation * Quaternion.Euler(0 , 0 , -50));
+                    go.GetComponent<IBullet>().Damage = _atk;
+                    go = Managers.Resource.Instantiate(_bullet , _bulletTrans.position , this.transform.rotation * Quaternion.Euler(0 , 0 , 50));
+                    go.GetComponent<IBullet>().Damage = _atk;
                     break;
             }
-            go = Managers.Resource.Instantiate(_bullet, _bulletTrans.position , this.transform.rotation);
-            go.GetComponent<IBullet>().Damage = _atk;
             StartCoroutine("FireUpdate", FireCoolTime);
             IsFireAble = false;
             Managers.Sound.Play("Fire", Define.Sound.Effect, 1);
@@ -164,11 +172,12 @@ public class Player : Object_Base, IFire
     {
         if (IsFireAble)
         {
-            Managers.Resource.Instantiate("JammingBomb", _bulletTrans.position, this.transform.rotation);
-            
-            Managers.Sound.Play("Fire", Define.Sound.Effect, 1);
+            Managers.Resource.Instantiate("JammingBomb" , _bulletTrans.position , this.transform.rotation);
+
+            Managers.Sound.Play("Fire" , Define.Sound.Effect , 1);
         }
-        
+
+    }
 
     public IEnumerator activatebuff()
     {

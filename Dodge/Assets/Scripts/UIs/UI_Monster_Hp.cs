@@ -8,6 +8,9 @@ public class UI_Monster_Hp : MonoBehaviour
     RectTransform _rectTransform;
     public GameObject _parentObject;
     public Vector3 _offset;
+    bool firstUpdate = false;
+    bool secondUpdate = false;
+    bool thirdpdate = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,6 +18,9 @@ public class UI_Monster_Hp : MonoBehaviour
     }
     private void OnEnable()
     {
+        firstUpdate = false;
+        secondUpdate = false;
+        thirdpdate = false;
         //SetHpBar(MaxBar);
     }
     private void OnDisable()
@@ -22,6 +28,7 @@ public class UI_Monster_Hp : MonoBehaviour
         Vector2 localScale = _rectTransform.localScale;
         localScale.x = 1;
         _rectTransform.localScale = localScale;
+        gameObject.SetActive(false);
     }
     public void SetHpBar(int currentHp)
     {
@@ -33,7 +40,19 @@ public class UI_Monster_Hp : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       // transform.rotation = Quaternion.Inverse(_parentObject.transform.rotation);
-        transform.position = _parentObject.transform.position + _offset;
+        if (_parentObject.activeSelf == false)
+            gameObject.SetActive(false);
+        // transform.rotation = Quaternion.Inverse(_parentObject.transform.rotation);
+        if (thirdpdate)
+            transform.position = _parentObject.transform.position + _offset;
+        else
+        {
+            if (secondUpdate)
+                thirdpdate = true;
+            if(firstUpdate)
+                secondUpdate = true;
+            transform.position = new Vector3(1000 , 1000 , 0);
+            firstUpdate = true;
+        }
     }
 }
