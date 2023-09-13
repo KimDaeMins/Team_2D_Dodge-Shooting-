@@ -44,15 +44,21 @@ public class MoveMonster : Monster, IFire
     {
         if (IsFireAble)
         {
-            for (int i = 0; i < _bulletCount; i++)
-            {
-                Managers.Resource.Instantiate(_bullet, transform.position, transform.rotation);
-            }
+            StartCoroutine(Shoot());
             IsFireAble = false;
             StartCoroutine("FireUpdate", FireCoolTime);
         }
     }
-
+ 
+    public IEnumerator Shoot()
+    {
+        for (int i = 0; i < _bulletCount; i++)
+        {
+            Managers.Resource.Instantiate(_bullet, transform.position, transform.rotation);
+            yield return new WaitForSeconds(0.05f);
+        }
+    }
+    
     private void OnEnable()
     {
         _currentHp = 1;

@@ -53,6 +53,7 @@ public class Managers : MonoBehaviour
             s_instance._sound.Init();
             s_instance._data.Init();
             s_instance._input.Init();
+            s_instance._object.Init();
             
         }
     }
