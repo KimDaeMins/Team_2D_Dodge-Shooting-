@@ -9,6 +9,8 @@ public class BossMonster : Monster, IFire
     [SerializeField] private bool _move;
     int _bulletCount;
     float _bossPatternCooltime;
+    private int _currentPhase;
+
     protected override void Awake()
     {
         base.Awake();
@@ -26,6 +28,7 @@ public class BossMonster : Monster, IFire
     {
         StartCoroutine(BossPattern());
     }
+
     public IEnumerator FireUpdate(float coolTime)
     {
         yield return new WaitForSeconds(coolTime);
@@ -36,12 +39,25 @@ public class BossMonster : Monster, IFire
     {
         if (IsFireAble)
         {
-            float angle = 150f / (_bulletCount - 3);
             var _rot = transform.eulerAngles;
-            for (int i = 0; i < (_bulletCount - 3); i++)
+            if (_currentPhase == 1)
             {
-                Managers.Resource.Instantiate("MonsterBullet", transform.position,
-                Quaternion.Euler(_rot.x, _rot.y, _rot.z - 70f + (angle * i)));
+                float angleStep = 360f / _bulletCount;
+                for (int i = 0; i < _bulletCount; i++)
+                {
+                    float angle = i * angleStep;
+                    Managers.Resource.Instantiate("MonsterBullet", transform.position,
+                        Quaternion.Euler(0, 0, _rot.z + angle));
+                }
+            }
+            else
+            {
+                float angle = 150f / (_bulletCount - 3);
+                for (int i = 0; i < (_bulletCount - 3); i++)
+                {
+                    Managers.Resource.Instantiate("MonsterBullet", transform.position,
+                        Quaternion.Euler(_rot.x, _rot.y, _rot.z - 70f + (angle * i)));
+                }
             }
             IsFireAble = false;
             StartCoroutine("FireUpdate", FireCoolTime);
@@ -61,34 +77,23 @@ public class BossMonster : Monster, IFire
     }
     private IEnumerator BossPattern()
     {
-        int currentPhase = 1;
         while (!_isDead)
         {
-            switch (currentPhase)
+            _currentPhase = Random.Range(1, 4);
+            switch (_currentPhase)
             {
                 case 1:
+                case 2:
                     Fire();
                     break;
 
-                case 2:
-                    StartCoroutine(Shoot());
-                    break;
-
                 case 3:
-                    //작업중
+                    StartCoroutine(Shoot());
                     break;
                 default:
                     break;
             }
             yield return new WaitForSeconds(_bossPatternCooltime);
-            if (currentPhase < 3)
-            {
-                currentPhase++;
-            }
-            else
-            {
-                currentPhase = 1;
-            }
         }
     }
 }
