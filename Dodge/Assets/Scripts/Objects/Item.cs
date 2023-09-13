@@ -15,26 +15,35 @@ public class Item : Object_Base
     public int Count { get; set; } = 1;
 
     
-    private float minX, maxX, minY, maxY; // 화면 경계값
-    private float minBounceAngle = 30f; // 최소 튕김 각도
-    private float maxBounceAngle = 60f; // 최대 튕김 각도
+    
+    
     private Rigidbody2D rb;
 
+    private float x;
+    private float y;
     private void Start()
     {
-        minX = Camera.main.ScreenToWorldPoint(Vector3.zero).x;
-        maxX = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, 0, 0)).x;
-        minY = Camera.main.ScreenToWorldPoint(Vector3.zero).y;
-        maxY = Camera.main.ScreenToWorldPoint(new Vector3(0, Screen.height, 0)).y;
-
+        if (x >= 9)
+        {
+            x = 9;
+        }
+        if (x <= -9)
+        {
+            x = -9;
+        }
+        if (y >= 5)
+        {
+            y = 5;
+        }
+        if (y <= -5)
+        {
+            y = -5;
+        }
 
         rb = GetComponent<Rigidbody2D>();
 
         rb.velocity = _moveDir * _speed;
 
-        float bounceAngle = Random.Range(minBounceAngle, maxBounceAngle);
-        Vector2 bounceDirection = Quaternion.Euler(0f, 0f, bounceAngle) * Vector2.right;
-        rb.velocity = bounceDirection.normalized * _speed;
     }
     private void Update()
     {
@@ -42,12 +51,12 @@ public class Item : Object_Base
 
 
         // 화면 경계에 부딪혔을 때 튕기는 처리
-        if (transform.position.x < minX || transform.position.x > maxX)
+        if (transform.position.x < -9 || transform.position.x > 9)
         {
             _moveDir.x *= -1; // x 방향 반전
             rb.velocity = _moveDir * _speed; // 반전된 방향으로 이동
         }
-        if (transform.position.y < minY || transform.position.y > maxY)
+        if (transform.position.y < -5 || transform.position.y > 5)
         {
             _moveDir.y *= -1; // y 방향 반전
             rb.velocity = _moveDir * _speed; // 반전된 방향으로 이동
