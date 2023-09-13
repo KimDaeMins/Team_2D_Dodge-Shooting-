@@ -19,8 +19,8 @@ public class Item : Object_Base
     
     private Rigidbody2D rb;
 
-    private float x;
-    private float y;
+    
+
     private void Start()
     {
 
@@ -32,10 +32,7 @@ public class Item : Object_Base
     private void Update()
     {
 
-        Vector3 currentPosition = transform.position;
-        currentPosition.x = Mathf.Clamp(currentPosition.x, -9f, 9f);
-        currentPosition.y = Mathf.Clamp(currentPosition.y, -5f, 5f);
-        transform.position = currentPosition;
+        
 
         // 화면 경계에 부딪혔을 때 튕기는 처리
         if (transform.position.x >= -9 || transform.position.x <= 9)
