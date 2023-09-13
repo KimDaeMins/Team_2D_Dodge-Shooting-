@@ -122,6 +122,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 100
+  _move: {x: 1, y: 0, z: 0}
+  _bulletCount: 1
+  _bullet: MonsterBullet
 --- !u!114 &8726504143547909417
 MonoBehaviour:
   m_ObjectHideFlags: 0

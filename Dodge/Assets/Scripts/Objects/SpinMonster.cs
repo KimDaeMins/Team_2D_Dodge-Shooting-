@@ -14,12 +14,15 @@ public class SpinMonster : Monster, IFire
     protected override void Awake()
     {
         base.Awake();
-        _currentHp = 1;
         FireCoolTime = 0.1f - (0.3f * _stage - 1);
         _rotationSpeed = 45f + (0.8f * _stage - 1);
         IsFireAble = true;
         _damage = 1;
         _animator = this.transform.GetChild(0).GetComponent<Animator>();
+    }
+    private void OnEnable()
+    {
+        _currentHp = 1;
     }
     protected override void Update()
     {

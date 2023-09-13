@@ -7,7 +7,6 @@ using UnityEngine.Serialization;
 
 
 public class Monster : Object_Base
-
 {
     protected int _currentHp { get; set; }
     protected Vector2 _moveDirection { get; set; }
@@ -20,7 +19,6 @@ public class Monster : Object_Base
         _objectType = Define.Object.Monster;
         //Managers.Object.Add(this.gameObject , Define.Object.Monster);
     }
-
     protected virtual void Update()
     {
         MoveDirectionUpdate();
