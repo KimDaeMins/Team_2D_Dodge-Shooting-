@@ -94,10 +94,7 @@ public class DataManager
         if (it.Count == it.MaxCount)
             return false;
 
-        if( item.Name == "AddPowerLevel")
-        {
-            Managers.Object.GetPlayer().GetComponent<Player>().AddPowerLevel();
-        }
+        
 
         it.Count = Math.Min(it.MaxCount , it.Count + item.Count);
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using static UnityEditor.Progress;
 
 public class Item : Object_Base
 {
@@ -13,7 +14,7 @@ public class Item : Object_Base
     public Vector2 MoveDir { get => _moveDir; }
     public int Count { get; set; } = 1;
 
-    private bool isMovingUp = true; // 아이템의 초기 이동 방향
+    
     private float minX, maxX, minY, maxY; // 화면 경계값
     private float minBounceAngle = 30f; // 최소 튕김 각도
     private float maxBounceAngle = 60f; // 최대 튕김 각도
@@ -64,7 +65,17 @@ public class Item : Object_Base
         {
             Player player = other.GetComponent<Player>();
             // 플레이어와 충돌했을 때 처리
-            Managers.Data.GetItem(this);
+            if (this._name == "AddPowerLevel")
+            {
+                Managers.Object.GetPlayer().GetComponent<Player>().AddPowerLevel();
+
+
+            }
+            else
+            {
+                Managers.Data.GetItem(this);
+            }
+            
 
             // 아이템을 화면에서 제거하거나 기타 처리를 할 수 있습니다.
             Destroy(gameObject);
