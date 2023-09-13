@@ -63,9 +63,12 @@ public class Item : Object_Base
             // 플레이어와 충돌했을 때 처리
             if (this._name == "AddPowerLevel")
             {
-                Managers.Object.GetPlayer().GetComponent<Player>().AddPowerLevel();
+                int powerLevel = Managers.Object.GetPlayer().GetComponent<Player>()._powerLevel;
 
-
+                if (powerLevel < 5)
+                {
+                    Managers.Object.GetPlayer().GetComponent<Player>().AddPowerLevel();
+                }
             }
             else
             {
