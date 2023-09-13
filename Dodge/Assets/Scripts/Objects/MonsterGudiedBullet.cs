@@ -6,14 +6,15 @@ public class MonsterGudiedBullet : Object_Base, IBullet
 {
     private const float ANGLE = 60f; // 타겟 탐색각도
     private const float RATE = 0.2f; // Lerp 인자
-    private const float TARGET_DEAD_TIME = 5.0f; // 타겟 따라가는 시간
+    private const float TARGET_DEAD_DISTANCE = 2.0f; // 타겟 따라가는 시간
     private GameObject _hitEffect;
     private Rigidbody2D _rigidBody;
     private int _damage = 5; // 총알 데미지
     private float _lifeTime = 10.0f; //총알이 살아있는 시간
     private GameObject _target;  //유도 시스템 시 target 탐색
-    private Vector2 _targetVector;  //타겟 단위벡터
-
+    private Vector2 _targetVector;  //타겟 방향벡터
+    private float _distance = TARGET_DEAD_DISTANCE + 1;
+    [SerializeField] private GameObject TEST;
     public int Damage
     {
         get => _damage;
@@ -45,7 +46,7 @@ public class MonsterGudiedBullet : Object_Base, IBullet
 
     public void Move()
     {
-        _rigidBody.velocity = transform.up * _speed * Time.deltaTime;
+        _rigidBody.velocity = _targetVector * _speed * Time.deltaTime;
     }
 
     public bool DeadCheck()
@@ -79,22 +80,23 @@ public class MonsterGudiedBullet : Object_Base, IBullet
 
     private void Follow()
     {
+        TEST = _target;
         if (_target == null)
         {
-            _target = Managers.Object.GetNearObjectInAngle(gameObject, ANGLE, Define.Object.Player);
+            _distance = TARGET_DEAD_DISTANCE + 1;
+            _target = Managers.Object.GetNearObjectInAngle(this.gameObject, ANGLE, Define.Object.Player);
             return;
         }
 
         if (_target != null)
         {
-            _targetVector = (_target.transform.position - transform.position).normalized;
-            // 내적(dot)을 통해 각도를 구함
-            float dot = Vector3.Dot(transform.up, _targetVector);
-            float angle = Mathf.Acos(dot) * Mathf.Rad2Deg;
-
-            if (gameObject.activeSelf && _lifeTime > TARGET_DEAD_TIME) //총알이 살아있고 얼마나 가까운지 조건 임의로 5초 조건 넣어둠
-            {   
-                
+            if (gameObject.activeSelf && _distance > TARGET_DEAD_DISTANCE) //총알이 살아있고 얼마나 가까운지 조건
+            {
+                _targetVector = (_target.transform.position - transform.position).normalized;
+                // 내적(dot)을 통해 각도를 구함
+                _distance = (_target.transform.position - transform.position).magnitude;
+                float dot = Vector3.Dot(transform.up, _targetVector);
+                float angle = Mathf.Acos(dot) * Mathf.Rad2Deg;
                 if (angle < ANGLE)
                 {
 
