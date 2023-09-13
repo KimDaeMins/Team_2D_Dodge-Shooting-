@@ -101,14 +101,16 @@ public class Monster : Object_Base
         transform.position = Camera.main.ViewportToWorldPoint(pos);
         
         if (pos.x < -0.1f || pos.x > 1.1f || pos.y < -0.1f || pos.y > 1.1f)
-            Dead();
+        {
+            _isDead = true;
+            Managers.Resource.Destroy(this.gameObject);
+        }
+
     }
     
     protected void Dead()
     {
         _isDead = true;
-        Managers.Resource.Destroy(_hpBar);
-        _hpBar = null;
         Managers.Resource.Destroy(this.gameObject);
         Managers.Resource.Instantiate("MonsterExplosion",
             new Vector3(_rigidbody.position.x, _rigidbody.position.y, 0));
