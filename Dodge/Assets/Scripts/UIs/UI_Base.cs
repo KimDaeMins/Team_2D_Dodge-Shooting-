@@ -10,6 +10,7 @@ public abstract class UI_Base : MonoBehaviour
         
     }
 
+    public abstract void Init();
     // Update is called once per frame
     void Update()
     {

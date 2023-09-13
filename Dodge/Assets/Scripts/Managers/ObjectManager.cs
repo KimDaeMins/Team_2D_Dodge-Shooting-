@@ -9,7 +9,10 @@ public class  ObjectManager
 
     public void Init()
     {
-
+        _objects.Add(Define.Object.Player, new LinkedList<GameObject>());
+        _objects.Add(Define.Object.Monster , new LinkedList<GameObject>());
+        _objects.Add(Define.Object.PlayerBullet , new LinkedList<GameObject>());
+        _objects.Add(Define.Object.MonsterBullet , new LinkedList<GameObject>());
     }
     public void Add(GameObject go, Define.Object type)
     {
