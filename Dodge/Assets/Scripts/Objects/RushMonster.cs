@@ -11,12 +11,15 @@ public class RushMonster : Monster
 {
     private Vector3 _playerPosition;
     private Vector2 _playerDirection;
-    private float _lifetime;
 
     protected override void Awake()
     {
         base.Awake();
-        _currentHp = 1;
         _damage = 1;
+    }
+    
+    private void OnEnable()
+    {
+        _currentHp = 1;
     }
 }   

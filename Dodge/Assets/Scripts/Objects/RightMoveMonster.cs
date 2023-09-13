@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.Design;
 using Unity.VisualScripting;
@@ -14,7 +15,6 @@ public class RightMoveMonster : Monster, IFire
     protected override void Awake()
     {
         base.Awake();
-        _currentHp = 1;
         FireCoolTime = 1f;
         IsFireAble = true;
         _damage = 1;
@@ -46,6 +46,11 @@ public class RightMoveMonster : Monster, IFire
             StartCoroutine("FireUpdate", FireCoolTime);
             IsFireAble = false;
         }
+    }
+
+    private void OnEnable()
+    {
+        _currentHp = 1;
     }
 }   
 
