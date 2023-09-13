@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f95643c2-9dc4-42e2-bfa0-a4e67c890455" name="변경" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Objects/MultiBulletMonster.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Objects/MultiBulletMonster.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Dodge/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Dodge/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -120,7 +120,7 @@
       <workItem from="1694481851284" duration="6092000" />
       <workItem from="1694498887608" duration="8530000" />
       <workItem from="1694567175069" duration="3717000" />
-      <workItem from="1694575744749" duration="8165000" />
+      <workItem from="1694575744749" duration="11363000" />
     </task>
     <servers />
   </component>
