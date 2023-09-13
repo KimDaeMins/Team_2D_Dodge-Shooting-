@@ -14,12 +14,13 @@ public class Monster : Object_Base
     protected Vector2 _moveDirection { get; set; }
     protected int _damage { get; set; }
     protected Rigidbody2D _rigidbody;
-
+    protected Animator _animator;
     UI_Monster_HpBar _hpBar;
     protected virtual void Awake()
     {
         _currentHp = _maxHp;
         _rigidbody = GetComponent<Rigidbody2D>();
+        _animator = this.transform.GetChild(0).GetComponent<Animator>();
         _objectType = Define.Object.Monster;
         //Managers.Object.Add(this.gameObject , Define.Object.Monster);
         Vector3 position = transform.position;
@@ -57,6 +58,7 @@ public class Monster : Object_Base
     
     public void GetDamage(int damage)
     {
+        _animator.SetTrigger("Hit");
         _currentHp -= damage;
         _hpBar.SetHpBar(_currentHp);
     }
