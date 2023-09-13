@@ -12,6 +12,8 @@ public class MultiBulletMonster : Monster, IFire
     public bool IsFireAble { get; set; }
     [SerializeField] private bool _move;
     [SerializeField] private bool _radial;
+    private int _bulletCount;
+    private float _angleStep;
 
     
     protected override void Awake()
@@ -21,7 +23,8 @@ public class MultiBulletMonster : Monster, IFire
         FireCoolTime = 1f;
         IsFireAble = true;
         _damage = 1;
-
+        _bulletCount = _radial ? 12 : 7;
+        _angleStep = _radial ? 360f / _bulletCount : 60f / (_bulletCount - 1);
     }
 
     protected override void Update()
@@ -51,24 +54,20 @@ public class MultiBulletMonster : Monster, IFire
             var _rot = transform.eulerAngles;
             if (_radial)
             {
-                int bulletCount = 12;
-                float angleStep = 360f / bulletCount;
-                for (int i = 0; i < bulletCount; i++)
+                for (int i = 0; i < _bulletCount; i++)
                 {
-                    float angle = i * angleStep;
+                    float angle = i * _angleStep;
                     Managers.Resource.Instantiate("MonsterBullet", transform.position,
                         Quaternion.Euler(0, 0, _rot.z + angle));
                 }
             }
             else
             {
-                int bulletCount = 9;
-                float angleStep = 60f / (bulletCount - 1);
                 Managers.Resource.Instantiate("MonsterBullet", transform.position,
                     Quaternion.Euler(0, 0, _rot.z));
-                for (int i = 1; i < bulletCount / 2; i++)
+                for (int i = 1; i <= _bulletCount / 2; i++)
                 {
-                    float angle = i * angleStep;
+                    float angle = i * _angleStep;
                     Managers.Resource.Instantiate("MonsterBullet", transform.position,
                         Quaternion.Euler(0, 0, _rot.z - angle));
                     Managers.Resource.Instantiate("MonsterBullet", transform.position,
