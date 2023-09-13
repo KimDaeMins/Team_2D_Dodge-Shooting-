@@ -47,7 +47,7 @@ public class Player : Object_Base, IFire
     {
         if (IsFireAble)
         {
-            Managers.Resource.Instantiate("PlayerGudiedBullet", _bulletTrans.position , this.transform.rotation);
+            Managers.Resource.Instantiate(_bullet, _bulletTrans.position , this.transform.rotation);
             StartCoroutine("FireUpdate", FireCoolTime);
             IsFireAble = false;
             Managers.Sound.Play("Fire", Define.Sound.Effect, 1);
