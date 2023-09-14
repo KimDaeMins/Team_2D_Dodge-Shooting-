@@ -11,6 +11,7 @@ public class Spawn : Object_Base
     private Queue<string> _names = new Queue<string>();
     private Queue<Vector3> _vecs = new Queue<Vector3>();
     private Queue<Quaternion> _quats = new Queue<Quaternion>();
+    private Queue<float> _speed = new Queue<float>();
     public GameObject _waveManager;
 
     private void Awake()
@@ -34,6 +35,7 @@ public class Spawn : Object_Base
                 _names.Enqueue(t.name);
             _vecs.Enqueue(t.position);
             _quats.Enqueue(t.rotation);
+            _speed.Enqueue(t.GetComponent<Object_Base>()._speed);
             t.gameObject.SetActive(false);
         }
 
@@ -76,7 +78,7 @@ public class Spawn : Object_Base
 
     protected virtual void Create()
     {
-        Managers.Resource.Instantiate(_names.Dequeue() , _vecs.Dequeue() , _quats.Dequeue());
-       
+        Object_Base ob = Managers.Resource.Instantiate(_names.Dequeue() , _vecs.Dequeue() , _quats.Dequeue()).GetComponent<Object_Base>();
+        ob._speed = _speed.Dequeue();
     }
 }

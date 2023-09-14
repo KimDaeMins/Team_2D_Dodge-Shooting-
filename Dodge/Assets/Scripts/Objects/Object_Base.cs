@@ -7,7 +7,7 @@ public abstract class Object_Base : MonoBehaviour
     protected Define.Object _objectType;
     public Define.Object ObejctType { get => _objectType; } 
 
-    [SerializeField] protected float _speed;
+    [SerializeField] public float _speed;
     protected bool _isDead = false;
     // Start is called before the first frame update
     private void Awake()
