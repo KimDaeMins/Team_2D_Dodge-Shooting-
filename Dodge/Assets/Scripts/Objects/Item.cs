@@ -14,6 +14,7 @@ public class Item : Object_Base
     public Vector2 MoveDir { get => _moveDir; }
     public int Count { get; set; } = 1;
 
+    public float _lifeTime = 10;
 
 
     
@@ -31,7 +32,9 @@ public class Item : Object_Base
     }
     private void Update()
     {
-
+        _lifeTime -= Time.deltaTime;
+        if (_lifeTime < 0)
+            Managers.Resource.Destroy(this);
         Vector3 currentPosition = transform.position;
         currentPosition.x = Mathf.Clamp(currentPosition.x, -9f, 9f);
         currentPosition.y = Mathf.Clamp(currentPosition.y, -5f, 5f);
