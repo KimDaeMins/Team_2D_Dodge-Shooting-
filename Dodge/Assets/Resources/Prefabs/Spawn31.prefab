@@ -34,7 +34,7 @@ Transform:
   - {fileID: 5475330939114883965}
   - {fileID: 3493083738438369745}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &213136886432893394
 MonoBehaviour:
@@ -60,6 +60,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 649737565526130921}
     m_Modifications:
+    - target: {fileID: 1051805874667000628, guid: f49c73ddd212c1849833f52697ae7efb, type: 3}
+      propertyPath: _maxHp
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1051805874667000628, guid: f49c73ddd212c1849833f52697ae7efb, type: 3}
+      propertyPath: _speed
+      value: 1500
+      objectReference: {fileID: 0}
     - target: {fileID: 2228406030574429010, guid: f49c73ddd212c1849833f52697ae7efb, type: 3}
       propertyPath: m_Name
       value: RushMonster (1)
@@ -130,6 +138,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BossMonster
       objectReference: {fileID: 0}
+    - target: {fileID: 1991885159076869688, guid: 01dec6aedcfcde347af1291257f8c616, type: 3}
+      propertyPath: _maxHp
+      value: 130
+      objectReference: {fileID: 0}
     - target: {fileID: 8678066832216862403, guid: 01dec6aedcfcde347af1291257f8c616, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -192,6 +204,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 649737565526130921}
     m_Modifications:
+    - target: {fileID: 1051805874667000628, guid: f49c73ddd212c1849833f52697ae7efb, type: 3}
+      propertyPath: _maxHp
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1051805874667000628, guid: f49c73ddd212c1849833f52697ae7efb, type: 3}
+      propertyPath: _speed
+      value: 1500
+      objectReference: {fileID: 0}
     - target: {fileID: 2228406030574429010, guid: f49c73ddd212c1849833f52697ae7efb, type: 3}
       propertyPath: m_Name
       value: RushMonster
@@ -261,6 +281,10 @@ PrefabInstance:
     - target: {fileID: 643745124526711483, guid: 01dec6aedcfcde347af1291257f8c616, type: 3}
       propertyPath: m_Name
       value: BossMonster (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1991885159076869688, guid: 01dec6aedcfcde347af1291257f8c616, type: 3}
+      propertyPath: _maxHp
+      value: 130
       objectReference: {fileID: 0}
     - target: {fileID: 8678066832216862403, guid: 01dec6aedcfcde347af1291257f8c616, type: 3}
       propertyPath: m_RootOrder

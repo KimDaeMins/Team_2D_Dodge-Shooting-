@@ -67,6 +67,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 9119778556261686247}
     m_Modifications:
+    - target: {fileID: 3025619096498472392, guid: e7d4cac76fc97934e82dfb90c7081649, type: 3}
+      propertyPath: _maxHp
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 3344587574730488617, guid: e7d4cac76fc97934e82dfb90c7081649, type: 3}
       propertyPath: m_Name
       value: SpinMonster
@@ -133,6 +137,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 9119778556261686247}
     m_Modifications:
+    - target: {fileID: 251058475351140919, guid: bd910bf71fa285844b9e7d31378ebe7a, type: 3}
+      propertyPath: _maxHp
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 7310181062225068765, guid: bd910bf71fa285844b9e7d31378ebe7a, type: 3}
       propertyPath: m_Name
       value: RadialMonster
@@ -203,6 +211,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RightMoveGuidedMonster
       objectReference: {fileID: 0}
+    - target: {fileID: 1540589389635838832, guid: ac165a2fd3873d64c99f1d1c7dd8124a, type: 3}
+      propertyPath: _maxHp
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 3244727064746392383, guid: ac165a2fd3873d64c99f1d1c7dd8124a, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -268,6 +280,10 @@ PrefabInstance:
     - target: {fileID: 602042564089596608, guid: ac165a2fd3873d64c99f1d1c7dd8124a, type: 3}
       propertyPath: m_Name
       value: RightMoveGuidedMonster
+      objectReference: {fileID: 0}
+    - target: {fileID: 1540589389635838832, guid: ac165a2fd3873d64c99f1d1c7dd8124a, type: 3}
+      propertyPath: _maxHp
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3244727064746392383, guid: ac165a2fd3873d64c99f1d1c7dd8124a, type: 3}
       propertyPath: m_RootOrder
@@ -375,6 +391,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -115.43
       objectReference: {fileID: 0}
+    - target: {fileID: 6616869460283516126, guid: eb6cf7db494729448af8b7c3687032c9, type: 3}
+      propertyPath: _maxHp
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 9215639624776094330, guid: eb6cf7db494729448af8b7c3687032c9, type: 3}
       propertyPath: m_Name
       value: RightVolleyMonster
@@ -400,6 +420,10 @@ PrefabInstance:
     - target: {fileID: 602042564089596608, guid: ac165a2fd3873d64c99f1d1c7dd8124a, type: 3}
       propertyPath: m_Name
       value: RightMoveGuidedMonster
+      objectReference: {fileID: 0}
+    - target: {fileID: 1540589389635838832, guid: ac165a2fd3873d64c99f1d1c7dd8124a, type: 3}
+      propertyPath: _maxHp
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3244727064746392383, guid: ac165a2fd3873d64c99f1d1c7dd8124a, type: 3}
       propertyPath: m_RootOrder
@@ -466,6 +490,10 @@ PrefabInstance:
     - target: {fileID: 602042564089596608, guid: ac165a2fd3873d64c99f1d1c7dd8124a, type: 3}
       propertyPath: m_Name
       value: RightMoveGuidedMonster
+      objectReference: {fileID: 0}
+    - target: {fileID: 1540589389635838832, guid: ac165a2fd3873d64c99f1d1c7dd8124a, type: 3}
+      propertyPath: _maxHp
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3244727064746392383, guid: ac165a2fd3873d64c99f1d1c7dd8124a, type: 3}
       propertyPath: m_RootOrder
@@ -573,6 +601,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -115.43
       objectReference: {fileID: 0}
+    - target: {fileID: 6616869460283516126, guid: eb6cf7db494729448af8b7c3687032c9, type: 3}
+      propertyPath: _maxHp
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 9215639624776094330, guid: eb6cf7db494729448af8b7c3687032c9, type: 3}
       propertyPath: m_Name
       value: RightVolleyMonster
@@ -595,6 +627,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 9119778556261686247}
     m_Modifications:
+    - target: {fileID: 251058475351140919, guid: bd910bf71fa285844b9e7d31378ebe7a, type: 3}
+      propertyPath: _maxHp
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 7310181062225068765, guid: bd910bf71fa285844b9e7d31378ebe7a, type: 3}
       propertyPath: m_Name
       value: RadialMonster
@@ -661,6 +697,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 9119778556261686247}
     m_Modifications:
+    - target: {fileID: 3025619096498472392, guid: e7d4cac76fc97934e82dfb90c7081649, type: 3}
+      propertyPath: _maxHp
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 3344587574730488617, guid: e7d4cac76fc97934e82dfb90c7081649, type: 3}
       propertyPath: m_Name
       value: SpinMonster
@@ -770,6 +810,10 @@ PrefabInstance:
     - target: {fileID: 2192979085112645031, guid: eb6cf7db494729448af8b7c3687032c9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -115.43
+      objectReference: {fileID: 0}
+    - target: {fileID: 6616869460283516126, guid: eb6cf7db494729448af8b7c3687032c9, type: 3}
+      propertyPath: _maxHp
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 9215639624776094330, guid: eb6cf7db494729448af8b7c3687032c9, type: 3}
       propertyPath: m_Name

@@ -67,6 +67,10 @@ PrefabInstance:
       propertyPath: m_Size.y
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1182673933275850560, guid: 472842b563ccb524cb2bfbbc23eea478, type: 3}
+      propertyPath: _maxHp
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6088628951890087223, guid: 472842b563ccb524cb2bfbbc23eea478, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -145,6 +149,10 @@ PrefabInstance:
       propertyPath: m_Size.y
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1182673933275850560, guid: 472842b563ccb524cb2bfbbc23eea478, type: 3}
+      propertyPath: _maxHp
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6088628951890087223, guid: 472842b563ccb524cb2bfbbc23eea478, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -215,6 +223,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2438955689394612139}
     m_Modifications:
+    - target: {fileID: 251058475351140919, guid: bd910bf71fa285844b9e7d31378ebe7a, type: 3}
+      propertyPath: _maxHp
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7310181062225068765, guid: bd910bf71fa285844b9e7d31378ebe7a, type: 3}
       propertyPath: m_Name
       value: RadialMonster

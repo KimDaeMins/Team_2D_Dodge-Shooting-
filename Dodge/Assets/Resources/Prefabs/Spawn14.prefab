@@ -33,11 +33,11 @@ Transform:
   - {fileID: 4802627418707674572}
   - {fileID: 4289752069325252304}
   - {fileID: 4321086624478266482}
-  - {fileID: 2488709006490300719}
+  - {fileID: 7018985673914656608}
   - {fileID: 4057185899953970297}
   - {fileID: 108121972348285310}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4237436246189635700
 MonoBehaviour:
@@ -63,6 +63,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8429661369325983094}
     m_Modifications:
+    - target: {fileID: 1051805874667000628, guid: f49c73ddd212c1849833f52697ae7efb, type: 3}
+      propertyPath: _speed
+      value: 500
+      objectReference: {fileID: 0}
     - target: {fileID: 2228406030574429010, guid: f49c73ddd212c1849833f52697ae7efb, type: 3}
       propertyPath: m_Name
       value: RushMonster (3)
@@ -129,6 +133,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8429661369325983094}
     m_Modifications:
+    - target: {fileID: 1051805874667000628, guid: f49c73ddd212c1849833f52697ae7efb, type: 3}
+      propertyPath: _speed
+      value: 500
+      objectReference: {fileID: 0}
     - target: {fileID: 2228406030574429010, guid: f49c73ddd212c1849833f52697ae7efb, type: 3}
       propertyPath: m_Name
       value: RushMonster (2)
@@ -199,6 +207,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RightMoveGuidedMonster (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1540589389635838832, guid: ac165a2fd3873d64c99f1d1c7dd8124a, type: 3}
+      propertyPath: _maxHp
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 3244727064746392383, guid: ac165a2fd3873d64c99f1d1c7dd8124a, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -265,6 +277,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RightMoveGuidedMonster (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1540589389635838832, guid: ac165a2fd3873d64c99f1d1c7dd8124a, type: 3}
+      propertyPath: _maxHp
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 3244727064746392383, guid: ac165a2fd3873d64c99f1d1c7dd8124a, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -327,6 +343,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8429661369325983094}
     m_Modifications:
+    - target: {fileID: 1051805874667000628, guid: f49c73ddd212c1849833f52697ae7efb, type: 3}
+      propertyPath: _speed
+      value: 500
+      objectReference: {fileID: 0}
     - target: {fileID: 2228406030574429010, guid: f49c73ddd212c1849833f52697ae7efb, type: 3}
       propertyPath: m_Name
       value: RushMonster
@@ -397,6 +417,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RightMoveGuidedMonster
       objectReference: {fileID: 0}
+    - target: {fileID: 1540589389635838832, guid: ac165a2fd3873d64c99f1d1c7dd8124a, type: 3}
+      propertyPath: _maxHp
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 3244727064746392383, guid: ac165a2fd3873d64c99f1d1c7dd8124a, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -446,7 +470,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac165a2fd3873d64c99f1d1c7dd8124a, type: 3}
---- !u!4 &2488709006490300719 stripped
+--- !u!4 &7018985673914656608 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3244727064746392383, guid: ac165a2fd3873d64c99f1d1c7dd8124a, type: 3}
   m_PrefabInstance: {fileID: 5507871947556445279}
@@ -459,6 +483,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8429661369325983094}
     m_Modifications:
+    - target: {fileID: 1051805874667000628, guid: f49c73ddd212c1849833f52697ae7efb, type: 3}
+      propertyPath: _speed
+      value: 500
+      objectReference: {fileID: 0}
     - target: {fileID: 2228406030574429010, guid: f49c73ddd212c1849833f52697ae7efb, type: 3}
       propertyPath: m_Name
       value: RushMonster (1)

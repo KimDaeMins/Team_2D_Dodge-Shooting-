@@ -62,6 +62,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3686087929488247816}
     m_Modifications:
+    - target: {fileID: 1051805874667000628, guid: f49c73ddd212c1849833f52697ae7efb, type: 3}
+      propertyPath: _speed
+      value: 400
+      objectReference: {fileID: 0}
     - target: {fileID: 2228406030574429010, guid: f49c73ddd212c1849833f52697ae7efb, type: 3}
       propertyPath: m_Name
       value: RushMonster
@@ -132,6 +136,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3686087929488247816}
     m_Modifications:
+    - target: {fileID: 251058475351140919, guid: bd910bf71fa285844b9e7d31378ebe7a, type: 3}
+      propertyPath: _maxHp
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7310181062225068765, guid: bd910bf71fa285844b9e7d31378ebe7a, type: 3}
       propertyPath: m_Name
       value: RadialMonster
@@ -202,6 +210,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3686087929488247816}
     m_Modifications:
+    - target: {fileID: 1051805874667000628, guid: f49c73ddd212c1849833f52697ae7efb, type: 3}
+      propertyPath: _speed
+      value: 400
+      objectReference: {fileID: 0}
     - target: {fileID: 2228406030574429010, guid: f49c73ddd212c1849833f52697ae7efb, type: 3}
       propertyPath: m_Name
       value: RushMonster (1)
@@ -272,6 +284,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3686087929488247816}
     m_Modifications:
+    - target: {fileID: 251058475351140919, guid: bd910bf71fa285844b9e7d31378ebe7a, type: 3}
+      propertyPath: _maxHp
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7310181062225068765, guid: bd910bf71fa285844b9e7d31378ebe7a, type: 3}
       propertyPath: m_Name
       value: RadialMonster (1)
@@ -342,6 +358,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3686087929488247816}
     m_Modifications:
+    - target: {fileID: 1051805874667000628, guid: f49c73ddd212c1849833f52697ae7efb, type: 3}
+      propertyPath: _speed
+      value: 400
+      objectReference: {fileID: 0}
     - target: {fileID: 2228406030574429010, guid: f49c73ddd212c1849833f52697ae7efb, type: 3}
       propertyPath: m_Name
       value: RushMonster (3)
@@ -412,6 +432,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3686087929488247816}
     m_Modifications:
+    - target: {fileID: 1051805874667000628, guid: f49c73ddd212c1849833f52697ae7efb, type: 3}
+      propertyPath: _speed
+      value: 400
+      objectReference: {fileID: 0}
     - target: {fileID: 2228406030574429010, guid: f49c73ddd212c1849833f52697ae7efb, type: 3}
       propertyPath: m_Name
       value: RushMonster (2)

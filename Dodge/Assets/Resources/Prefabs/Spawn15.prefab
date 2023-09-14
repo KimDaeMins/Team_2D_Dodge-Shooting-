@@ -31,13 +31,13 @@ Transform:
   m_Children:
   - {fileID: 1627243386013224228}
   - {fileID: 8824884743724512127}
-  - {fileID: 4334913260889416158}
+  - {fileID: 1238246588707265250}
   - {fileID: 363088924323662577}
   - {fileID: 3646716858058980421}
-  - {fileID: 1910713962082183869}
+  - {fileID: 6608387546919578421}
   - {fileID: 4745084810107422607}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &452679988159313864
 MonoBehaviour:
@@ -110,6 +110,10 @@ PrefabInstance:
     - target: {fileID: 4697691259736162697, guid: 1f9adca2d854bc14296a947ac74585c5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -40
+      objectReference: {fileID: 0}
+    - target: {fileID: 5348664846957917626, guid: 1f9adca2d854bc14296a947ac74585c5, type: 3}
+      propertyPath: _maxHp
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -243,12 +247,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -40
       objectReference: {fileID: 0}
+    - target: {fileID: 5348664846957917626, guid: 1f9adca2d854bc14296a947ac74585c5, type: 3}
+      propertyPath: _maxHp
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1f9adca2d854bc14296a947ac74585c5, type: 3}
---- !u!4 &1910713962082183869 stripped
+--- !u!4 &6608387546919578421 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4697691259736162697, guid: 1f9adca2d854bc14296a947ac74585c5, type: 3}
   m_PrefabInstance: {fileID: 1910713962082183868}
@@ -264,6 +272,10 @@ PrefabInstance:
     - target: {fileID: 602042564089596608, guid: ac165a2fd3873d64c99f1d1c7dd8124a, type: 3}
       propertyPath: m_Name
       value: RightMoveGuidedMonster
+      objectReference: {fileID: 0}
+    - target: {fileID: 1540589389635838832, guid: ac165a2fd3873d64c99f1d1c7dd8124a, type: 3}
+      propertyPath: _maxHp
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3244727064746392383, guid: ac165a2fd3873d64c99f1d1c7dd8124a, type: 3}
       propertyPath: m_RootOrder
@@ -331,6 +343,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RightMoveGuidedMonster (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1540589389635838832, guid: ac165a2fd3873d64c99f1d1c7dd8124a, type: 3}
+      propertyPath: _maxHp
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3244727064746392383, guid: ac165a2fd3873d64c99f1d1c7dd8124a, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -380,7 +396,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac165a2fd3873d64c99f1d1c7dd8124a, type: 3}
---- !u!4 &4334913260889416158 stripped
+--- !u!4 &1238246588707265250 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3244727064746392383, guid: ac165a2fd3873d64c99f1d1c7dd8124a, type: 3}
   m_PrefabInstance: {fileID: 4334913260889416157}
@@ -396,6 +412,10 @@ PrefabInstance:
     - target: {fileID: 602042564089596608, guid: ac165a2fd3873d64c99f1d1c7dd8124a, type: 3}
       propertyPath: m_Name
       value: RightMoveGuidedMonster (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1540589389635838832, guid: ac165a2fd3873d64c99f1d1c7dd8124a, type: 3}
+      propertyPath: _maxHp
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3244727064746392383, guid: ac165a2fd3873d64c99f1d1c7dd8124a, type: 3}
       propertyPath: m_RootOrder
@@ -506,6 +526,10 @@ PrefabInstance:
     - target: {fileID: 4697691259736162697, guid: 1f9adca2d854bc14296a947ac74585c5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -40
+      objectReference: {fileID: 0}
+    - target: {fileID: 5348664846957917626, guid: 1f9adca2d854bc14296a947ac74585c5, type: 3}
+      propertyPath: _maxHp
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
