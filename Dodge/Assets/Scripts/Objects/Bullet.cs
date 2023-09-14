@@ -82,7 +82,7 @@ public class Bullet : Object_Base, IBullet
             Managers.Resource.Destroy(this.gameObject);
             other.GetComponent<Monster>().GetDamage(_damage);
         }
-        if(other.tag == "Hit")
+        if (other.tag == "Hit" && this.tag == "MonsterBullet")
         {
             Managers.Resource.Destroy(this.gameObject);
         }
