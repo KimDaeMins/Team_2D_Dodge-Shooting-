@@ -246,5 +246,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66247064d68528f46b78281f0c9fd9cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  growthSpeed: 5.5
-  destroyDelay: 0.75
+  growthSpeed: 3
+  destroyDelay: 1.5
