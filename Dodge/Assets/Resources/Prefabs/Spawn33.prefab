@@ -35,9 +35,9 @@ Transform:
   - {fileID: 2083328731443363354}
   - {fileID: 1188220069007683164}
   - {fileID: 5904802692994400329}
-  - {fileID: 668624433406582564}
+  - {fileID: 2612360960003105820}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4976724054558652990
 MonoBehaviour:
@@ -66,6 +66,14 @@ PrefabInstance:
     - target: {fileID: 602042564089596608, guid: ac165a2fd3873d64c99f1d1c7dd8124a, type: 3}
       propertyPath: m_Name
       value: RightMoveGuidedMonster (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1540589389635838832, guid: ac165a2fd3873d64c99f1d1c7dd8124a, type: 3}
+      propertyPath: _maxHp
+      value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 1540589389635838832, guid: ac165a2fd3873d64c99f1d1c7dd8124a, type: 3}
+      propertyPath: _bulletCount
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3244727064746392383, guid: ac165a2fd3873d64c99f1d1c7dd8124a, type: 3}
       propertyPath: m_RootOrder
@@ -116,7 +124,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac165a2fd3873d64c99f1d1c7dd8124a, type: 3}
---- !u!4 &668624433406582564 stripped
+--- !u!4 &2612360960003105820 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3244727064746392383, guid: ac165a2fd3873d64c99f1d1c7dd8124a, type: 3}
   m_PrefabInstance: {fileID: 668624433406582563}
@@ -132,6 +140,14 @@ PrefabInstance:
     - target: {fileID: 602042564089596608, guid: ac165a2fd3873d64c99f1d1c7dd8124a, type: 3}
       propertyPath: m_Name
       value: RightMoveGuidedMonster
+      objectReference: {fileID: 0}
+    - target: {fileID: 1540589389635838832, guid: ac165a2fd3873d64c99f1d1c7dd8124a, type: 3}
+      propertyPath: _maxHp
+      value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 1540589389635838832, guid: ac165a2fd3873d64c99f1d1c7dd8124a, type: 3}
+      propertyPath: _bulletCount
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3244727064746392383, guid: ac165a2fd3873d64c99f1d1c7dd8124a, type: 3}
       propertyPath: m_RootOrder
@@ -195,6 +211,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1589781349007654743}
     m_Modifications:
+    - target: {fileID: 1051805874667000628, guid: f49c73ddd212c1849833f52697ae7efb, type: 3}
+      propertyPath: _maxHp
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1051805874667000628, guid: f49c73ddd212c1849833f52697ae7efb, type: 3}
+      propertyPath: _speed
+      value: 1500
+      objectReference: {fileID: 0}
     - target: {fileID: 2228406030574429010, guid: f49c73ddd212c1849833f52697ae7efb, type: 3}
       propertyPath: m_Name
       value: RushMonster
@@ -261,6 +285,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1589781349007654743}
     m_Modifications:
+    - target: {fileID: 3237952980412793052, guid: a2de39644077f2c4a833c58f87008d17, type: 3}
+      propertyPath: _maxHp
+      value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 3237952980412793052, guid: a2de39644077f2c4a833c58f87008d17, type: 3}
+      propertyPath: _bulletCount
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3844965250640154794, guid: a2de39644077f2c4a833c58f87008d17, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -327,6 +359,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1589781349007654743}
     m_Modifications:
+    - target: {fileID: 3237952980412793052, guid: a2de39644077f2c4a833c58f87008d17, type: 3}
+      propertyPath: _maxHp
+      value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 3237952980412793052, guid: a2de39644077f2c4a833c58f87008d17, type: 3}
+      propertyPath: _bulletCount
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3844965250640154794, guid: a2de39644077f2c4a833c58f87008d17, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -393,6 +433,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1589781349007654743}
     m_Modifications:
+    - target: {fileID: 1051805874667000628, guid: f49c73ddd212c1849833f52697ae7efb, type: 3}
+      propertyPath: _maxHp
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1051805874667000628, guid: f49c73ddd212c1849833f52697ae7efb, type: 3}
+      propertyPath: _speed
+      value: 1500
+      objectReference: {fileID: 0}
     - target: {fileID: 2228406030574429010, guid: f49c73ddd212c1849833f52697ae7efb, type: 3}
       propertyPath: m_Name
       value: RushMonster (1)
@@ -462,6 +510,14 @@ PrefabInstance:
     - target: {fileID: 602042564089596608, guid: ac165a2fd3873d64c99f1d1c7dd8124a, type: 3}
       propertyPath: m_Name
       value: RightMoveGuidedMonster (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1540589389635838832, guid: ac165a2fd3873d64c99f1d1c7dd8124a, type: 3}
+      propertyPath: _maxHp
+      value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 1540589389635838832, guid: ac165a2fd3873d64c99f1d1c7dd8124a, type: 3}
+      propertyPath: _bulletCount
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3244727064746392383, guid: ac165a2fd3873d64c99f1d1c7dd8124a, type: 3}
       propertyPath: m_RootOrder

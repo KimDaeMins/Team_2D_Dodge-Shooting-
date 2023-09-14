@@ -36,7 +36,7 @@ Transform:
   - {fileID: 2697220576129191903}
   - {fileID: 5317422682785415244}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4894926575726428846
 MonoBehaviour:
@@ -62,6 +62,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6764727843427926561}
     m_Modifications:
+    - target: {fileID: 1051805874667000628, guid: f49c73ddd212c1849833f52697ae7efb, type: 3}
+      propertyPath: _maxHp
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1051805874667000628, guid: f49c73ddd212c1849833f52697ae7efb, type: 3}
+      propertyPath: _speed
+      value: 1500
+      objectReference: {fileID: 0}
     - target: {fileID: 2228406030574429010, guid: f49c73ddd212c1849833f52697ae7efb, type: 3}
       propertyPath: m_Name
       value: RushMonster
@@ -128,6 +136,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6764727843427926561}
     m_Modifications:
+    - target: {fileID: 3025619096498472392, guid: e7d4cac76fc97934e82dfb90c7081649, type: 3}
+      propertyPath: _maxHp
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 3344587574730488617, guid: e7d4cac76fc97934e82dfb90c7081649, type: 3}
       propertyPath: m_Name
       value: SpinMonster (2)
@@ -242,6 +254,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8899395424807739721, guid: 2816766e3a2459c42b7dbae2f5e41a44, type: 3}
+      propertyPath: _maxHp
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -260,6 +276,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6764727843427926561}
     m_Modifications:
+    - target: {fileID: 3025619096498472392, guid: e7d4cac76fc97934e82dfb90c7081649, type: 3}
+      propertyPath: _maxHp
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 3344587574730488617, guid: e7d4cac76fc97934e82dfb90c7081649, type: 3}
       propertyPath: m_Name
       value: SpinMonster
@@ -326,6 +346,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6764727843427926561}
     m_Modifications:
+    - target: {fileID: 3025619096498472392, guid: e7d4cac76fc97934e82dfb90c7081649, type: 3}
+      propertyPath: _maxHp
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 3344587574730488617, guid: e7d4cac76fc97934e82dfb90c7081649, type: 3}
       propertyPath: m_Name
       value: SpinMonster (1)
@@ -392,6 +416,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6764727843427926561}
     m_Modifications:
+    - target: {fileID: 1051805874667000628, guid: f49c73ddd212c1849833f52697ae7efb, type: 3}
+      propertyPath: _maxHp
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1051805874667000628, guid: f49c73ddd212c1849833f52697ae7efb, type: 3}
+      propertyPath: _speed
+      value: 1500
+      objectReference: {fileID: 0}
     - target: {fileID: 2228406030574429010, guid: f49c73ddd212c1849833f52697ae7efb, type: 3}
       propertyPath: m_Name
       value: RushMonster (1)
