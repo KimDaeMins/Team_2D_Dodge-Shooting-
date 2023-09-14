@@ -76,6 +76,10 @@ public class MonsterGudiedBullet : Object_Base, IBullet
             other.GetComponent<Player>().GetDamage(_damage);
             Managers.Resource.Destroy(this.gameObject);
         }
+        if (other.tag == "Hit")
+        {
+            Managers.Resource.Destroy(this.gameObject);
+        }
     }
 
     private void Follow()

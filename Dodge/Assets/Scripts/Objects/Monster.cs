@@ -118,6 +118,7 @@ public class Monster : Object_Base
         Managers.Resource.Destroy(this.gameObject);
         Managers.Resource.Instantiate("MonsterExplosion",
             new Vector3(_rigidbody.position.x, _rigidbody.position.y, 0));
+        Managers.Sound.Play("MonsterDie" , Define.Sound.Effect , 1);
 
         int a = Random.Range(0 , 100);
         if (a < 5)

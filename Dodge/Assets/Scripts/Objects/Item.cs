@@ -70,10 +70,12 @@ public class Item : Object_Base
                 {
                     Managers.Object.GetPlayer().GetComponent<Player>().AddPowerLevel();
                 }
+                Managers.Sound.Play("GetPowerUp" , Define.Sound.Effect , 1);
             }
             else
             {
                 Managers.Data.GetItem(this);
+                Managers.Sound.Play("GetItem" , Define.Sound.Effect , 1);
             }
             
 

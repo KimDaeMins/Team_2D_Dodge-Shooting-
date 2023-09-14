@@ -15,6 +15,7 @@ public class LogoScene : Scene_Base
     private void ActiveStartButton()
     {
         GameObject.Find("GameStart").transform.GetChild(0).gameObject.SetActive(true);
+        Managers.Sound.Play("Intro" , Define.Sound.Bgm , 1f);
     }
     public void MainAnimEnded()
     {

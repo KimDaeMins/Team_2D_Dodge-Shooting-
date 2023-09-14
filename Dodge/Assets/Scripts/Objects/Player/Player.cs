@@ -95,7 +95,7 @@ public class Player : Object_Base, IFire
             }
             StartCoroutine("FireUpdate", FireCoolTime);
             IsFireAble = false;
-            Managers.Sound.Play("Fire", Define.Sound.Effect, 1);
+            Managers.Sound.Play("Fire", Define.Sound.Effect, 1f);
         }
         else
         {
@@ -113,6 +113,10 @@ public class Player : Object_Base, IFire
             Speed = 0;
             _animator.SetTrigger("IsDead");
             Managers.Sound.Play("Destroy", Define.Sound.Effect, 1);
+        }
+        else
+        {
+            Managers.Sound.Play("MonsterHit" , Define.Sound.Effect , 1);
         }
     }
     public void HitEffect(string tag, int layer)

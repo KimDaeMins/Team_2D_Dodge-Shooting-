@@ -26,7 +26,7 @@ public class MainFly : MonoBehaviour, IFire
             Managers.Resource.Instantiate("IntroBullet" , transform.position , transform.rotation);
             StartCoroutine("FireUpdate" , FireCoolTime);
             IsFireAble = false;
-            Managers.Sound.Play("Fire" , Define.Sound.Effect , 1);
+            Managers.Sound.Play("Fire" , Define.Sound.Effect , 1f);
         }
         else
         {
