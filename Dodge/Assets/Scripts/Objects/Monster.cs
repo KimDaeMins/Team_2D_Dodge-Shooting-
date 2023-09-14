@@ -9,7 +9,7 @@ using Random = UnityEngine.Random;
 public class Monster : Object_Base
 
 {
-    [SerializeField] protected int _maxHp;
+    [SerializeField] public int _maxHp;
     protected int _currentHp { get; set; }
     protected Vector2 _moveDirection { get; set; }
     protected int _damage { get; set; }
