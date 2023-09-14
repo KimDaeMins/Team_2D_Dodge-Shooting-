@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 753349747921143716}
   - component: {fileID: 5175345084348357775}
   - component: {fileID: 4400298696484894258}
-  - component: {fileID: 1051805874667000628}
+  - component: {fileID: 4700696535872180051}
   m_Layer: 7
   m_Name: LogoMonster
   m_TagString: Monster
@@ -142,7 +142,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1051805874667000628
+--- !u!114 &4700696535872180051
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -151,10 +151,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2228406030574429010}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27e1559de5294be59e52371fd5b82ca9, type: 3}
+  m_Script: {fileID: 11500000, guid: 02893f5769ef1604e860fbfddfef85f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 1800
+  _speed: 1500
   _maxHp: 1
 --- !u!1001 &1759519567638609862
 PrefabInstance:

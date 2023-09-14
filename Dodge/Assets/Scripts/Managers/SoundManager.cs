@@ -57,6 +57,7 @@ public class SoundManager
             if (audioSource.isPlaying)
                 audioSource.Stop();
 
+            audioSource.loop = true;
             audioSource.pitch = pitch;
             audioSource.clip = audioClip;
             audioSource.Play();

@@ -112,7 +112,7 @@ public class Monster : Object_Base
 
     }
     
-    protected void Dead()
+    protected virtual void Dead()
     {
         _isDead = true;
         Managers.Resource.Destroy(this.gameObject);
