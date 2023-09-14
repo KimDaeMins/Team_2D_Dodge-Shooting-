@@ -187,7 +187,7 @@ public class Player : Object_Base, IFire
 
         yield return new WaitForSeconds(15);
 
-        _atk *= 2;
+        _atk /= 2;
         Debug.Log("강력한 공격 버프가 종료되었습니다.");
 
     }
