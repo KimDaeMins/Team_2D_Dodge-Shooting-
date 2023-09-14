@@ -32,7 +32,7 @@ public class Monster : Object_Base
         if (_hpBar == null)
         {
             Vector3 position = new Vector3();
-            position.y -= transform.GetChild(0).GetComponent<SpriteRenderer>().size.y * 0.5f * transform.GetChild(0).transform.localScale.y * transform.localScale.y;
+            position.y -= transform.GetChild(0).GetComponent<SpriteRenderer>().sprite.rect.y / 32 * 0.5f * transform.GetChild(0).transform.localScale.y * transform.localScale.y;
             GameObject go = Managers.Resource.Instantiate("MonsterHpBar");
             _hpBar = go.GetComponent<UI_Monster_Hp>();
             _hpBar._parentObject = this.gameObject;
@@ -44,7 +44,7 @@ public class Monster : Object_Base
         if (_hpBar == null)
         {
             Vector3 position = new Vector3();
-            position.y -= transform.GetChild(0).GetComponent<SpriteRenderer>().size.y * 0.5f * transform.GetChild(0).transform.localScale.y * transform.localScale.y;
+            position.y -= transform.GetChild(0).GetComponent<SpriteRenderer>().sprite.pivot.y / 16 * transform.GetChild(0).transform.localScale.y * transform.localScale.y;
             GameObject go = Managers.Resource.Instantiate("MonsterHpBar");
             _hpBar = go.GetComponent<UI_Monster_Hp>();
             _hpBar._parentObject = this.gameObject;
