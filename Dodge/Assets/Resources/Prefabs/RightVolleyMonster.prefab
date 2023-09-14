@@ -227,7 +227,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcda04a6173d469c8fe5dd6751372a8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 100
+  _speed: 200
   _maxHp: 3
   _move: {x: 1, y: 0, z: 0}
   _bulletCount: 3

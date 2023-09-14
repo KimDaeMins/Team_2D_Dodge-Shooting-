@@ -37,5 +37,9 @@ public class Jamming : MonoBehaviour
         {
             Managers.Resource.Destroy(other.gameObject);
         }
+        if (other.tag == "Hit")
+        {
+            Managers.Resource.Destroy(this.gameObject);
+        }
     }
 }

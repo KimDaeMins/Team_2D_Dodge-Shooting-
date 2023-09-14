@@ -21,6 +21,8 @@ public class GameScene : Scene_Base
         base.Init();
 
         SceneType = Define.Scene.Game;
+
+        Managers.Sound.Play("1945" , Define.Sound.Bgm , 1f);
     }
     public override void Clear()
     {
